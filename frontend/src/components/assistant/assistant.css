@@ -1,0 +1,409 @@
+/* /assistant — rule-based helper (AIX-01…03). Prototype language: side-card panels, .notice, .tag, cards. */
+.gv-ax-page .section {
+  margin-top: 26px;
+}
+.gv-ax-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 18px 26px;
+  align-items: start;
+  margin-bottom: 22px;
+}
+.gv-ax-intro-title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  margin: 0 0 8px;
+  font-size: 24px;
+  color: var(--heading);
+}
+.gv-ax-intro p {
+  margin: 0;
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.55;
+}
+.gv-ax-intro .notice,
+.gv-ax-result .notice {
+  display: block;
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.gv-ax-intro .notice .gv-icon,
+.gv-ax-result .notice .gv-icon {
+  vertical-align: -3px;
+}
+.gv-ax-intro .notice a {
+  color: var(--link);
+  font-weight: 700;
+}
+.gv-ax-tools {
+  display: grid;
+  gap: 22px;
+}
+.gv-ax-tool {
+  display: grid;
+  grid-template-columns: minmax(0, 340px) minmax(0, 1fr);
+  grid-template-areas: "head head" "form result";
+  gap: 16px 24px;
+  padding: 22px;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--line);
+  background: linear-gradient(145deg, #e5f6fd, #f6fdff);
+  box-shadow: var(--shadow);
+  min-width: 0;
+}
+.gv-ax-tool-head {
+  grid-area: head;
+  display: flex;
+  gap: 13px;
+  align-items: flex-start;
+}
+.gv-ax-tool-head h2 {
+  margin: 0 0 4px;
+  font-size: 23px;
+  color: var(--heading);
+}
+.gv-ax-tool-head p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+.gv-ax-tool-icon {
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 13px;
+  display: grid;
+  place-items: center;
+  background: #fff;
+  color: var(--sea);
+  box-shadow: var(--shadow-card);
+}
+.gv-ax-form {
+  grid-area: form;
+  align-self: start;
+  padding: 16px 16px 6px;
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  border: 1px solid var(--border-card);
+  min-width: 0;
+}
+.gv-ax-actions {
+  display: flex;
+  margin: 4px 0 10px;
+}
+.gv-ax-actions .primary {
+  width: 100%;
+  justify-content: center;
+}
+.gv-ax-micro {
+  margin: 0 0 10px;
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+.gv-ax-result-wrap {
+  grid-area: result;
+  min-width: 0;
+}
+.gv-ax-placeholder {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 120px;
+  padding: 18px;
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius-lg);
+  color: var(--text-secondary);
+  background: #ffffff8c;
+}
+.gv-ax-placeholder .gv-icon {
+  flex: none;
+  color: var(--sea);
+}
+.gv-ax-placeholder p {
+  margin: 0;
+}
+.gv-ax-result {
+  display: grid;
+  gap: 12px;
+  min-width: 0;
+}
+.gv-ax-result[aria-busy="true"] {
+  opacity: 0.6;
+}
+.gv-ax-result-title {
+  margin: 0;
+  font-size: 19px;
+  color: var(--ink-strong);
+  overflow-wrap: anywhere;
+}
+.gv-ax-result-title:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+.gv-ax-volume {
+  margin: -4px 0 0;
+  color: var(--ink-strong);
+  font-size: 18px;
+  font-weight: 700;
+}
+.gv-ax-volume b {
+  font-size: 40px;
+  line-height: 1.1;
+  color: var(--heading);
+}
+.gv-ax-types {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+}
+.gv-ax-types ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+}
+.gv-ax-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+}
+.gv-ax-explain {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--text);
+  overflow-wrap: anywhere;
+}
+.gv-ax-formula {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+.gv-ax-formula summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--link);
+  min-height: 32px;
+  display: inline-flex;
+  align-items: center;
+}
+.gv-ax-formula summary:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+.gv-ax-formula ul {
+  margin: 4px 0 0;
+  padding-left: 18px;
+}
+.gv-ax-warning {
+  background: var(--st-danger-bg) !important;
+  border-left-color: var(--st-danger-fg) !important;
+  color: var(--st-danger-fg) !important;
+}
+.gv-ax-subtitle {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin: 8px 0 0;
+  font-size: 16px;
+  color: var(--heading);
+}
+.gv-ax-subtitle .gv-icon {
+  color: var(--sea);
+}
+.gv-ax-count {
+  min-width: 22px;
+  padding: 1px 7px;
+  border-radius: 11px;
+  background: var(--selected-soft);
+  color: var(--ink-strong);
+  font-size: 12px;
+  text-align: center;
+}
+.gv-ax-group {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+.gv-ax-boards,
+.gv-ax-cards {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
+  gap: 12px;
+}
+.gv-ax-card {
+  display: flex;
+  gap: 12px;
+  height: 100%;
+  padding: 12px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-card);
+  background: var(--surface-card);
+  box-shadow: var(--shadow-card);
+  color: var(--text);
+  text-decoration: none;
+  min-width: 0;
+  box-sizing: border-box;
+}
+a.gv-ax-card:hover {
+  border-color: var(--border-strong);
+}
+a.gv-ax-card:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+.gv-ax-card-img {
+  flex: none;
+  width: 84px;
+  height: 84px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #d9f1fb;
+}
+.gv-ax-card-img img,
+.gv-ax-card-img .gv-media-placeholder {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.gv-ax-card-img .gv-media-placeholder small {
+  display: none;
+}
+.gv-ax-card-body {
+  display: grid;
+  align-content: start;
+  gap: 5px;
+  min-width: 0;
+  flex: 1;
+  font-size: 13px;
+}
+.gv-ax-card-body > b,
+.gv-ax-card-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ink-strong);
+  overflow-wrap: anywhere;
+}
+.gv-ax-card-title {
+  text-decoration: none;
+}
+.gv-ax-card-title:hover {
+  text-decoration: underline;
+}
+.gv-ax-card-title:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+.gv-ax-card-body small {
+  color: var(--text-secondary);
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+.gv-ax-card-meta {
+  font-size: 12px;
+  color: var(--text);
+}
+.gv-ax-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.gv-ax-card-tags:empty {
+  display: none;
+}
+.gv-ax-tag-warn {
+  background: var(--st-new-bg);
+  color: var(--st-new-fg);
+}
+.gv-ax-price {
+  font-weight: 700;
+  color: var(--ink-strong);
+}
+.gv-ax-source {
+  font-size: 11px !important;
+}
+.gv-ax-fact {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+.gv-ax-muted {
+  color: var(--text-secondary);
+}
+.gv-ax-hazard {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.45;
+  color: #9b4a2f;
+  overflow-wrap: anywhere;
+}
+.gv-ax-hazard .gv-icon {
+  vertical-align: -2px;
+}
+.gv-ax-person .gv-avatar {
+  flex: none;
+}
+.gv-ax-empty {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 14px;
+  padding: 12px 14px;
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius-lg);
+  background: #ffffff8c;
+}
+.gv-ax-empty p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+.gv-ax-empty .feature-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+@media (max-width: 1100px) {
+  .gv-ax-tool {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "head" "form" "result";
+  }
+}
+@media (max-width: 810px) {
+  .gv-ax-intro {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (max-width: 540px) {
+  .gv-ax-tool {
+    padding: 15px 12px;
+    border-radius: var(--radius-lg);
+  }
+  .gv-ax-form {
+    padding: 13px 12px 4px;
+  }
+  .gv-ax-tool-head h2 {
+    font-size: 20px;
+  }
+  .gv-ax-card-img {
+    width: 64px;
+    height: 64px;
+  }
+  .gv-ax-volume b {
+    font-size: 32px;
+  }
+}

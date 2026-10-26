@@ -1,0 +1,204 @@
+/* ReportButton (TRUST-07) — small text action in the prototype language */
+.gv-report-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 40px;
+  padding: 6px 4px;
+  border: 0;
+  background: transparent;
+  color: var(--text-secondary);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+}
+.gv-report-link:hover {
+  color: var(--st-danger-fg);
+  text-decoration: underline;
+}
+.gv-report-link:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+.gv-report-done {
+  display: flex;
+  gap: 9px;
+  align-items: flex-start;
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: var(--radius-md);
+  background: var(--st-ok-bg);
+  color: var(--st-ok-fg);
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+/* Reviews (SPT-03/10, TRUST-01/02) */
+.gv-reviews {
+  margin-top: 26px;
+}
+.gv-reviews-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 18px;
+}
+.gv-reviews-title {
+  margin: 0;
+  font-size: 24px;
+  color: var(--heading);
+}
+.gv-reviews-score {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 700;
+}
+.gv-reviews-score b {
+  font-size: 24px;
+  color: var(--ink-strong);
+}
+.gv-reviews-policy {
+  margin: 6px 0 14px;
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+.gv-review-list {
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+.gv-review {
+  padding: 15px 16px;
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow-card);
+  min-width: 0;
+}
+.gv-review-head {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  min-width: 0;
+}
+.gv-review-who {
+  display: grid;
+  min-width: 0;
+  flex: 1;
+}
+.gv-review-name {
+  font-weight: 700;
+  color: var(--ink-strong);
+  overflow-wrap: anywhere;
+}
+.gv-review-meta {
+  font-size: 12px;
+  color: var(--text-secondary);
+  overflow-wrap: anywhere;
+}
+.gv-review-stars {
+  flex: none;
+}
+.gv-review-text {
+  margin-top: 10px;
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.5;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+.gv-review-photos {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0 0;
+  padding: 0;
+}
+.gv-review-photos img {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+.gv-review-foot {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 4px;
+}
+.gv-reviews-more {
+  display: flex;
+  justify-content: center;
+  margin-top: 14px;
+}
+.gv-review-cta,
+.gv-review-mine,
+.gv-review-editor {
+  margin: 0 0 6px;
+  padding: 15px 16px;
+  border-radius: var(--radius-lg);
+  background: var(--surface-soft);
+  border: 1px solid var(--border-card);
+}
+.gv-review-cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 16px;
+}
+.gv-review-cta p {
+  margin: 0;
+  color: var(--text);
+  overflow-wrap: anywhere;
+}
+.gv-review-mine-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+.gv-review-mine-note {
+  margin: 4px 0;
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+.gv-review-mine-text {
+  margin: 8px 0 12px;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+.gv-review-editor h3 {
+  margin: 0 0 10px;
+  color: var(--heading);
+}
+.gv-review-editor-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px;
+}
+.gv-inline-link {
+  border: 0;
+  padding: 0;
+  background: none;
+  color: var(--link);
+  font: inherit;
+  font-weight: 700;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.gv-inline-link:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}

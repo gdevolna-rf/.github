@@ -1,0 +1,17 @@
+/*
+ * Global stylesheet entry. Order matters:
+ *   tokens  — CSS custom properties (palette, spacing, z-index, safe areas)
+ *   public  — prototype public site (class names 1:1 with the prototype)
+ *   cabinet — prototype personal account (.gv-ac-*, .gv-account)
+ *   shapers — prototype shapers module, scoped under .gv-shapers
+ *   app     — new app components + TZ fixes (UX-04…07, ATX-19, ATX-22)
+ */
+@import "../styles/tokens.css";
+@import "../styles/public.css";
+@import "../styles/cabinet.css";
+@import "../styles/shapers.css";
+@import "../styles/app.css";
+@import "../styles/shaper-cabinet.css";
+@import "../styles/moderation.css";
+@import "../styles/learning.css";
+@import "../styles/account.css";

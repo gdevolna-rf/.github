@@ -1,0 +1,103 @@
+/* Кабинет шейпера (SHO-01, BRD-01..13, SHP-01..05). Классы gv-sc-* внутри .gv-shapers. */
+
+.gv-shaper-cab { display: grid; gap: 14px; }
+.gv-sc-pane { display: grid; gap: 14px; }
+.gv-sc-head { display: flex; justify-content: space-between; gap: 16px; align-items: flex-start; flex-wrap: wrap; }
+.gv-sc-identity, .gv-sc-identity-row { display: flex; gap: 14px; align-items: center; min-width: 0; }
+.gv-sc-identity-text { display: grid; gap: 4px; min-width: 0; }
+.gv-sc-identity-text h2 { margin: 0; }
+.gv-sc-logo { border-radius: 50%; flex: none; }
+.gv-sc-meta { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 0; color: var(--text-secondary); font-size: 14px; }
+.gv-sc-promo { margin: 0; color: var(--text-secondary); font-size: 13px; }
+.gv-sc-head-actions, .gv-sc-inline-actions, .gv-sc-editor-actions, .gv-sc-publish-actions, .gv-sc-photo-buttons, .gv-sc-badges, .gv-sc-chips, .gv-sc-tags {
+  display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+}
+.gv-sc-hint, .gv-sc-photo-hint, .gv-sc-hidden-note, .gv-sc-draft-note, .gv-sc-subtitle { color: var(--text-secondary); font-size: 13px; }
+.gv-sc-nav, .gv-sc-tabs { display: flex; flex-wrap: wrap; gap: 6px; border-bottom: 1px solid var(--line); padding-bottom: 8px; }
+.gv-sc-nav a, .gv-sc-tabs a, .gv-sc-tabs button {
+  padding: 8px 12px; border-radius: var(--radius-pill); text-decoration: none; color: var(--heading); font-size: 14px; border: 1px solid transparent; background: none; cursor: pointer;
+}
+.gv-sc-nav a[aria-current="page"], .gv-sc-tabs [aria-selected="true"], .gv-sc-tabs [aria-current="page"] { background: var(--selected-soft); border-color: var(--selected-border); font-weight: 700; }
+.gv-sc-nav-out { margin-left: auto; }
+.gv-sc-body, .gv-sc-dashboard, .gv-sc-boards, .gv-sc-stats, .gv-sc-catalog { display: grid; gap: 16px; min-width: 0; }
+.gv-sc-empty, .gv-sc-cta { display: grid; gap: 10px; justify-items: start; padding: 20px; border: 1px dashed var(--border-strong, var(--line)); border-radius: var(--radius-lg); background: var(--surface-soft); }
+.gv-sc-intro { color: var(--text-secondary); }
+
+/* Панель: обращения сверху, сводка моделей ниже (SHO-01) */
+.gv-sc-requests { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.gv-sc-request { display: flex; gap: 12px; align-items: center; justify-content: space-between; padding: 10px 12px; border: 1px solid var(--border-card); border-radius: var(--radius-md); background: var(--surface-card, #fff); flex-wrap: wrap; }
+.gv-sc-request-link { color: var(--heading); font-weight: 700; text-decoration: none; }
+.gv-sc-request-meta { color: var(--muted); font-size: 13px; }
+.gv-sc-unread { min-width: 22px; height: 22px; padding: 0 7px; border-radius: 11px; background: var(--pink); color: #fff; font-size: 12px; font-weight: 700; display: inline-grid; place-items: center; }
+.gv-sc-count { color: var(--muted); font-size: 13px; }
+.gv-sc-public-link { color: var(--link); }
+
+/* Мои доски */
+.gv-sc-filters, .gv-sc-search { display: flex; flex-wrap: wrap; gap: 8px; align-items: flex-end; }
+.gv-sc-model-title { margin: 0; font-size: 16px; }
+.gv-sc-model-title button, .gv-sc-model-title a { background: none; border: 0; padding: 0; font: inherit; color: var(--heading); cursor: pointer; text-align: left; font-weight: 700; }
+.gv-sc-specs { display: flex; flex-wrap: wrap; gap: 6px 12px; color: var(--text-secondary); font-size: 13px; }
+.gv-sc-more, .gv-sc-more-variants { color: var(--link); font-size: 13px; }
+.gv-sc-icon-btn, .gv-sc-small-btn, .gv-sc-chip-btn {
+  border: 1px solid var(--border-input); background: #fff; border-radius: var(--radius-pill); padding: 6px 10px; cursor: pointer; color: var(--heading); font: inherit; font-size: 13px;
+}
+.gv-sc-icon-btn { width: 36px; height: 36px; padding: 0; display: inline-grid; place-items: center; border-radius: 50%; }
+.gv-sc-danger-link { color: var(--st-danger-fg); background: none; border: 0; cursor: pointer; font: inherit; }
+
+/* Просмотр модели «Фото и параметры» */
+.gv-sc-viewer { display: grid; gap: 14px; }
+.gv-sc-viewer-main { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 16px; }
+.gv-sc-viewer-media img { width: 100%; max-height: 420px; object-fit: contain; border-radius: var(--radius-md); background: var(--ice); }
+.gv-sc-viewer-thumbs { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
+.gv-sc-viewer-thumbs img, .gv-sc-viewer-thumbs button { width: 64px; height: 64px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border-card); padding: 0; }
+.gv-sc-viewer-specs, .gv-sc-viewer-variants, .gv-sc-viewer-line, .gv-sc-viewer-status { display: grid; gap: 6px; }
+@media (max-width: 810px) { .gv-sc-viewer-main { grid-template-columns: 1fr; } }
+
+/* Редактор модели и вариантов */
+.gv-sc-editor, .gv-sc-editor-body, .gv-sc-workshop-form { display: grid; gap: 16px; }
+.gv-sc-editor-grid, .gv-sc-fields, .gv-sc-variant-grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); }
+.gv-sc-half { grid-column: span 1; }
+.gv-sc-editor-section, .gv-sc-fieldset, .gv-sc-publish, .gv-sc-editor-publish {
+  display: grid; gap: 10px; padding: 14px; border: 1px solid var(--border-card); border-radius: var(--radius-lg); background: var(--surface-card, #fff); margin: 0;
+}
+.gv-sc-fieldset legend { font-weight: 700; color: var(--heading); padding: 0 4px; }
+.gv-sc-publish-status { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.gv-sc-checklist { margin: 0; padding-left: 18px; color: var(--text-secondary); font-size: 14px; }
+.gv-sc-checklist-inline { display: inline; }
+.gv-sc-variants { display: grid; gap: 10px; }
+.gv-sc-variant-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; }
+.gv-sc-variant-title { margin: 0; font-size: 15px; }
+.gv-sc-variant-remove { color: var(--st-danger-fg); background: none; border: 0; cursor: pointer; font: inherit; }
+.gv-sc-version, .gv-sc-noarticle { font-size: 12px; color: var(--muted); }
+.gv-sc-dirty { color: var(--st-new-fg); font-size: 13px; }
+.gv-sc-form-error, .gv-sc-row-error { color: var(--st-danger-fg); font-size: 13px; }
+.gv-sc-sticky { position: sticky; bottom: calc(var(--bottom-offset, 0px) + 8px); z-index: var(--z-sticky, 20); padding: 10px 12px; background: var(--surface-glass, #f9fdffee); border: 1px solid var(--border-card); border-radius: var(--radius-md); box-shadow: var(--shadow-bar); display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.gv-sc-confirm, .gv-sc-confirm-inline { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; padding: 8px 10px; border-radius: var(--radius-md); background: var(--st-danger-bg); color: var(--st-danger-fg); }
+.gv-sc-switch { display: inline-flex; gap: 10px; align-items: center; }
+
+/* Фото профиля мастерской: компактное круглое слева от названия (SHP-02) */
+.gv-sc-photo { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+.gv-sc-photo-ring { width: 84px; height: 84px; border-radius: 50%; overflow: hidden; border: 3px solid var(--selected-border); background: var(--ice); display: grid; place-items: center; flex: none; }
+.gv-sc-photo-ring img { width: 100%; height: 100%; object-fit: cover; }
+.gv-sc-photo-actions { display: grid; gap: 6px; }
+.gv-sc-photo-progress { height: 4px; background: var(--sea); border-radius: 2px; }
+
+/* Пользовательские типы и материалы (SHP-05) */
+.gv-sc-types, .gv-sc-std-types, .gv-sc-material { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; margin: 0; padding: 0; }
+.gv-sc-type, .gv-sc-material li { display: inline-flex; gap: 6px; align-items: center; padding: 5px 10px; border-radius: var(--radius-pill); background: var(--badge-bg, #eaf6fc); font-size: 13px; }
+.gv-sc-type-name, .gv-sc-material-name { font-weight: 600; }
+.gv-sc-add-form, .gv-sc-add-service, .gv-sc-inline-form { display: flex; flex-wrap: wrap; gap: 8px; align-items: flex-end; }
+.gv-sc-contacts { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+
+/* Табличное редактирование (BRD-12): прокрутка только внутри таблицы */
+.gv-sc-bulk { display: grid; gap: 10px; }
+.gv-sc-bulk-table { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid var(--border-card); border-radius: var(--radius-md); }
+.gv-sc-bulk-table table { width: 100%; min-width: 760px; border-collapse: collapse; font-size: 14px; }
+.gv-sc-bulk-table th, .gv-sc-bulk-table td { padding: 8px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: middle; }
+.gv-sc-bulk-table input { width: 100%; min-width: 80px; padding: 6px 8px; border: 1px solid var(--border-input); border-radius: 8px; font: inherit; }
+.gv-sc-bulk-model { font-weight: 700; }
+.gv-sc-bulk-sku, .gv-sc-bulk-size { color: var(--text-secondary); font-size: 13px; white-space: nowrap; }
+.gv-sc-bulk-active { text-align: center; }
+.gv-sc-interest { list-style: none; padding: 0; display: grid; gap: 6px; }
+
+.gv-sc-visual-btn { display: block; width: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; }

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 330 165" role="img" aria-label="Гдеволна.рф">
+<style>
+.smoke-smile{animation:smoke 2.6s ease-in-out infinite;transform-origin:155px 25px}
+.surfer-svg{animation:surferRide 2s ease-in-out infinite;transform-origin:190px 105px}
+.surfwave{stroke-dasharray:55 16;animation:waveRun 2s linear infinite}
+@keyframes smoke{50%{transform:translateY(-9px);opacity:.35}}
+@keyframes surferRide{50%{transform:translate(13px,-4px) rotate(-5deg)}}
+@keyframes waveRun{to{stroke-dashoffset:-142}}
+@media (prefers-reduced-motion:reduce){.smoke-smile,.surfer-svg,.surfwave{animation:none}}
+</style>
+<g class="volcano-shape"><path d="M12 116L84 114 147 30 169 66 194 44 263 117 318 116" fill="#d2eaf5" stroke="#5ea9ca" stroke-width="3" stroke-linejoin="round"/><path d="M113 70L147 30 169 66 194 44 218 76 195 68 180 87 162 70 147 86 136 64Z" fill="#f6fcff"/></g><g class="smoke-smile" fill="#bed4e2"><circle cx="142" cy="26" r="11" opacity=".7"/><circle cx="158" cy="18" r="12" opacity=".5"/><circle cx="168" cy="6" r="10" opacity=".4"/></g><path class="surfwave" d="M0 129q38-24 76 0t76 0 76 0 76 0 26 0" stroke="#0397c2" stroke-width="10" fill="none" stroke-linecap="round"/><g class="surfer-svg"><ellipse cx="198" cy="114" rx="27" ry="4.5" fill="#f2d0a4"/><circle cx="193" cy="78" r="6.5" fill="#073d63"/><path d="M194 85l-6 17 16 3M190 90l-15 1" stroke="#073d63" stroke-width="5" stroke-linecap="round" fill="none"/><path d="M188 102l-8 12M204 105l8 11" stroke="#073d63" stroke-width="5" stroke-linecap="round"/></g>
+</svg>

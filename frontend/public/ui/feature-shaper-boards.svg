@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Доски ручной работы в мастерской">
+<defs>
+<linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#f5fcff"/><stop offset="1" stop-color="#d5eef8"/></linearGradient>
+<linearGradient id="bench" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#0b587f"/><stop offset="1" stop-color="#064c73"/></linearGradient>
+</defs>
+<rect width="900" height="400" fill="url(#bg)"/>
+<g stroke="#cfe8f2" stroke-width="2"><path d="M0 40H900"/><path d="M0 88H900"/><path d="M0 136H900"/><path d="M0 184H900"/><path d="M0 232H900"/><path d="M0 280H900"/><path d="M0 328H900"/></g>
+<path d="M90 70 L810 70" stroke="#8bc3d5" stroke-width="6" stroke-linecap="round"/>
+<g transform="translate(120 40) rotate(-7 50 130) scale(1.18)"><path d="M50 7 C31 7 25 34 25 65 L24 190 C24 225 32 247 50 251 C68 247 76 225 76 190 L75 65 C75 34 69 7 50 7 Z" fill="#c69b64" stroke="#377c9c" stroke-opacity=".45" stroke-width="1.6"/><path d="M50 14 L50 242" stroke="#fff" stroke-opacity=".6" stroke-width="1.6"/></g><g transform="translate(260 40) rotate(-3 50 130) scale(1.18)"><path d="M50 8 C26 7 19 47 20 80 C18 134 22 201 26 245 Q38 243 50 226 Q62 243 74 245 C78 201 82 134 80 80 C81 47 74 7 50 8 Z" fill="#28acc4" stroke="#377c9c" stroke-opacity=".45" stroke-width="1.6"/><path d="M50 14 L50 242" stroke="#fff" stroke-opacity=".6" stroke-width="1.6"/></g><g transform="translate(400 40) rotate(2 50 130) scale(1.18)"><path d="M50 6 C36 35 24 65 23 105 C20 146 27 207 32 244 Q50 253 68 244 C73 207 80 146 77 105 C76 65 64 35 50 6 Z" fill="#e9f6fb" stroke="#377c9c" stroke-opacity=".45" stroke-width="1.6"/><path d="M50 14 L50 242" stroke="#fff" stroke-opacity=".6" stroke-width="1.6"/></g><g transform="translate(540 40) rotate(5 50 130) scale(1.18)"><path d="M50 7 C34 10 24 39 23 81 C20 133 24 185 30 226 Q36 249 50 252 Q64 249 70 226 C76 185 80 133 77 81 C76 39 66 10 50 7 Z" fill="#0a83ad" stroke="#377c9c" stroke-opacity=".45" stroke-width="1.6"/><path d="M50 14 L50 242" stroke="#fff" stroke-opacity=".6" stroke-width="1.6"/></g><g transform="translate(680 40) rotate(9 50 130) scale(1.18)"><path d="M50 4 C42 26 30 69 28 113 C25 169 35 218 50 254 C65 218 75 169 72 113 C70 69 58 26 50 4 Z" fill="#f2d0a4" stroke="#377c9c" stroke-opacity=".45" stroke-width="1.6"/><path d="M50 14 L50 242" stroke="#fff" stroke-opacity=".6" stroke-width="1.6"/></g>
+<rect x="0" y="340" width="900" height="60" fill="url(#bench)"/>
+<path d="M0 340H900" stroke="#ffffff" stroke-opacity=".35" stroke-width="3"/>
+<g fill="#f6fcff" opacity=".7"><circle cx="760" cy="300" r="5"/><circle cx="776" cy="292" r="3"/><circle cx="748" cy="288" r="2.5"/></g>
+</svg>

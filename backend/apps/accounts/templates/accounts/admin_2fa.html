@@ -1,0 +1,44 @@
+{% extends "admin/base_site.html" %}
+
+{% block extrastyle %}{{ block.super }}
+<style>
+  .twofa { max-width: 32rem; margin: 2rem auto; }
+  .twofa .secret { font-family: monospace; font-size: 1.15rem; letter-spacing: .08em; padding: .5rem .75rem;
+                   background: var(--darkened-bg, #f8f8f8); border-radius: 4px; display: inline-block; word-break: break-all; }
+  .twofa .uri { font-family: monospace; font-size: .8rem; word-break: break-all; color: var(--body-quiet-color, #666); }
+  .twofa input[name=code] { font-size: 1.4rem; letter-spacing: .3em; width: 10rem; text-align: center; }
+  .twofa .errornote { margin-bottom: 1rem; }
+</style>
+{% endblock %}
+
+{% block breadcrumbs %}{% endblock %}
+{% block nav-sidebar %}{% endblock %}
+
+{% block content %}
+<div class="twofa">
+  <h1>{{ title }}</h1>
+
+  {% if setup_secret %}
+    <p>Для входа в администрирование нужна двухфакторная аутентификация. Добавьте аккаунт
+       в приложение-аутентификатор (Google Authenticator, Яндекс Ключ, 1Password и т.п.) вручную по секрету:</p>
+    <p class="secret">{{ setup_secret }}</p>
+    <p>или по ссылке <span class="uri">{{ otpauth_uri }}</span></p>
+    <p>Затем введите шестизначный код из приложения — 2FA включится для вашего аккаунта.</p>
+  {% else %}
+    <p>Введите шестизначный код из приложения-аутентификатора, чтобы продолжить.</p>
+  {% endif %}
+
+  {% if error %}<p class="errornote">{{ error }}</p>{% endif %}
+
+  <form method="post">
+    {% csrf_token %}
+    <input type="hidden" name="next" value="{{ next }}">
+    {{ form.code.errors }}
+    <p>{{ form.code.label_tag }} {{ form.code }}</p>
+    <div class="submit-row"><input type="submit" value="Подтвердить" class="default"></div>
+  </form>
+
+  <p><a href="{% url 'admin:logout' %}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Выйти</a></p>
+  <form id="logout-form" method="post" action="{% url 'admin:logout' %}" style="display:none">{% csrf_token %}</form>
+</div>
+{% endblock %}

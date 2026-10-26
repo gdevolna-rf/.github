@@ -1,0 +1,25 @@
+# Dev-режим: исходники монтируются в контейнеры, Next.js в режиме разработки.
+# Запуск: make dev  (docker compose -f docker-compose.yml -f docker-compose.dev.yml up -d --build)
+services:
+  backend:
+    volumes:
+      - ./backend:/app
+      - staticfiles:/app/staticfiles
+  celery-worker:
+    volumes:
+      - ./backend:/app
+  celery-beat:
+    volumes:
+      - ./backend:/app
+  frontend:
+    build:
+      context: ./frontend
+      target: dev
+    environment:
+      WATCHPACK_POLLING: "false"
+    volumes:
+      - ./frontend:/app
+      # node_modules и кеш Next берутся из образа (linux-бинарники), а не с хоста.
+      # После изменения зависимостей: docker compose up -d --build -V frontend
+      - /app/node_modules
+      - /app/.next

@@ -1,0 +1,222 @@
+/* /search — global search (NAV-04). Prototype language: .gv-search-box, .chip, .notice, cards #f9fdff/#d7f0fa. */
+.gv-sr-page .section {
+  margin-top: 26px;
+}
+.gv-sr-form {
+  max-width: 760px;
+}
+.gv-sr-summary {
+  margin: 0 0 12px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+.gv-sr-summary b {
+  color: var(--ink-strong);
+}
+.gv-sr-types ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 0 0 20px;
+  padding: 0;
+}
+.gv-sr-type {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 38px;
+  text-decoration: none;
+  font-weight: 700;
+}
+.gv-sr-type:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+.gv-sr-type-count {
+  min-width: 20px;
+  padding: 1px 6px;
+  border-radius: 10px;
+  background: #ffffffb3;
+  color: var(--ink-strong);
+  font-size: 11px;
+  text-align: center;
+}
+.chip.on .gv-sr-type-count {
+  background: #ffffff33;
+  color: #fff;
+}
+.gv-sr-type.is-empty {
+  cursor: default;
+  opacity: 0.62;
+}
+.gv-sr-groups {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  align-items: start;
+}
+.gv-sr-group {
+  min-width: 0;
+  padding: 16px 16px 14px;
+  background: var(--surface-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+.gv-sr-group-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.gv-sr-group-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-size: 19px;
+  color: var(--heading);
+  min-width: 0;
+}
+.gv-sr-group-title .gv-icon {
+  flex: none;
+  color: var(--sea);
+}
+.gv-sr-group-count {
+  flex: none;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+.gv-sr-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 4px;
+}
+.gv-sr-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 64px;
+  padding: 7px 8px;
+  border-radius: var(--radius-md);
+  color: var(--text);
+  text-decoration: none;
+  min-width: 0;
+}
+.gv-sr-item:hover {
+  background: var(--selected-soft);
+}
+.gv-sr-item:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 1px;
+}
+.gv-sr-thumb {
+  flex: none;
+  width: 56px;
+  height: 56px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #d9f1fb;
+  display: grid;
+  place-items: center;
+}
+.gv-sr-thumb.is-round {
+  border-radius: 50%;
+}
+.gv-sr-thumb img,
+.gv-sr-thumb .gv-media-placeholder {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: grid;
+  place-items: center;
+}
+.gv-sr-thumb .gv-media-placeholder small {
+  display: none;
+}
+.gv-sr-thumb-icon {
+  color: var(--sea);
+  display: grid;
+  place-items: center;
+}
+.gv-sr-text {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+  flex: 1;
+}
+.gv-sr-text b {
+  color: var(--ink-strong);
+  font-size: 15px;
+  overflow-wrap: anywhere;
+}
+.gv-sr-text small {
+  color: var(--text-secondary);
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+.gv-sr-arrow {
+  flex: none;
+  color: var(--sea);
+}
+.gv-sr-more {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 10px;
+}
+.gv-sr-more .pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  text-decoration: none;
+}
+.gv-sr-hint {
+  padding: 16px 18px;
+  border-radius: var(--radius-lg);
+  background: var(--surface-soft);
+  border: 1px solid var(--border-card);
+  color: var(--text);
+}
+.gv-sr-hint p {
+  margin: 0 0 8px;
+}
+.gv-sr-sections {
+  margin-top: 14px;
+}
+.gv-sr-assistant {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin: 26px 0 0;
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+.gv-sr-assistant a {
+  color: var(--link);
+  font-weight: 700;
+}
+@media (max-width: 810px) {
+  .gv-sr-groups {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (max-width: 540px) {
+  .gv-sr-group {
+    padding: 13px 11px 12px;
+  }
+  .gv-sr-thumb {
+    width: 48px;
+    height: 48px;
+  }
+  .gv-sr-form .primary {
+    flex: 1 1 100%;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,328 @@
+/* ===== Spots catalogue (/spots) — prototype language (PUBLIC_SCREENS §4), app tokens ===== */
+.gv-spot-filters .filters {
+  margin-bottom: 12px;
+}
+.gv-spot-filters .filter .gv-field {
+  margin: 0;
+  flex: 1;
+  min-width: 0;
+}
+.gv-spot-filters .filter .gv-field-label {
+  font-size: 11px;
+  font-weight: 900;
+  color: #07588b;
+  margin-bottom: 4px;
+}
+.gv-spot-filters .filters > .primary {
+  min-height: 48px;
+}
+.gv-spot-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+  margin: 0 0 18px;
+}
+.gv-spot-search {
+  flex: 1 1 320px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  padding: 4px 6px 4px 12px;
+  border: 1px solid var(--border-input);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  color: var(--text-secondary);
+}
+.gv-spot-search:focus-within {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 1px;
+}
+.gv-spot-search .gv-input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  padding: 8px 2px;
+  background: transparent;
+  box-shadow: none;
+  outline: none;
+}
+.gv-spot-count {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 700;
+}
+.gv-spots-map {
+  margin-bottom: 8px;
+}
+.gv-mapbox {
+  position: relative;
+  min-height: 390px;
+  isolation: isolate;
+}
+.gv-leaflet-wrap,
+.gv-leaflet {
+  position: absolute;
+  inset: 0;
+}
+.gv-leaflet {
+  background: #cbeaf4;
+  font: inherit;
+}
+.gv-map-loading {
+  display: grid;
+  place-items: center;
+}
+.gv-map-empty {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  z-index: 500;
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  background: var(--surface-glass);
+  color: var(--ink-strong);
+  font-weight: 700;
+  text-align: center;
+}
+.gv-map-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.gv-map-list .map-spot-row > span:nth-child(2) {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.gv-map-list-name {
+  font-weight: 800;
+  color: #146b90;
+}
+.gv-map-list-show {
+  flex: none;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--border-card);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--selected);
+  cursor: pointer;
+}
+.gv-map-list-show:hover {
+  background: var(--selected-soft);
+}
+.gv-map-list-show:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+/* markers */
+.gv-map-pin-wrap {
+  background: none;
+  border: 0;
+}
+.gv-map-pin {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  color: var(--selected);
+  filter: drop-shadow(0 3px 5px #00365350);
+}
+.gv-map-pin.is-approx {
+  color: #4a9bbd;
+}
+.gv-map-pin.is-closed {
+  color: #8c6a76;
+}
+.leaflet-marker-icon:focus-visible {
+  outline: 3px solid var(--focus-ring-alt);
+  outline-offset: 2px;
+  border-radius: 50%;
+}
+.gv-leaflet .marker-cluster-small,
+.gv-leaflet .marker-cluster-medium,
+.gv-leaflet .marker-cluster-large {
+  background-color: #0390bd44;
+}
+.gv-leaflet .marker-cluster-small div,
+.gv-leaflet .marker-cluster-medium div,
+.gv-leaflet .marker-cluster-large div {
+  background-color: var(--selected);
+  color: #fff;
+  font-weight: 800;
+}
+/* popup card */
+.gv-map-popup .leaflet-popup-content-wrapper {
+  border-radius: var(--radius-lg);
+  padding: 0;
+  overflow: hidden;
+}
+.gv-map-popup .leaflet-popup-content {
+  margin: 0;
+  width: 240px !important;
+}
+.gv-map-card img {
+  display: block;
+  width: 100%;
+  height: 110px;
+  object-fit: cover;
+}
+.gv-map-card-body {
+  display: grid;
+  gap: 4px;
+  padding: 10px 12px 12px;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+.gv-map-card-body b {
+  font-size: 15px;
+  color: var(--ink-strong);
+  overflow-wrap: anywhere;
+}
+.gv-map-card-rating {
+  color: var(--rating-blue);
+  font-weight: 700;
+}
+.gv-map-card-warn,
+.gv-map-card-note {
+  font-weight: 700;
+  color: var(--st-danger-fg);
+}
+.gv-map-card-note {
+  color: var(--st-info-fg);
+}
+.gv-map-card-link {
+  margin-top: 4px;
+  display: inline-block;
+  font-weight: 800;
+  color: var(--link) !important;
+}
+/* cards */
+.gv-spot-grid {
+  margin-top: 6px;
+}
+.gv-spot-card .spot-title h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+.gv-spot-card .spot-title h3 a:hover {
+  text-decoration: underline;
+}
+.gv-spot-card .spot-title h3 a:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+.gv-spot-card .spot-title {
+  align-items: flex-start;
+}
+.gv-spot-card-alert {
+  display: flex;
+  gap: 6px;
+  align-items: flex-start;
+  margin: 8px 0 0;
+  padding: 7px 9px;
+  border-radius: 9px;
+  background: var(--st-muted-bg);
+  color: var(--st-muted-fg);
+  font-size: 12px;
+  font-weight: 700;
+}
+.gv-spot-card-alert.is-warn {
+  background: var(--st-new-bg);
+  color: var(--st-new-fg);
+}
+.gv-spot-card .spot-summary {
+  overflow-wrap: anywhere;
+}
+.gv-spots-help {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 12px;
+  margin: 8px 0 24px;
+}
+.gv-spots-cards .gv-pagination {
+  margin-top: 22px;
+}
+@media (max-width: 810px) {
+  .gv-mapbox {
+    min-height: 370px;
+  }
+  .gv-spot-filters .filters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .gv-spot-filters .filters > .primary {
+    grid-column: 1 / -1;
+  }
+  .spots-map-sidebar {
+    max-height: 300px;
+  }
+}
+@media (max-width: 540px) {
+  .gv-mapbox {
+    min-height: 300px;
+  }
+  .gv-spot-toolbar > .gv-segmented {
+    width: 100%;
+  }
+  .gv-spot-toolbar > .gv-segmented .gv-segment {
+    flex: 1 1 0;
+  }
+}
+@media (max-width: 380px) {
+  .gv-spot-filters .filters {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ── Карточка спота: галерея, лайтбокс, форма правки (SPT-03, SPT-07/08) ───────── */
+.gv-spot-gallery { display: grid; gap: 8px; margin: 12px 0; }
+.gv-spot-hero { position: relative; border-radius: var(--radius-xl, 22px); overflow: hidden; background: var(--ice); }
+.gv-spot-hero-img, .gv-spot-hero img { width: 100%; height: auto; max-height: 520px; object-fit: cover; display: block; }
+.gv-spot-hero-actions { position: absolute; right: 12px; bottom: 12px; display: flex; gap: 8px; }
+.gv-spot-hero-btn { display: inline-flex; gap: 6px; align-items: center; padding: 8px 12px; border-radius: var(--radius-pill); border: 0; background: #ffffffe6; color: var(--heading); cursor: pointer; font: inherit; font-size: 14px; box-shadow: var(--shadow-card); }
+.gv-spot-hero-count { position: absolute; left: 12px; bottom: 12px; padding: 4px 10px; border-radius: var(--radius-pill); background: #0008; color: #fff; font-size: 12px; }
+.gv-spot-thumbs { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 2px; }
+.gv-spot-thumbs button, .gv-spot-edit-thumb { flex: none; width: 84px; height: 60px; border-radius: 10px; overflow: hidden; border: 2px solid transparent; padding: 0; cursor: pointer; background: var(--ice); }
+.gv-spot-thumbs button[aria-current="true"] { border-color: var(--sea); }
+.gv-spot-thumbs img, .gv-spot-edit-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.gv-spot-thumb-more { display: grid; place-items: center; font-size: 13px; color: var(--heading); }
+.gv-lightbox { position: fixed; inset: 0; z-index: var(--z-modal, 100); background: #000d; display: grid; place-items: center; }
+.gv-lightbox-body { position: relative; max-width: min(1100px, 94vw); display: grid; gap: 8px; }
+.gv-lightbox-img { max-width: 100%; max-height: 82vh; object-fit: contain; border-radius: 10px; }
+.gv-lightbox-caption { color: #fff; font-size: 14px; text-align: center; }
+.gv-lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; border: 0; background: #fffc; cursor: pointer; }
+.gv-lightbox-nav:first-of-type { left: -56px; }
+.gv-lightbox-nav:last-of-type { right: -56px; }
+@media (max-width: 810px) {
+  .gv-spot-hero img { max-height: 300px; }
+  .gv-lightbox-nav:first-of-type { left: 6px; }
+  .gv-lightbox-nav:last-of-type { right: 6px; }
+}
+.gv-spot-my-proposals { display: grid; gap: 6px; padding: 12px 14px; border-radius: var(--radius-md); background: var(--st-info-bg); color: var(--st-info-fg); margin: 10px 0; }
+.gv-spot-proposal-count { font-weight: 700; }
+.gv-spot-proposal-status { font-size: 13px; }
+.gv-spot-proposal-form, .gv-spot-proposal-section { display: grid; gap: 12px; }
+.gv-spot-proposal-section { padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+.gv-spot-proposal-done { display: grid; gap: 8px; justify-items: center; text-align: center; padding: 12px; }
+.gv-spot-diff, .gv-spot-proposal-diff { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.gv-spot-diff li { display: grid; grid-template-columns: minmax(120px, max-content) 1fr 1fr; gap: 8px; font-size: 14px; align-items: start; }
+.gv-spot-diff-old { color: var(--st-danger-fg); text-decoration: line-through; }
+.gv-spot-diff-new { color: var(--st-ok-fg); font-weight: 600; }
+@media (max-width: 600px) { .gv-spot-diff li { grid-template-columns: 1fr; } }
+.gv-spot-edit-static { display: inline-flex; gap: 6px; align-items: center; }
+.gv-compass-picker { display: grid; gap: 8px; }
+.gv-compass-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; max-width: 360px; }
+.gv-compass-grid button { padding: 6px 0; border-radius: 8px; border: 1px solid var(--border-input); background: #fff; cursor: pointer; font: inherit; font-size: 13px; }
+.gv-compass-grid button[aria-pressed="true"] { background: var(--sea); color: #fff; border-color: transparent; }
+.gv-compass-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.gv-compass-preview { max-width: 220px; }
+.gv-infra-editor, .gv-infra-rows { display: grid; gap: 8px; }
+.gv-infra-row { display: grid; grid-template-columns: 160px 1fr 120px auto; gap: 8px; align-items: end; }
+.gv-infra-remove { border: 0; background: none; color: var(--st-danger-fg); cursor: pointer; font: inherit; }
+@media (max-width: 600px) { .gv-infra-row { grid-template-columns: 1fr 1fr; } }

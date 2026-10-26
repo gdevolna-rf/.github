@@ -1,0 +1,11 @@
+/* InquiryDialog / BookingDialog */
+.gv-inquiry-kind {
+  font-weight: 700;
+  color: var(--ink-strong);
+}
+.gv-inquiry-context {
+  overflow-wrap: anywhere;
+}
+.gv-inquiry-form .gv-uploader {
+  margin-bottom: 14px;
+}

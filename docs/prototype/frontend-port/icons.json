@@ -1,0 +1,246 @@
+{
+  "$meta": {
+    "source": "docs/prototype/source/proto.html (public UI only; cabinet & shapers modules excluded)",
+    "generated": "2026-10-20",
+    "format": "{ name: { viewBox, attrs (root <svg> attributes except viewBox), inner (child markup), usage, note? } }",
+    "strokeConvention": "Line icons use fill=\"none\" + stroke=\"currentColor\"; header icons get stroke via CSS. Normalise to one stroke width (TZ UX-04: prototype mixes 1.7 / 1.8 / 1.85 / 2)."
+  },
+  "icons": {
+    "search": {
+      "viewBox": "0 0 24 24",
+      "attrs": {
+        "fill": "none",
+        "stroke-width": "2"
+      },
+      "inner": "<circle cx=\"10.8\" cy=\"10.8\" r=\"7.1\"/><path d=\"m16 16 5 5\"/>",
+      "usage": "Header button [data-action=search] (.square-btn). Stroke = currentColor via CSS `.navtools svg{stroke:currentColor}`; rendered 21×21.",
+      "note": "No stroke attribute in markup — colour comes from CSS."
+    },
+    "heart": {
+      "viewBox": "0 0 24 24",
+      "attrs": {
+        "fill": "none",
+        "stroke-width": "2"
+      },
+      "inner": "<path d=\"M20.8 4.7a5.4 5.4 0 0 0-7.6 0L12 5.9l-1.2-1.2a5.4 5.4 0 0 0-7.6 7.6L12 21l8.8-8.7a5.4 5.4 0 0 0 0-7.6Z\"/>",
+      "usage": "Header favourites button [data-action=favorites] with red counter badge #favoritesCount. 21×21.",
+      "note": "Cards use the text glyphs ♡/♥ instead of this SVG — unify to this SVG (TZ UX-04, MSG-11)."
+    },
+    "chat": {
+      "viewBox": "0 0 24 24",
+      "attrs": {
+        "fill": "none",
+        "stroke": "currentColor",
+        "stroke-width": "1.8"
+      },
+      "inner": "<path d=\"M4 5.5h16v11H9l-5 4z\"/><path d=\"M7 9h10M7 12h7\"/>",
+      "usage": "Header inbox button [data-action=inbox] with #inboxCount badge (shown only for logged-in users with chats). 21×21."
+    },
+    "user": {
+      "viewBox": "0 0 24 24",
+      "attrs": {
+        "width": "18",
+        "height": "18",
+        "fill": "none",
+        "stroke": "currentColor",
+        "stroke-width": "1.8",
+        "stroke-linecap": "round",
+        "stroke-linejoin": "round"
+      },
+      "inner": "<circle cx=\"12\" cy=\"8\" r=\"3.4\"/><path d=\"M4.7 20v-2.2a7.3 7.3 0 0 1 14.6 0V20\"/>",
+      "usage": "Header login/cabinet button .line-btn [data-action=account], label #loginLabel «Войти» / «Кабинет». 18×18 (CSS overrides to 21×21 via .navtools svg)."
+    },
+    "pencil": {
+      "viewBox": "0 0 24 24",
+      "attrs": {
+        "width": "17",
+        "height": "17",
+        "fill": "none",
+        "stroke": "currentColor",
+        "stroke-width": "1.85",
+        "stroke-linecap": "round",
+        "stroke-linejoin": "round",
+        "aria-hidden": "true"
+      },
+      "inner": "<path d=\"M12 20h9\"/><path d=\"M16.5 3.5a2.1 2.1 0 0 1 3 3L9 17l-4 1 1-4L16.5 3.5Z\"/>",
+      "usage": "Spot card photo, top-right .gv-spot-edit-trigger (36×36 white rounded square) → opens «Предложить исправление» form. 17×17."
+    },
+    "board": {
+      "viewBox": "0 0 28 28",
+      "attrs": {
+        "width": "24",
+        "height": "24",
+        "fill": "none",
+        "stroke": "currentColor",
+        "stroke-width": "1.7"
+      },
+      "inner": "<path d=\"M14 2.8C7 8 9 20.2 14 25.2c5-5 7-17.2 0-22.4Z\"/><path d=\"M14 7v14\"/>",
+      "usage": "Instructor filter «Тип доски» (.filter .sym, 23×23)."
+    },
+    "level": {
+      "viewBox": "0 0 28 28",
+      "attrs": {
+        "width": "24",
+        "height": "24",
+        "fill": "none",
+        "stroke": "currentColor",
+        "stroke-width": "1.7"
+      },
+      "inner": "<rect x=\"3\" y=\"17\" width=\"5\" height=\"8\" rx=\"1\"/><rect x=\"11.5\" y=\"11\" width=\"5\" height=\"14\" rx=\"1\"/><rect x=\"20\" y=\"4\" width=\"5\" height=\"21\" rx=\"1\"/>",
+      "usage": "Instructor filter «Уровень катания» (.filter .sym, 23×23)."
+    },
+    "map-pin": {
+      "viewBox": "0 0 24 24",
+      "attrs": {
+        "width": "14",
+        "height": "14",
+        "fill": "none",
+        "stroke": "currentColor",
+        "stroke-width": "2"
+      },
+      "inner": "<path d=\"M12 22s-7-7.8-7-12a7 7 0 1 1 14 0c0 4.2-7 12-7 12Z\"/><circle cx=\"12\" cy=\"10\" r=\"2.4\"/>",
+      "usage": "Region tag on person photos (.region-tag), «Регион» filter, spot modal region chip, map sidebar rows, instructor modal place line. 14×14 (filter: 23×23)."
+    },
+    "select-chevron": {
+      "viewBox": "0 0 12 8",
+      "attrs": {
+        "xmlns": "http://www.w3.org/2000/svg",
+        "width": "12",
+        "height": "8"
+      },
+      "inner": "<path fill=\"none\" stroke=\"#2b7b9e\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"m1 1 5 5 5-5\"/>",
+      "usage": "Every <select> inside #app and .modal: background-image, background-position:right 10px center, size 11×8, padding-right 30px (UX-06). Stroke #2b7b9e."
+    },
+    "loader-art": {
+      "viewBox": "0 0 330 165",
+      "attrs": {
+        "aria-hidden": "true"
+      },
+      "inner": "<g class=\"volcano-shape\"><path d=\"M12 116L84 114 147 30 169 66 194 44 263 117 318 116\" fill=\"#d2eaf5\" stroke=\"#5ea9ca\" stroke-width=\"3\" stroke-linejoin=\"round\"/><path d=\"M113 70L147 30 169 66 194 44 218 76 195 68 180 87 162 70 147 86 136 64Z\" fill=\"#f6fcff\"/></g><g class=\"smoke-smile\" fill=\"#bed4e2\"><circle cx=\"142\" cy=\"26\" r=\"11\" opacity=\".7\"/><circle cx=\"158\" cy=\"18\" r=\"12\" opacity=\".5\"/><circle cx=\"168\" cy=\"6\" r=\"10\" opacity=\".4\"/></g><path class=\"surfwave\" d=\"M0 129q38-24 76 0t76 0 76 0 76 0 26 0\" stroke=\"#0397c2\" stroke-width=\"10\" fill=\"none\" stroke-linecap=\"round\"/><g class=\"surfer-svg\"><ellipse cx=\"198\" cy=\"114\" rx=\"27\" ry=\"4.5\" fill=\"#f2d0a4\"/><circle cx=\"193\" cy=\"78\" r=\"6.5\" fill=\"#073d63\"/><path d=\"M194 85l-6 17 16 3M190 90l-15 1\" stroke=\"#073d63\" stroke-width=\"5\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M188 102l-8 12M204 105l8 11\" stroke=\"#073d63\" stroke-width=\"5\" stroke-linecap=\"round\"/></g>",
+      "usage": "Full-screen #siteLoader (330px wide, max 87vw). Animated groups: .volcano-shape (static), .smoke-smile (keyframes smoke 2.6s), .surfwave (stroke-dasharray 55 16 + keyframes waveRun 2s), .surfer-svg (keyframes surferRide 2s). Text below: «ГДЕВОЛНА.РФ» / «До встречи на волне»."
+    },
+    "empty-surfers": {
+      "viewBox": "0 0 158 94",
+      "attrs": {
+        "width": "158",
+        "height": "94",
+        "xmlns": "http://www.w3.org/2000/svg",
+        "aria-hidden": "true"
+      },
+      "inner": "<circle cx=\"116\" cy=\"24\" r=\"12\" fill=\"#ffdab1\"/><path d=\"M0 67Q18 56 36 67T72 67T108 67T158 67\" fill=\"none\" stroke=\"#37b1c9\" stroke-width=\"6\" stroke-linecap=\"round\"/><path d=\"M0 84Q18 73 36 84T72 84T108 84T158 84\" fill=\"none\" stroke=\"#c4e9f5\" stroke-width=\"5\" stroke-linecap=\"round\"/><path d=\"M45 61l13-17 8 4 8 13\" stroke=\"#14597c\" stroke-width=\"5\" fill=\"none\" stroke-linecap=\"round\"/><circle cx=\"61\" cy=\"35\" r=\"7\" fill=\"#ecbc91\"/><path d=\"M34 64Q65 59 94 65\" stroke=\"#ed7893\" stroke-width=\"5\" fill=\"none\" stroke-linecap=\"round\"/>",
+      "usage": "Instructor catalogue empty state «Похоже, все ушли ловить волну!» (158×94; 135px wide ≤540px)."
+    },
+    "rental-wetsuit": {
+      "viewBox": "0 0 160 230",
+      "attrs": {
+        "aria-hidden": "true"
+      },
+      "inner": "<defs><linearGradient id=\"neo\" x1=\"0\" x2=\"1\"><stop stop-color=\"#0c324c\"/><stop offset=\"1\" stop-color=\"#28658a\"/></linearGradient></defs><path d=\"M55 32Q80 15 105 32L127 60 149 92 128 107 107 80 102 121 116 202 92 210 80 145 68 210 44 202 58 121 53 80 32 107 11 92 33 60Z\" fill=\"url(#neo)\" stroke=\"#e3f6ff\" stroke-width=\"3\"/><path d=\"M56 32Q80 54 104 32M66 65L92 124M48 122H112\" stroke=\"#65b6d3\" stroke-opacity=\".85\" stroke-width=\"4\" fill=\"none\"/><circle cx=\"80\" cy=\"77\" r=\"8\" fill=\"#ebf8ff\" opacity=\".5\"/>",
+      "usage": "Rental card art .rent-illustration when type = «Гидрокостюм» (visual:\"suit\"). Height 94% of .rent-art, rotated −6deg.",
+      "note": "Gradient id \"neo\" is not unique per card — use unique ids (useId) in React."
+    },
+    "rental-board-long": {
+      "viewBox": "0 0 160 230",
+      "attrs": {
+        "aria-hidden": "true"
+      },
+      "inner": "<defs><linearGradient id=\"brd\" x1=\"0\" x2=\"1\"><stop stop-color=\"#f6ffff\"/><stop offset=\".5\" stop-color=\"#edf9ff\"/><stop offset=\"1\" stop-color=\"#92d5e4\"/></linearGradient></defs><path d=\"M80 8C53 25 52 185 80 221C108 185 107 25 80 8Z\" fill=\"url(#brd)\" stroke=\"#388eb3\" stroke-width=\"3\"/><path d=\"M80 17V210\" stroke=\"#68b9d2\" stroke-width=\"2\" stroke-dasharray=\"4 6\"/><path d=\"M58 168Q80 182 102 168\" stroke=\"#c4e9f0\" stroke-width=\"8\" fill=\"none\"/>",
+      "usage": "Rental card art for long/fun boards (visual:\"long\"); also used in the empty state «Эти доски укатили на волну».",
+      "note": "Gradient id \"brd\" — make unique per instance."
+    },
+    "rental-board-short": {
+      "viewBox": "0 0 160 230",
+      "attrs": {
+        "aria-hidden": "true"
+      },
+      "inner": "<defs><linearGradient id=\"brd\" x1=\"0\" x2=\"1\"><stop stop-color=\"#f6ffff\"/><stop offset=\".5\" stop-color=\"#edf9ff\"/><stop offset=\"1\" stop-color=\"#92d5e4\"/></linearGradient></defs><path d=\"M80 8C42 40 45 180 80 221C115 180 118 40 80 8Z\" fill=\"url(#brd)\" stroke=\"#388eb3\" stroke-width=\"3\"/><path d=\"M80 17V210\" stroke=\"#68b9d2\" stroke-width=\"2\" stroke-dasharray=\"4 6\"/><path d=\"M58 168Q80 182 102 168\" stroke=\"#c4e9f0\" stroke-width=\"8\" fill=\"none\"/>",
+      "usage": "Rental card art for shortboards (visual:\"short\")."
+    },
+    "gg-schematic-land": {
+      "viewBox": "0 0 900 530",
+      "attrs": {
+        "class": "gg-land-svg",
+        "preserveAspectRatio": "none",
+        "aria-hidden": "true"
+      },
+      "inner": "<defs><linearGradient id=\"ggLand\" x1=\"0\" x2=\"1\" y1=\"0\" y2=\"1\"><stop stop-color=\"#d9e8e8\"/><stop offset=\"1\" stop-color=\"#c4dbe1\"/></linearGradient></defs><path d=\"M32 40L120 48L150 92L220 67L277 109L332 91L386 111L454 75L518 114L579 96L638 133L685 114L767 143L824 124L887 173L870 236L816 221L778 281L726 267L673 301L618 283L566 337L509 311L466 360L405 321L363 358L309 312L261 333L213 297L156 310L123 267L85 260L69 199L26 160Z\" fill=\"url(#ggLand)\" stroke=\"#8bc3d5\" stroke-width=\"3\"/><path d=\"M140 130Q290 142 408 240T770 200M210 275Q364 200 548 280T829 250\" stroke=\"#b3ced7\" stroke-width=\"8\" fill=\"none\" stroke-dasharray=\"2 18\" opacity=\".7\"/><path d=\"M62 402Q205 347 347 401T660 400T891 389\" fill=\"none\" stroke=\"#fff\" stroke-width=\"12\" opacity=\".5\"/><path d=\"M0 443Q180 403 338 456T900 437\" fill=\"none\" stroke=\"#93d2e4\" stroke-width=\"2\"/>",
+      "usage": "Background of the GG Surfer schematic map (.gg-local-map > .gg-land-svg, preserveAspectRatio=none, opacity .78). Pins are absolutely positioned buttons on top (left/top = member mx/my %)."
+    },
+    "legacy-russia-map": {
+      "viewBox": "0 0 1000 560",
+      "attrs": {
+        "class": "map-svg",
+        "preserveAspectRatio": "none",
+        "aria-label": "Схематичная карта России"
+      },
+      "inner": "<defs><linearGradient id=\"water\" x1=\"0\" x2=\"0\" y1=\"0\" y2=\"1\"><stop stop-color=\"#cbeaf5\"/><stop offset=\"1\" stop-color=\"#aee0ee\"/></linearGradient><pattern id=\"gridlines\" width=\"72\" height=\"72\" patternUnits=\"userSpaceOnUse\"><path d=\"M72 0H0V72\" fill=\"none\" stroke=\"#ffffff83\" stroke-width=\"1\"/></pattern><linearGradient id=\"land\" x1=\"0\" x2=\"0\" y1=\"0\" y2=\"1\"><stop stop-color=\"#eaf2dc\"/><stop offset=\"1\" stop-color=\"#cde5cb\"/></linearGradient></defs><rect width=\"1000\" height=\"560\" fill=\"url(#water)\"/><rect width=\"1000\" height=\"560\" fill=\"url(#gridlines)\"/><path d=\"M5 194L46 184 76 169 103 182 112 159 138 174 167 151 190 138 210 153 234 130 277 144 300 117 321 125 346 97 381 111 409 94 447 112 467 88 500 92 523 75 557 92 581 79 611 107 643 95 667 122 697 129 726 114 748 143 781 133 806 165 840 169 863 205 890 227 905 270 886 286 871 307 854 300 839 269 831 248 824 270 807 291 790 279 779 300 750 294 736 316 699 293 666 319 644 300 616 321 591 294 557 312 535 290 508 314 474 292 452 314 417 294 385 312 355 292 328 308 297 294 272 309 246 291 218 317 194 311 176 332 150 317 123 343 92 316 65 332 39 301 5 310Z\" fill=\"url(#land)\" stroke=\"#a8c9b8\" stroke-width=\"3\"/><path d=\"M820 250Q865 289 862 340Q859 363 845 403L833 449 827 405 824 349 812 315Z\" fill=\"url(#land)\" stroke=\"#a8c9b8\" stroke-width=\"3\"/><path d=\"M789 383Q780 412 786 465Q802 473 810 462Q804 426 797 387Z\" fill=\"url(#land)\" stroke=\"#a8c9b8\" stroke-width=\"2\"/><path d=\"M727 360L734 438L725 477 714 451 718 399Z\" fill=\"url(#land)\" stroke=\"#a8c9b8\" stroke-width=\"2\"/><path d=\"M232 315L249 343 281 332 295 352 278 367 254 354 236 356Z\" fill=\"url(#land)\" stroke=\"#a8c9b8\" stroke-width=\"2\"/><g fill=\"none\" stroke=\"#a7bfa7\" stroke-width=\"1.4\" opacity=\".45\"><path d=\"M50 210Q225 170 350 215T695 221T815 208\"/><path d=\"M95 250Q320 220 485 244T745 263\"/><path d=\"M130 289Q280 258 452 274T700 292\"/></g><g fill=\"#4e829d\" font-size=\"15\" font-family=\"Arial,sans-serif\" opacity=\".8\"><text x=\"236\" y=\"235\">Россия</text><text x=\"140\" y=\"177\">Карелия</text><text x=\"690\" y=\"343\">Сахалин</text><text x=\"800\" y=\"233\">Камчатка</text><text x=\"240\" y=\"398\">Чёрное море</text><text x=\"725\" y=\"502\">Японское море</text><text x=\"875\" y=\"425\">Тихий океан</text></g>",
+      "usage": "UNUSED in the final prototype (function mapSVG is never called; maps are Yandex iframes). Kept for reference/fallback only."
+    },
+    "wind-rose-example": {
+      "viewBox": "0 0 200 200",
+      "attrs": {
+        "role": "img",
+        "aria-label": "Роза направлений для Направление ветра"
+      },
+      "inner": "<circle cx=\"100\" cy=\"100\" r=\"75\" stroke=\"#bedde9\" stroke-width=\"1.3\" fill=\"#effaff\"/><circle cx=\"100\" cy=\"100\" r=\"55\" stroke=\"#cee8f2\" stroke-dasharray=\"3 5\" fill=\"none\"/><circle cx=\"100\" cy=\"100\" r=\"35\" stroke=\"#cee8f2\" fill=\"none\"/><path d=\"M100 25V175M25 100H175M47 47L153 153M153 47L47 153\" stroke=\"#d7eaf3\" stroke-width=\"1.2\"/><text x=\"100\" y=\"17\" text-anchor=\"middle\" fill=\"#4b819e\" font-size=\"10\" font-weight=\"700\">С</text><text x=\"160.81118318204307\" y=\"42.18881681795691\" text-anchor=\"middle\" fill=\"#4b819e\" font-size=\"10\" font-weight=\"700\">СВ</text><text x=\"186\" y=\"103\" text-anchor=\"middle\" fill=\"#4b819e\" font-size=\"10\" font-weight=\"700\">В</text><text x=\"160.8111831820431\" y=\"163.81118318204307\" text-anchor=\"middle\" fill=\"#4b819e\" font-size=\"10\" font-weight=\"700\">ЮВ</text><text x=\"100.00000000000001\" y=\"189\" text-anchor=\"middle\" fill=\"#4b819e\" font-size=\"10\" font-weight=\"700\">Ю</text><text x=\"39.18881681795692\" y=\"163.8111831820431\" text-anchor=\"middle\" fill=\"#4b819e\" font-size=\"10\" font-weight=\"700\">ЮЗ</text><text x=\"14\" y=\"103.00000000000001\" text-anchor=\"middle\" fill=\"#4b819e\" font-size=\"10\" font-weight=\"700\">З</text><text x=\"39.1888168179569\" y=\"42.188816817956926\" text-anchor=\"middle\" fill=\"#4b819e\" font-size=\"10\" font-weight=\"700\">СЗ</text><path d=\"M100 100L54.75 54.75\" stroke=\"#087da8\" stroke-width=\"7\" stroke-linecap=\"round\"/><circle cx=\"54.74516600406095\" cy=\"54.74516600406097\" r=\"9\" fill=\"#f86189\" stroke=\"#fff\" stroke-width=\"3\"/>",
+      "usage": "Spot detail «Условия волны»: one rose per wind and swell (.rose-card). Generated: circle r75 fill #effaff stroke #bedde9; dashed r55; r35; 8 axis lines #d7eaf3; labels С СВ В ЮВ Ю ЮЗ З СЗ at radius 86 (font 10, 700, #4b819e); needle from centre (100,100) to radius 64 at the direction angle (stroke #087da8, width 7, round cap) + pink dot r9 #f86189 with 3px white stroke. If the direction text cannot be parsed (e.g. «По прогнозу») only a centre dot r11 #b0d7e7 is drawn.",
+      "template": "x = 100 + 64·sin(deg), y = 100 − 64·cos(deg); deg: С 0, СВ 45, В 90, ЮВ 135, Ю 180, ЮЗ 225, З 270, СЗ 315 (parsed from Russian text by substring).",
+      "note": "This example = «Северо-запад» (315°). NOTE: the final prototype overrides showSpot() and no longer renders roses (falls back to .compass rings) — re-implement the rose (TZ SPT-04)."
+    },
+    "gg-welcome-sticker": {
+      "viewBox": "0 0 540 540",
+      "attrs": {
+        "xmlns": "http://www.w3.org/2000/svg",
+        "width": "540",
+        "height": "540"
+      },
+      "inner": "<rect width=\"540\" height=\"540\" rx=\"120\" fill=\"#dff6fc\"/><circle cx=\"270\" cy=\"260\" r=\"194\" fill=\"#0776a1\"/><path d=\"M85 290q40-42 80 0t80 0 80 0 80 0 50 0\" stroke=\"#b0ecfc\" stroke-width=\"20\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M126 190l64-76 31 37 34-51 70 91 26-28 61 65H126Z\" fill=\"#d0effb\"/><text x=\"270\" y=\"360\" text-anchor=\"middle\" font-family=\"Arial,sans-serif\" font-size=\"43\" font-weight=\"900\" fill=\"white\">GG SURFER</text><text x=\"270\" y=\"395\" text-anchor=\"middle\" font-family=\"Arial,sans-serif\" font-size=\"18\" font-weight=\"700\" letter-spacing=\"3\" fill=\"#c2ebfb\">ГДЕВОЛНА.РФ</text>",
+      "usage": "Club page «Получить стикер GG Surfer ↗» downloads this SVG as GG_Surfer_приветственный_стикер.svg (logged-in users only)."
+    }
+  },
+  "glyphIcons": {
+    "$note": "The prototype uses Unicode text glyphs as icons in many places. They render with the system font and are not optically aligned (TZ UX-04). Recommended: replace with SVG icons of one family. Mapping of glyph → meaning → where used:",
+    "♡ / ♥": "favourite (empty / active) — like buttons on person/spot/rental cards, «♡ В избранное» pills, GG mini-stat; active state is pink (#ec789c on #fff0f5)",
+    "♧": "instructor / lesson (clover) — «Инструктор по сёрфингу» line, «Как пользоваться сайтом», role tile «Инструктор», coach order icon",
+    "⌖": "location / map target — spot fieldline «Споты», feature «Карта сёрф-спотов», «Развернуть карту», «Найдите своих», «На карте» tab, photo badge",
+    "◈": "brand diamond — section-title prefix (CSS ::before), «О сайте», feature «Аренда снаряжения», rental «safe strip», rose card «Направление свелла», footer",
+    "≋": "waves — spots filter, «Ветер:» signal, GG/club logo mark, member card, empty «lesson-waves»",
+    "◉": "footer decorative (◉ ◈ ≋)",
+    "◴": "experience (clock quarter) — «Опыт» fieldline",
+    "☻": "students — «Уровень учеников» fieldline",
+    "☀": "fun fact — «Забавный факт»",
+    "▦": "calendar — «Профиль, отзывы и запись», «Открыть календарь», «Записаться на занятие»",
+    "❯ / → / ↗ / ←": "arrows in CTAs (→ next, ↗ external, ← back)",
+    "★ / ☆": "rating stars (★ filled, ☆ empty) — ratings, «☆ Отзыв о споте», review cards",
+    "✓": "certificate / verified / success — «✓ сертификат», success mark, «✓ Общайтесь спокойно»",
+    "✎": "edit / suggestion — «✎ Мои предложения», «✎ Предложить исправление», edit overline",
+    "✉": "messages — «✉ Мои чаты», «✉ Написать», chat headers",
+    "⟳": "reset — «⟳ Сбросить» in instructor filters",
+    "⌕": "search (inside the search modal input)",
+    "▶": "play — live stream placeholder, spot video placeholder",
+    "⚑": "hazard — spot card «.spot-safety» line",
+    "⚠": "hazard — spot modal «⚠ Опасности»",
+    "◷": "time/season — season signal on spot card, «◷ Выбор времени», queue status «◷ Ожидает отправки»",
+    "✦ ♙ ☆": "home feature float-icons: ✦ Сёрф-клуб, ♙ Каталог шейперов, ☆ (replaced) Избранные места",
+    "🏄 🏠 ♧": "registration role tiles (Сёрфер / Сёрф-школа / Инструктор)",
+    "🌋 🤝 🏄 🎁 📷 🧭": "club perks emoji",
+    "emoji in data": "spot nature/infra chips contain emoji prefixes in the data itself (e.g. «🌋 Вулканы», «🚗 Подъезд») — store emoji separately from the label in the backend",
+    "×": "close — modal close button .close (33×33 circle #e4f4fa, glyph 24px #085778)",
+    "i": "info mark in .gv-spot-explain-ic (success modal «Пока это локальная очередь»)"
+  },
+  "logo": {
+    "files": {
+      "header": "assets/brand/logo.png (448×248 PNG, transparent; = img01.png = img02.png)",
+      "highRes": "assets/brand/logo-hq.png (482×365 PNG, transparent; from the shapers module, sharper lettering «ГДЕВОЛНА.РФ»)"
+    },
+    "header": {
+      "markup": "<a href=\"#home\" class=\"logo\" data-go=\"home\" title=\"На главную\"><img src=\"logo.png\" alt=\"Гдеволна.рф\"></a>",
+      "size": "108×61 (object-fit:contain) desktop; 103×59 ≤810px; 90×52 ≤540px; container min-width 110/103/90px"
+    },
+    "footer": {
+      "markup": "<a class=\"logo\" data-go=\"home\" href=\"#home\"><img src=\"logo.png\" alt=\"Гдеволна\"></a>",
+      "size": "132×76, wrapper filter: drop-shadow(0 2px 5px white)"
+    },
+    "note": "Brand rule (TZ SHOP-03): keep the logo and the joined spelling of the name. In text the prototype uses «Гдеволна.рф» / «Гдеволна» / «ГДеволна» inconsistently — confirm the canonical spelling."
+  }
+}

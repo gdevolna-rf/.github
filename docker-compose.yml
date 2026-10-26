@@ -1,0 +1,171 @@
+# ГДеволна 2.0 — локальное окружение.
+# Точка входа: http://localhost:8080 (nginx → Next.js / Django / MinIO).
+# Почта (Mailpit): http://localhost:8025, RabbitMQ: http://localhost:15672, MinIO console: http://localhost:9001
+
+x-backend-env: &backend-env
+  DJANGO_DEBUG: ${DJANGO_DEBUG:-1}
+  DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY:-dev-insecure-secret-change-me}
+  DJANGO_ALLOWED_HOSTS: ${DJANGO_ALLOWED_HOSTS:-localhost,127.0.0.1,backend,nginx}
+  DJANGO_CSRF_TRUSTED_ORIGINS: ${DJANGO_CSRF_TRUSTED_ORIGINS:-http://localhost:8080,http://127.0.0.1:8080,http://nginx}
+  APP_ENV: ${APP_ENV:-dev}
+  SITE_URL: ${SITE_URL:-http://localhost:8080}
+  POSTGRES_HOST: postgres
+  POSTGRES_PORT: 5432
+  POSTGRES_DB: ${POSTGRES_DB:-gdevolna}
+  POSTGRES_USER: ${POSTGRES_USER:-gdevolna}
+  POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-gdevolna}
+  REDIS_URL: redis://redis:6379/0
+  CHANNELS_REDIS_URL: redis://redis:6379/1
+  CELERY_RESULT_BACKEND: redis://redis:6379/2
+  CELERY_BROKER_URL: amqp://${RABBITMQ_USER:-gdevolna}:${RABBITMQ_PASSWORD:-gdevolna}@rabbitmq:5672//
+  S3_ENDPOINT_URL: http://minio:9000
+  S3_ACCESS_KEY: ${MINIO_ROOT_USER:-gdevolna}
+  S3_SECRET_KEY: ${MINIO_ROOT_PASSWORD:-gdevolna-secret}
+  S3_BUCKET: ${S3_BUCKET:-gdevolna-media}
+  EMAIL_HOST: mailpit
+  EMAIL_PORT: 1025
+  DEFAULT_FROM_EMAIL: ${DEFAULT_FROM_EMAIL:-ГДеволна <noreply@gdevolna.local>}
+  SEED_DEMO: ${SEED_DEMO:-1}
+
+services:
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-gdevolna}
+      POSTGRES_USER: ${POSTGRES_USER:-gdevolna}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-gdevolna}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./backups:/backups
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 3s
+      timeout: 3s
+      retries: 30
+
+  redis:
+    image: redis:7-alpine
+    command: ["redis-server", "--save", "", "--appendonly", "no"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 3s
+      timeout: 3s
+      retries: 30
+
+  rabbitmq:
+    image: rabbitmq:4-management-alpine
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER:-gdevolna}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASSWORD:-gdevolna}
+    volumes:
+      - ./rabbitmq/rabbitmq.conf:/etc/rabbitmq/conf.d/90-gdevolna.conf:ro
+    ports:
+      - "15672:15672"
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "-q", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+
+  minio:
+    # Официальные образы MinIO больше не публикуются; это community-сборка того же MinIO из исходников.
+    image: pgsty/minio:RELEASE.2026-08-04T00-00-00Z
+    command: ["server", "/data", "--console-address", ":9001"]
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:-gdevolna}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:-gdevolna-secret}
+    volumes:
+      - miniodata:/data
+    ports:
+      - "9001:9001"
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:9000/minio/health/live || wget -qO- http://localhost:9000/minio/health/live"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+
+  mailpit:
+    image: axllent/mailpit:v1.27
+    ports:
+      - "8025:8025"
+
+  backend:
+    build: ./backend
+    command: ["/app/entrypoint.sh", "web"]
+    environment:
+      <<: *backend-env
+    volumes:
+      - staticfiles:/app/staticfiles
+    depends_on:
+      postgres: { condition: service_healthy }
+      redis: { condition: service_healthy }
+      rabbitmq: { condition: service_healthy }
+      minio: { condition: service_healthy }
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request,sys; urllib.request.urlopen('http://localhost:8000/api/v1/health', timeout=3)"]
+      interval: 5s
+      timeout: 5s
+      retries: 60
+      start_period: 20s
+
+  celery-worker:
+    build: ./backend
+    command: ["/app/entrypoint.sh", "worker"]
+    environment:
+      <<: *backend-env
+    depends_on:
+      backend: { condition: service_healthy }
+
+  celery-beat:
+    build: ./backend
+    command: ["/app/entrypoint.sh", "beat"]
+    environment:
+      <<: *backend-env
+    depends_on:
+      backend: { condition: service_healthy }
+
+  frontend:
+    build: ./frontend
+    environment:
+      INTERNAL_API_URL: http://backend:8000
+      PUBLIC_SITE_URL: ${SITE_URL:-http://localhost:8080}
+    depends_on:
+      backend: { condition: service_healthy }
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:3000/healthz >/dev/null || exit 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 60
+      start_period: 20s
+
+  nginx:
+    image: nginx:1.27-alpine
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - staticfiles:/srv/django-static:ro
+    ports:
+      - "8080:80"
+    depends_on:
+      backend: { condition: service_healthy }
+      frontend: { condition: service_started }
+
+  e2e:
+    # Сквозные тесты пользователя: docker compose --profile e2e run --rm e2e
+    image: mcr.microsoft.com/playwright:v1.64.1-noble
+    profiles: ["e2e"]
+    working_dir: /e2e
+    environment:
+      BASE_URL: http://nginx
+      MAILPIT_URL: http://mailpit:8025
+      CI: "1"
+    volumes:
+      - ./e2e:/e2e
+      - /e2e/node_modules
+    command: ["sh", "-c", "npm ci --no-audit --no-fund && npx playwright test"]
+    depends_on:
+      nginx: { condition: service_started }
+
+volumes:
+  pgdata:
+  miniodata:
+  staticfiles:

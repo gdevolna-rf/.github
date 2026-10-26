@@ -1,0 +1,124 @@
+/*
+ * ГДеволна — design tokens (CSS custom properties).
+ * The first block is the prototype's merged :root (PL-01 / UX-01: palette is approved — do not redesign).
+ * The second block adds semantic tokens used by the app components (app.css) so new UI stays in the same
+ * visual language. Values come from DESIGN_SYSTEM.md §1 ("consolidate into these roles").
+ */
+:root {
+  /* --- prototype tokens (names kept: used by public.css / cabinet.css) --- */
+  --font: "Trebuchet MS", "Segoe UI", Arial, sans-serif;
+  --sea: #08739e;
+  --deep: #005481;
+  --navy: #064c73;
+  --aqua: #dff6ff;
+  --ice: #eaf8fd;
+  --text: #0c517a;
+  /* prototype #5d8dac (3.3:1 on light panels) darkened to 4.6:1 — UX-14 / WCAG 2.2 AA */
+  --muted: #4a7591;
+  --line: #cce9f5;
+  --white: #fff;
+  --shadow: 0 5px 22px #2f9fc518;
+  --lesson-ink: #09496c;
+  --lesson-blue: #0878a5;
+  --lesson-border: #d7edf5;
+  --lesson-soft: #f1faff;
+
+  /* --- runtime images (set inline by the prototype's JS; defaults here) --- */
+  --footer-image: url("/ui/footer-landscape.webp");
+  --hero-photo: url("/ui/hero-home.webp");
+  --people-photo: url("/ui/hero-catalog.webp");
+  --mountain-photo: url("/ui/banner-mountains-volny-vezde.webp");
+  --intro-photo: url("/ui/about-intro-surfer.webp");
+  --volcano-photo: url("/ui/feature-volcano-coast.webp");
+
+  /* --- semantic colours --- */
+  --page-bg: linear-gradient(112deg, #f8fdff 0%, #eafaff 90%);
+  --surface: #ffffff;
+  --surface-card: #f9fdff;
+  --surface-soft: #f1faff;
+  --surface-modal: #faffff;
+  --surface-glass: #ffffffc9;
+  --border-card: #d7f0fa;
+  --border-modal: #cdf0f8;
+  --border-input: #bfe1ee;
+  --border-strong: #85ceec;
+  --heading: #005481;
+  --ink-strong: #064c73;
+  --text-secondary: #4a7591;
+  --link: #0875a7;
+  /* one "selected" fill instead of the prototype's 13 near-identical blues (DESIGN_SYSTEM §1.2) */
+  --selected: #06709c;
+  --selected-soft: #e0f5ff;
+  --selected-border: #0390bd;
+  --primary-gradient: linear-gradient(115deg, #05648a, #0075a3);
+  --primary-gradient-hover: linear-gradient(115deg, #034968, #026389);
+  --focus-ring: #078ab8;
+  --focus-ring-alt: #f18daf;
+  --backdrop: #003f639a;
+  --toast-bg: #044f75;
+  --badge-bg: #f44667;
+
+  /* favourites / live accent */
+  --pink: #ec789c;
+  --pink-ink: #c24b73;
+  --pink-bg: #fff0f5;
+  --pink-border: #f7d4e1;
+  --gold: #f1aa39;
+  --rating-blue: #087eab;
+
+  /* status pairs: background / text (single vocabulary, SHO-05 / ATX-28) */
+  --st-info-bg: #e7f7ff;
+  --st-info-fg: #1f6f97;
+  --st-new-bg: #fff4dd;
+  --st-new-fg: #7f5d1b;
+  --st-ok-bg: #e3f6ed;
+  --st-ok-fg: #1b6f55;
+  --st-done-bg: #e8f0ff;
+  --st-done-fg: #33679c;
+  --st-muted-bg: #f3edf1;
+  --st-muted-fg: #7f5a6d;
+  --st-danger-bg: #fff6f7;
+  --st-danger-fg: #9b4f5f;
+  --st-danger-border: #f1d8d5;
+  --st-verified-bg: #def7f1;
+  --st-verified-fg: #137762;
+
+  /* --- geometry --- */
+  --radius-sm: 9px;
+  --radius-md: 11px;
+  --radius-lg: 12px;
+  --radius-xl: 17px;
+  --radius-pill: 28px;
+  --shadow-card: 0 4px 14px #1389b21e;
+  --shadow-modal: 0 20px 80px #002e4d67;
+  --shadow-toast: 0 8px 29px #04587d35;
+  --shadow-bar: 0 1px 9px #07689013;
+
+  /* --- layout --- */
+  --topbar-h: 72px;
+  --tabbar-h: 0px; /* becomes 60px on phones, see app.css (NAV-03, ATX-22) */
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-top: env(safe-area-inset-top, 0px);
+  --bottom-offset: calc(var(--tabbar-h) + var(--safe-bottom));
+
+  /* --- stacking --- */
+  --z-topbar: 30;
+  --z-sticky: 40;
+  --z-tabbar: 60;
+  --z-modal: 80;
+  --z-toast: 100;
+  --z-loader: 999;
+}
+
+@media (max-width: 810px) {
+  :root {
+    --topbar-h: 61px;
+    --tabbar-h: 60px;
+  }
+}
+
+@media (max-width: 540px) {
+  :root {
+    --topbar-h: 59px;
+  }
+}

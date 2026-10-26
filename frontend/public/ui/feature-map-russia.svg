@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Схематичная карта сёрф-спотов России">
+<defs>
+<linearGradient id="w" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#d6f0f8"/><stop offset="1" stop-color="#aee0ee"/></linearGradient>
+<linearGradient id="l" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#e8f3f1"/><stop offset="1" stop-color="#cfe3e6"/></linearGradient>
+<pattern id="g" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M60 0H0V60" fill="none" stroke="#ffffff" stroke-opacity=".55" stroke-width="1.5"/></pattern>
+</defs>
+<rect width="900" height="400" fill="url(#w)"/><rect width="900" height="400" fill="url(#g)"/>
+<g transform="translate(0 -20)"><path d="M32 40L120 48L150 92L220 67L277 109L332 91L386 111L454 75L518 114L579 96L638 133L685 114L767 143L824 124L887 173L870 236L816 221L778 281L726 267L673 301L618 283L566 337L509 311L466 360L405 321L363 358L309 312L261 333L213 297L156 310L123 267L85 260L69 199L26 160Z" fill="url(#l)" stroke="#8bc3d5" stroke-width="3"/>
+<path d="M140 130Q290 142 408 240T770 200" stroke="#b3ced7" stroke-width="6" fill="none" stroke-dasharray="2 16" opacity=".8"/></g>
+<path d="M0 372Q180 340 338 380T900 365" fill="none" stroke="#ffffff" stroke-width="10" opacity=".55"/>
+<path d="M150 236Q330 300 520 250T840 210" fill="none" stroke="#0a83ad" stroke-width="3" stroke-dasharray="7 9" opacity=".55"/>
+<g transform="translate(150 236) scale(1.0)"><path d="M0 0C-10-12-16-20-16-28a16 16 0 1 1 32 0C16-20 10-12 0 0Z" fill="#0a83ad" stroke="#ffffff" stroke-width="3"/><circle cx="0" cy="-28" r="6" fill="#fff"/></g><g transform="translate(300 300) scale(0.85)"><path d="M0 0C-10-12-16-20-16-28a16 16 0 1 1 32 0C16-20 10-12 0 0Z" fill="#0a83ad" stroke="#ffffff" stroke-width="3"/><circle cx="0" cy="-28" r="6" fill="#fff"/></g><g transform="translate(520 250) scale(1.0)"><path d="M0 0C-10-12-16-20-16-28a16 16 0 1 1 32 0C16-20 10-12 0 0Z" fill="#0a83ad" stroke="#ffffff" stroke-width="3"/><circle cx="0" cy="-28" r="6" fill="#fff"/></g><g transform="translate(700 262) scale(0.85)"><path d="M0 0C-10-12-16-20-16-28a16 16 0 1 1 32 0C16-20 10-12 0 0Z" fill="#0a83ad" stroke="#ffffff" stroke-width="3"/><circle cx="0" cy="-28" r="6" fill="#fff"/></g><g transform="translate(840 210) scale(1.0)"><path d="M0 0C-10-12-16-20-16-28a16 16 0 1 1 32 0C16-20 10-12 0 0Z" fill="#f86189" stroke="#ffffff" stroke-width="3"/><circle cx="0" cy="-28" r="6" fill="#fff"/></g>
+</svg>

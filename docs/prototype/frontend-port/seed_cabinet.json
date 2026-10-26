@@ -1,0 +1,1879 @@
+{
+ "_meta": {
+  "source": "docs/prototype/source/proto.html (unified account engine l.1121–1379, lesson system l.650–859, rentals l.860–953, main data l.427–452)",
+  "conventions": "English camelCase keys, original Russian strings. \"demo\": true marks synthetic records that must NOT become real data (TZ 12.2): reviews, requests/orders, messages, statistics, ratings, certificates, prices of sample listings.",
+  "images": "Image refs point to docs/prototype/source/img/imgNN.* (base64 in the original replaced). proto.html cabinet code embeds no base64 of its own; the shapers document embeds two data:image URIs — see shapers section / frontend-port/assets/shaper-*.",
+  "shapersSection": "Merged from the shapers-module extraction (SHAPERS_SCREENS.md).",
+  "sections": [
+   "account",
+   "surfer",
+   "instructor",
+   "school",
+   "rental",
+   "shapers",
+   "notifications",
+   "statistics",
+   "localStorageKeys"
+  ]
+ },
+ "account": {
+  "specialties": [
+   {
+    "id": "surfer",
+    "name": "Сёрфер",
+    "icon": "≋",
+    "description": "Дневник катания, любимые споты и клубная активность"
+   },
+   {
+    "id": "instructor",
+    "name": "Сёрф-инструктор",
+    "icon": "♧",
+    "description": "Календарь занятий, ученики, заявки и отзывы"
+   },
+   {
+    "id": "shaper",
+    "name": "Шейпер",
+    "icon": "◈",
+    "description": "Мастерская, доски, заявки, аренда и аналитика"
+   },
+   {
+    "id": "school",
+    "name": "Сёрф-школа",
+    "icon": "⌂",
+    "description": "Программы, расписание, команда и ученики"
+   },
+   {
+    "id": "rental",
+    "name": "Прокат",
+    "icon": "▤",
+    "description": "Снаряжение, доступность и заявки на аренду"
+   }
+  ],
+  "specialtyNotes": "Order = sidebar order. Toggled in «Мои направления»; rental also mirrors legacy user.rent. Admin/moderator are never in this list (TZ ACC-10).",
+  "generalNav": [
+   {
+    "id": "overview",
+    "icon": "⌂",
+    "label": "Обзор"
+   },
+   {
+    "id": "profile",
+    "icon": "◉",
+    "label": "Профиль"
+   },
+   {
+    "id": "inbox",
+    "icon": "✉",
+    "label": "Обращения"
+   },
+   {
+    "id": "bookings",
+    "icon": "▣",
+    "label": "Бронирования"
+   },
+   {
+    "id": "favorites",
+    "icon": "♡",
+    "label": "Избранное"
+   },
+   {
+    "id": "directions",
+    "icon": "⊕",
+    "label": "Мои направления"
+   },
+   {
+    "id": "settings",
+    "icon": "⚙",
+    "label": "Настройки"
+   }
+  ],
+  "generalNavMissingPerTZ": [
+   {
+    "id": "notifications",
+    "label": "Уведомления",
+    "tz": "ACC-02"
+   }
+  ],
+  "heroKicker": "Личный кабинет ГДеволна",
+  "registration": {
+   "primaryRoles": [
+    {
+     "id": "surfer",
+     "icon": "🏄",
+     "label": "Сёрфер"
+    },
+    {
+     "id": "instructor",
+     "icon": "♧",
+     "label": "Инструктор"
+    },
+    {
+     "id": "school",
+     "icon": "🏠",
+     "label": "Сёрф-школа"
+    }
+   ],
+   "primaryRolesMissingPerTZ": [
+    {
+     "id": "shaper",
+     "label": "Шейпер",
+     "tz": "ACC-01"
+    }
+   ],
+   "extraSpecialtiesRule": "all specialties except the primary one, surfer and rental (rental comes from the «Сдаю снаряжение в аренду» toggle)",
+   "regions": [
+    "Камчатский край",
+    "Крым",
+    "Сахалин",
+    "Ладожское озеро",
+    "Приморский край",
+    "Другой регион"
+   ],
+   "genders": [
+    {
+     "value": "female",
+     "label": "Женский"
+    },
+    {
+     "value": "male",
+     "label": "Мужской"
+    }
+   ],
+   "levels": [
+    "Начинающий",
+    "Средний",
+    "Продвинутый"
+   ],
+   "boards": [
+    "Лонгборд",
+    "Шортборд",
+    "Фанборд",
+    "Пока без своей"
+   ],
+   "interests": [
+    "Сёрфинг",
+    "Кемпинг",
+    "Сноуборд",
+    "Путешествия",
+    "Фотография",
+    "Походы",
+    "Шейпинг",
+    "Йога",
+    "Экология",
+    "Кофе у океана"
+   ],
+   "minInterests": 3,
+   "handlePattern": "[a-zA-Z0-9_]{3,24}",
+   "birthdayMax": "2026-10-19",
+   "ggMinAge": 18,
+   "documentAccept": ".pdf,.jpg,.jpeg,.png,.webp",
+   "documentMaxMB": 10
+  },
+  "profileForm": {
+   "regions": [
+    "Камчатский край",
+    "Крым",
+    "Приморский край",
+    "Сахалин",
+    "Ладожское озеро",
+    "Другой регион"
+   ],
+   "levels": [
+    "Начинающий",
+    "Средний",
+    "Продвинутый",
+    "Эксперт"
+   ],
+   "nameMaxLength": 90,
+   "boardMaxLength": 70,
+   "avatarAccept": [
+    "image/jpeg",
+    "image/png",
+    "image/webp"
+   ],
+   "avatarMaxMB": 1.5
+  },
+  "exampleUser": {
+   "name": "Саша Волнов",
+   "handle": "sasha_wave",
+   "region": "Камчатский край",
+   "level": "Средний",
+   "board": "Шортборд",
+   "role": "surfer",
+   "roles": [
+    "surfer",
+    "rental",
+    "instructor",
+    "shaper",
+    "school"
+   ],
+   "gg": true,
+   "rent": true,
+   "public": true,
+   "interests": [
+    "Сёрфинг",
+    "Кемпинг",
+    "Фотография"
+   ],
+   "documents": [],
+   "avatar": null,
+   "ggStatus": null,
+   "demo": true,
+   "_note": "Produced by the screenshot run, not embedded in the prototype. Shape of localStorage gg_user."
+  },
+  "ggStatusOptions": [
+   "Покажу споты",
+   "Ищу компанию",
+   "Могу подвезти"
+  ],
+  "ggStatusDefault": "Ищу компанию"
+ },
+ "surfer": {
+  "diarySpots": [
+   {
+    "id": "english",
+    "name": "Залив Англичанка"
+   },
+   {
+    "id": "halak",
+    "name": "Халактырский пляж"
+   },
+   {
+    "id": "ladoga",
+    "name": "Ладожские шхеры"
+   },
+   {
+    "id": "crimea",
+    "name": "Оленевка"
+   },
+   {
+    "id": "sakh",
+    "name": "Побережье Сахалина"
+   },
+   {
+    "id": "prim",
+    "name": "Побережье Приморья"
+   }
+  ],
+  "diaryNotesMaxLength": 450,
+  "diaryEntryShape": {
+   "id": "string (Date.now)",
+   "date": "YYYY-MM-DD",
+   "spot": "spot id",
+   "notes": "string ≤450"
+  },
+  "seedEntries": [],
+  "_note": "No diary data is embedded; entries are user-created."
+ },
+ "instructor": {
+  "standardSlots": [
+   "09:00",
+   "12:00",
+   "15:00"
+  ],
+  "defaultClosedWeekdays": {
+   "jsGetDay": [
+    1,
+    4
+   ],
+   "labels": [
+    "Пн",
+    "Чт"
+   ]
+  },
+  "bookingWindowDays": 91,
+  "calendarMonthsAhead": 2,
+  "weekdayLabels": [
+   "Пн",
+   "Вт",
+   "Ср",
+   "Чт",
+   "Пт",
+   "Сб",
+   "Вс"
+  ],
+  "monthNames": [
+   "январь",
+   "февраль",
+   "март",
+   "апрель",
+   "май",
+   "июнь",
+   "июль",
+   "август",
+   "сентябрь",
+   "октябрь",
+   "ноябрь",
+   "декабрь"
+  ],
+  "lessonFormats": [
+   "Индивидуальное",
+   "Вдвоём с другом",
+   "Групповое"
+  ],
+  "studentLevels": [
+   "Первое занятие",
+   "Начинающий",
+   "Средний",
+   "Продвинутый"
+  ],
+  "orderStatuses": {
+   "pending": "Ожидает ответа",
+   "accepted": "Подтверждено",
+   "completed": "Занятие завершено",
+   "declined": "Отклонено",
+   "cancelled": "Отменено"
+  },
+  "priceNote": "Стоимость — по договорённости с инструктором",
+  "firstCoachMessageOnAccept": {
+   "from": "coach",
+   "text": "Привет! Подтверждаю занятие. Давайте уточним детали встречи и снаряжение.",
+   "demo": true
+  },
+  "demoOrderTemplate": {
+   "id": "demo_<timestamp>",
+   "clientName": "Саша — тестовый ученик",
+   "clientKey": "demo_student",
+   "service": "Индивидуальное",
+   "level": "Первое занятие",
+   "note": "Буду в вашем регионе. Это тестовая заявка для проверки работы кабинета.",
+   "status": "pending",
+   "demo": true
+  },
+  "ownCardDefaults": {
+   "idPattern": "mine_<handle>",
+   "name": "Новый инструктор",
+   "region": "Камчатский край",
+   "students": "Начинающий, средний",
+   "experienceYears": 1,
+   "rating": "—",
+   "reviewsCount": 0,
+   "photoAssetKey": "p0",
+   "fact": "Очень люблю океан и хочу делиться этим чувством!",
+   "ggStatus": "Познакомимся",
+   "certificate": false,
+   "spotsByRegion": {
+    "Камчатский край": "Халактырский пляж, Авачинская бухта",
+    "Ладожское озеро": "Ладожские шхеры, бухта Кирьявалахти",
+    "Крым": "Балаклава, Судак",
+    "Сахалин": "Охотское море, Пильтун",
+    "Приморский край": "Русский остров",
+    "_fallback": "Споты уточняются"
+   }
+  },
+  "sampleInstructors": [
+   {
+    "id": "alex",
+    "name": "Алексей Морозов",
+    "region": "Камчатский край",
+    "town": "Петропавловск-Камчатский",
+    "spots": [
+     "Халактырский пляж",
+     "Авачинская бухта",
+     "Паратунка"
+    ],
+    "boards": [
+     "Шортборд",
+     "Лонгборд"
+    ],
+    "level": "Продвинутый",
+    "students": "Начинающий, средний",
+    "experienceYears": 8,
+    "rating": "4.9",
+    "reviewsCount": 24,
+    "photo": {
+     "assetKey": "p0",
+     "src": "img/img13.webp"
+    },
+    "fact": "Однажды поймал волну на фоне извержения вулкана. Это было страшно и невероятно красиво одновременно!",
+    "ggSurfer": true,
+    "ggStatus": "Покажу споты",
+    "certificate": true,
+    "mapPosition": {
+     "x": 80,
+     "y": 48
+    },
+    "demoPricePerLesson": 3800,
+    "demo": true,
+    "_demoNote": "Sample instructor (public catalogue seed, shared with the public-site docs). rating, reviewsCount, certificate and price are synthetic — never import as real (TZ 12.2)."
+   },
+   {
+    "id": "maria",
+    "name": "Мария Волкова",
+    "region": "Ладожское озеро",
+    "town": "Санкт-Петербург",
+    "spots": [
+     "Ладожские шхеры",
+     "бухта Кирьявалахти",
+     "Сортавала"
+    ],
+    "boards": [
+     "Лонгборд",
+     "Фанборд"
+    ],
+    "level": "Средний",
+    "students": "Начинающий, средний",
+    "experienceYears": 5,
+    "rating": "4.8",
+    "reviewsCount": 17,
+    "photo": {
+     "assetKey": "p1",
+     "src": "img/img14.webp"
+    },
+    "fact": "Обожаю кататься в снегу и на льду. Зимой на Ладоге можно поймать ледяную волну — это не только холодно, но и про кайф!",
+    "ggSurfer": true,
+    "ggStatus": "Ищу компанию",
+    "certificate": false,
+    "mapPosition": {
+     "x": 21,
+     "y": 36
+    },
+    "demoPricePerLesson": 2900,
+    "demo": true,
+    "_demoNote": "Sample instructor (public catalogue seed, shared with the public-site docs). rating, reviewsCount, certificate and price are synthetic — never import as real (TZ 12.2)."
+   },
+   {
+    "id": "dima",
+    "name": "Дмитрий Ковалев",
+    "region": "Крым",
+    "town": "Судак",
+    "spots": [
+     "Балаклава",
+     "Судак",
+     "Оленевка"
+    ],
+    "boards": [
+     "Шортборд",
+     "Лонгборд"
+    ],
+    "level": "Продвинутый",
+    "students": "Любой уровень",
+    "experienceYears": 7,
+    "rating": "5.0",
+    "reviewsCount": 32,
+    "photo": {
+     "assetKey": "p2",
+     "src": "img/img15.webp"
+    },
+    "fact": "Люблю сёрфить на рассвете. В Крыму это особенно волшебно — горы, море и полное безлюдье.",
+    "ggSurfer": true,
+    "ggStatus": "Могу подвезти",
+    "certificate": true,
+    "mapPosition": {
+     "x": 29,
+     "y": 67
+    },
+    "demoPricePerLesson": 3400,
+    "demo": true,
+    "_demoNote": "Sample instructor (public catalogue seed, shared with the public-site docs). rating, reviewsCount, certificate and price are synthetic — never import as real (TZ 12.2)."
+   },
+   {
+    "id": "katya",
+    "name": "Екатерина Соколова",
+    "region": "Сахалин",
+    "town": "Южно-Сахалинск",
+    "spots": [
+     "Пильтун",
+     "Охотское море",
+     "Южно-Сахалинск"
+    ],
+    "boards": [
+     "Шортборд",
+     "Фанборд"
+    ],
+    "level": "Продвинутый",
+    "students": "Начинающий, средний",
+    "experienceYears": 6,
+    "rating": "4.7",
+    "reviewsCount": 18,
+    "photo": {
+     "assetKey": "p3",
+     "src": "img/img16.webp"
+    },
+    "fact": "Сёрфинг — это не только про волны, но и про знакомства. На Сахалине я нашла лучших друзей именно в воде!",
+    "ggSurfer": true,
+    "ggStatus": "Покажу споты",
+    "certificate": false,
+    "mapPosition": {
+     "x": 75,
+     "y": 69
+    },
+    "demoPricePerLesson": 3200,
+    "demo": true,
+    "_demoNote": "Sample instructor (public catalogue seed, shared with the public-site docs). rating, reviewsCount, certificate and price are synthetic — never import as real (TZ 12.2)."
+   },
+   {
+    "id": "ivan",
+    "name": "Иван Петров",
+    "region": "Камчатский край",
+    "town": "Елизово",
+    "spots": [
+     "Авачинская бухта",
+     "Тихий океан"
+    ],
+    "boards": [
+     "Шортборд",
+     "Лонгборд"
+    ],
+    "level": "Продвинутый",
+    "students": "Средний, продвинутый",
+    "experienceYears": 10,
+    "rating": "4.9",
+    "reviewsCount": 26,
+    "photo": {
+     "assetKey": "p4",
+     "src": "img/img17.webp"
+    },
+    "fact": "У меня есть коллекция камней с пляжей Камчатки. Каждый — как сувенир с новой волны.",
+    "ggSurfer": true,
+    "ggStatus": "Могу подвезти",
+    "certificate": true,
+    "mapPosition": {
+     "x": 83,
+     "y": 53
+    },
+    "demoPricePerLesson": 3600,
+    "demo": true,
+    "_demoNote": "Sample instructor (public catalogue seed, shared with the public-site docs). rating, reviewsCount, certificate and price are synthetic — never import as real (TZ 12.2)."
+   },
+   {
+    "id": "anna",
+    "name": "Анна Лебедева",
+    "region": "Крым",
+    "town": "Севастополь",
+    "spots": [
+     "Новый Свет",
+     "Орджоникидзе",
+     "Кача"
+    ],
+    "boards": [
+     "Фанборд",
+     "Лонгборд"
+    ],
+    "level": "Средний",
+    "students": "Начинающий, средний",
+    "experienceYears": 5,
+    "rating": "4.8",
+    "reviewsCount": 21,
+    "photo": {
+     "assetKey": "p5",
+     "src": "img/img19.webp"
+    },
+    "fact": "В детстве мечтала стать вулканологом, а теперь изучаю волны. Наверное, всё дело в любви к стихии.",
+    "ggSurfer": false,
+    "ggStatus": "Ищу компанию",
+    "certificate": false,
+    "mapPosition": {
+     "x": 27,
+     "y": 65
+    },
+    "demoPricePerLesson": 2600,
+    "demo": true,
+    "_demoNote": "Sample instructor (public catalogue seed, shared with the public-site docs). rating, reviewsCount, certificate and price are synthetic — never import as real (TZ 12.2)."
+   }
+  ],
+  "sampleReviews": [
+   {
+    "instructorId": "alex",
+    "authorName": "Ксения",
+    "rating": 5,
+    "text": "Очень понятные объяснения, даже в холодной воде было спокойно и здорово.",
+    "caption": "Пример отзыва · дизайн-прототип",
+    "demo": true
+   },
+   {
+    "instructorId": "alex",
+    "authorName": "Михаил",
+    "rating": 5,
+    "text": "Понравился подход к новичкам и внимание к безопасности.",
+    "caption": "Пример отзыва · дизайн-прототип",
+    "demo": true
+   },
+   {
+    "instructorId": "maria",
+    "authorName": "Антон",
+    "rating": 5,
+    "text": "Потрясающая прогулка и занятие на Ладоге. Мария всё объяснила.",
+    "caption": "Пример отзыва · дизайн-прототип",
+    "demo": true
+   },
+   {
+    "instructorId": "dima",
+    "authorName": "Ольга",
+    "rating": 5,
+    "text": "Уважительный инструктор, помогла видеоразбором после занятия.",
+    "caption": "Пример отзыва · дизайн-прототип",
+    "demo": true
+   },
+   {
+    "instructorId": "katya",
+    "authorName": "Елена",
+    "rating": 5,
+    "text": "Сахалин теперь в сердце! Спасибо за терпение и душевный приём.",
+    "caption": "Пример отзыва · дизайн-прототип",
+    "demo": true
+   },
+   {
+    "instructorId": "ivan",
+    "authorName": "Сергей",
+    "rating": 5,
+    "text": "Про волны и безопасность Иван объясняет очень подробно.",
+    "caption": "Пример отзыва · дизайн-прототип",
+    "demo": true
+   },
+   {
+    "instructorId": "anna",
+    "authorName": "Юля",
+    "rating": 5,
+    "text": "Очень тёплая атмосфера и полезная практика.",
+    "caption": "Пример отзыва · дизайн-прототип",
+    "demo": true
+   }
+  ],
+  "reviewStarOptions": [
+   {
+    "value": 5,
+    "label": "★★★★★ Отлично!"
+   },
+   {
+    "value": 4,
+    "label": "★★★★☆ Хорошо"
+   },
+   {
+    "value": 3,
+    "label": "★★★☆☆ Нормально"
+   },
+   {
+    "value": 2,
+    "label": "★★☆☆☆ Не очень"
+   },
+   {
+    "value": 1,
+    "label": "★☆☆☆☆ Не понравилось"
+   }
+  ]
+ },
+ "school": {
+  "tabs": [
+   {
+    "id": "overview",
+    "label": "Обзор"
+   },
+   {
+    "id": "programs",
+    "label": "Программы"
+   },
+   {
+    "id": "schedule",
+    "label": "Расписание"
+   },
+   {
+    "id": "students",
+    "label": "Ученики"
+   },
+   {
+    "id": "team",
+    "label": "Команда"
+   },
+   {
+    "id": "analytics",
+    "label": "Аналитика"
+   },
+   {
+    "id": "profile",
+    "label": "Страница школы"
+   }
+  ],
+  "tabsMissingPerTZ": [
+   "Оборудование",
+   "Обращения",
+   "Отзывы"
+  ],
+  "programLevels": [
+   "Начинающий",
+   "Средний",
+   "Продвинутый",
+   "Любой уровень"
+  ],
+  "programDefaults": {
+   "duration": "90 минут"
+  },
+  "sessionDefaults": {
+   "time": "10:00",
+   "capacity": 5,
+   "capacityMin": 1,
+   "capacityMax": 500
+  },
+  "memberRoles": [
+   "Инструктор",
+   "Администратор расписания",
+   "Менеджер",
+   "Владелец"
+  ],
+  "memberAccessLabel": "Без доступа",
+  "studentStatuses": [
+   "Новая",
+   "Подтверждена",
+   "Завершено",
+   "Отменена"
+  ],
+  "emptySchool": {
+   "name": "",
+   "region": "<user.region>",
+   "description": "",
+   "contacts": "",
+   "spot": "",
+   "programs": [],
+   "sessions": [],
+   "members": [],
+   "students": []
+  },
+  "shapes": {
+   "program": {
+    "id": "str",
+    "name": "≤100",
+    "duration": "≤70",
+    "price": "number ≥0",
+    "level": "str",
+    "description": "≤600"
+   },
+   "session": {
+    "id": "str",
+    "programId": "str",
+    "date": "YYYY-MM-DD",
+    "time": "HH:MM",
+    "spot": "str",
+    "capacity": "1..500",
+    "coach": "member name (string, not id)"
+   },
+   "student": {
+    "id": "str",
+    "name": "str",
+    "contact": "str",
+    "programId": "str",
+    "status": "Новая|Подтверждена|Завершено|Отменена"
+   },
+   "member": {
+    "id": "str",
+    "name": "str",
+    "contact": "str",
+    "role": "str"
+   }
+  },
+  "seedData": null,
+  "_note": "No school demo records are embedded in the prototype; everything is created by the user. Screenshot examples (Kamchatka Surf School, «Первое знакомство с волной», Иван Петров, Ольга) were typed during capture and are not seed data."
+ },
+ "rental": {
+  "inventory": [
+   {
+    "id": "r1",
+    "title": "Лонгборд 9′2″ · Sea Glass",
+    "type": "Доска",
+    "region": "Камчатский край",
+    "town": "Петропавловск-Камчатский",
+    "size": "9′2″",
+    "pricePerDay": 1700,
+    "owner": "Алексей",
+    "info": "Устойчивая доска для первых длинных волн. Воск включён.",
+    "visual": "long",
+    "tone": "#b9dbe2",
+    "photo": {
+     "assetKey": "wave2",
+     "src": "img/img11.webp",
+     "note": "not shown on cards: cards use the SVG illustration rental-art-* (icons-cabinet.json)"
+    },
+    "demo": true
+   },
+   {
+    "id": "r2",
+    "title": "Гидрокостюм 5/4 мм",
+    "type": "Гидрокостюм",
+    "region": "Камчатский край",
+    "town": "Елизово",
+    "size": "M",
+    "pricePerDay": 900,
+    "owner": "Иван",
+    "info": "Тёплый костюм для прохладной воды. Размер M.",
+    "visual": "suit",
+    "tone": "#addbe9",
+    "photo": {
+     "assetKey": "p0",
+     "src": "img/img13.webp",
+     "note": "not shown on cards: cards use the SVG illustration rental-art-* (icons-cabinet.json)"
+    },
+    "demo": true
+   },
+   {
+    "id": "r3",
+    "title": "Шортборд 6′4″ · Blue Current",
+    "type": "Доска",
+    "region": "Крым",
+    "town": "Судак",
+    "size": "6′4″",
+    "pricePerDay": 1400,
+    "owner": "Дмитрий",
+    "info": "Манёвренная доска для уверенного катания.",
+    "visual": "short",
+    "tone": "#b0d7ef",
+    "photo": {
+     "assetKey": "wave",
+     "src": "img/img09.webp",
+     "note": "not shown on cards: cards use the SVG illustration rental-art-* (icons-cabinet.json)"
+    },
+    "demo": true
+   },
+   {
+    "id": "r4",
+    "title": "Гидрокостюм 4/3 мм",
+    "type": "Гидрокостюм",
+    "region": "Крым",
+    "town": "Севастополь",
+    "size": "S",
+    "pricePerDay": 750,
+    "owner": "Аня",
+    "info": "Мягкий неопрен и удобная посадка. Размер S.",
+    "visual": "suit",
+    "tone": "#c7d8e7",
+    "photo": {
+     "assetKey": "p2",
+     "src": "img/img15.webp",
+     "note": "not shown on cards: cards use the SVG illustration rental-art-* (icons-cabinet.json)"
+    },
+    "demo": true
+   },
+   {
+    "id": "r5",
+    "title": "Фанборд 7′6″ · North",
+    "type": "Доска",
+    "region": "Ладожское озеро",
+    "town": "Сортавала",
+    "size": "7′6″",
+    "pricePerDay": 1200,
+    "owner": "Мария",
+    "info": "Комфортный вариант для ветровой волны.",
+    "visual": "long",
+    "tone": "#a9c9de",
+    "photo": {
+     "assetKey": "wave2",
+     "src": "img/img11.webp",
+     "note": "not shown on cards: cards use the SVG illustration rental-art-* (icons-cabinet.json)"
+    },
+    "demo": true
+   },
+   {
+    "id": "r6",
+    "title": "Гидрокостюм 6/5 мм",
+    "type": "Гидрокостюм",
+    "region": "Сахалин",
+    "town": "Южно-Сахалинск",
+    "size": "L",
+    "pricePerDay": 1300,
+    "owner": "Екатерина",
+    "info": "Тёплый вариант для холодной воды.",
+    "visual": "suit",
+    "tone": "#b5cfdf",
+    "photo": {
+     "assetKey": "p3",
+     "src": "img/img16.webp",
+     "note": "not shown on cards: cards use the SVG illustration rental-art-* (icons-cabinet.json)"
+    },
+    "demo": true
+   },
+   {
+    "id": "r7",
+    "title": "Шортборд 5′10″ · Fox",
+    "type": "Доска",
+    "region": "Приморский край",
+    "town": "Владивосток",
+    "size": "5′10″",
+    "pricePerDay": 1600,
+    "owner": "Максим",
+    "info": "Для уверенных сёрферов и быстрых поворотов.",
+    "visual": "short",
+    "tone": "#d5dbe5",
+    "photo": {
+     "assetKey": "wave",
+     "src": "img/img09.webp",
+     "note": "not shown on cards: cards use the SVG illustration rental-art-* (icons-cabinet.json)"
+    },
+    "demo": true
+   },
+   {
+    "id": "r8",
+    "title": "Гидрокостюм 5/4 мм · XL",
+    "type": "Гидрокостюм",
+    "region": "Приморский край",
+    "town": "Владивосток",
+    "size": "XL",
+    "pricePerDay": 1100,
+    "owner": "Роман",
+    "info": "Размер XL, предварительная примерка.",
+    "visual": "suit",
+    "tone": "#c1e2e6",
+    "photo": {
+     "assetKey": "p4",
+     "src": "img/img17.webp",
+     "note": "not shown on cards: cards use the SVG illustration rental-art-* (icons-cabinet.json)"
+    },
+    "demo": true
+   }
+  ],
+  "listingTypes": [
+   "Доска",
+   "Гидрокостюм"
+  ],
+  "catalogFilters": {
+   "type": [
+    "Всё снаряжение",
+    "Доска",
+    "Гидрокостюм"
+   ],
+   "price": [
+    {
+     "value": "Любая цена",
+     "label": "Любая цена"
+    },
+    {
+     "value": "1000",
+     "label": "До 1 000 ₽"
+    },
+    {
+     "value": "1500",
+     "label": "До 1 500 ₽"
+    },
+    {
+     "value": "2000",
+     "label": "До 2 000 ₽"
+    }
+   ]
+  },
+  "ownListingDefaults": {
+   "tone": "#add7e9",
+   "visualByType": {
+    "Доска": "long",
+    "Гидрокостюм": "suit"
+   },
+   "img": "wave",
+   "priceMin": 1,
+   "priceMax": 50000,
+   "titleMax": 90,
+   "sizeMax": 15,
+   "infoMax": 250
+  },
+  "requestStatuses": {
+   "sent": "Отправлена",
+   "_other": "В обработке"
+  },
+  "requestShape": {
+   "id": "rr<ts>",
+   "rental": "listing id",
+   "title": "str",
+   "from": "YYYY-MM-DD",
+   "to": "YYYY-MM-DD",
+   "note": "≤500",
+   "client": "handle",
+   "status": "sent",
+   "demo": true
+  }
+ },
+ "shapers": {
+  "_meta": {
+   "source": "docs/prototype/source/shapers.html",
+   "generatedBy": "shapers fork",
+   "demoRule": "TZ 12.2 — every review, request, message, statistic, certificate below is demo:true and must NOT be imported as real records; shapers/models are seed candidates only after manual classification.",
+   "sourceLines": {
+    "IMG": 528,
+    "starterModels": 530,
+    "starterRequests": 531,
+    "otherShapers": 559,
+    "demoProfiles": 1047,
+    "demoInbox": 1131,
+    "articleTypeCodes": 709
+   }
+  },
+  "images": {
+   "logo": "img/img24.png",
+   "heroDashboardAndCatalog": "img/img22.webp",
+   "heroRegistrationUnused": "img/img21.webp",
+   "pageBottomLandscape": "img/img20.webp",
+   "dashPromoBackground": "img/img23.webp",
+   "workshopPhotosPreview": [
+    "img/img28.webp",
+    "img/img29.webp"
+   ],
+   "avatarFiles": [
+    "img/img25.jpg",
+    "img/img26.jpg",
+    "img/img27.jpg",
+    "img/img30.jpg"
+   ],
+   "legacyBoardRenders": [
+    "img/img31.png",
+    "img/img32.png",
+    "img/img33.png",
+    "img/img34.png",
+    "img/img35.png",
+    "img/img36.png"
+   ],
+   "legacyBoardRendersNote": "IMG.boards (340×600 PNG renders, transparent bg): index 0 longboard (wood), 1..5 other types. Since v4 imgFor() prefers the generated SVG silhouette by type (GVShapeData) — these PNGs are effectively unused except as fallbacks.",
+   "duplicates": "img20 = img23 = img29 (same file); img25 = img26 = img27 = img30 (same file)",
+   "base64InShapersHtml": "none (only two data:image/svg+xml URIs: select chevron and the generated board silhouettes, exported as frontend-port/assets/shaper-board-*.svg)"
+  },
+  "shapers": [
+   {
+    "id": "self",
+    "demo": true,
+    "slug": "kamchatka-boards",
+    "workshop": "Kamchatka Boards",
+    "person": "Иван Петров",
+    "firstName": "Иван",
+    "lastName": "Петров",
+    "region": "Камчатский край",
+    "city": "",
+    "about": null,
+    "aboutFallback": "Авторские доски для разных волн и стилей катания. Можно познакомиться с моделями и обсудить параметры.",
+    "experience": null,
+    "experienceFallback": "Не указан",
+    "specialization": [
+     "Шортборд"
+    ],
+    "specializationNote": "profile.types default selection; when profile.types is empty the public card falls back to the set of its models' types",
+    "services": {
+     "customOrders": true,
+     "rentalService": false,
+     "repairService": false
+    },
+    "leadTime": null,
+    "leadTimeFallback": "Уточняйте у мастера",
+    "delivery": [
+     "Самовывоз",
+     "Транспортная компания"
+    ],
+    "materials": [
+     "Стекловолокно",
+     "Карбон"
+    ],
+    "customMaterials": [],
+    "customTypes": [],
+    "priceFromRub": null,
+    "priceToRub": null,
+    "contacts": {
+     "phone": "",
+     "email": "",
+     "address": "",
+     "telegram": "",
+     "vk": "",
+     "youtube": "",
+     "website": ""
+    },
+    "avatar": {
+     "topbar": "img/img25.jpg",
+     "sidebar": "img/img26.jpg",
+     "profileForm": "img/img27.jpg",
+     "publicCard": "img/img30.jpg",
+     "note": "all four files are byte-identical (same demo portrait); after upload the photo is stored in localStorage gdevolna_shaper_files_v1 (JPEG data URL ≤950px) and replaces every .user-avatar"
+    },
+    "rating": {
+     "value": 4.9,
+     "count": 26,
+     "demo": true,
+     "note": "static text in the dashboard sidebar «★ 4.9 (26)»; not computed"
+    },
+    "promoVideo": null,
+    "shaperCode": "S?????",
+    "note": "This is the \"own\" workshop of the demo browser user. Before the profile form is submitted the UI shows these fallbacks (sideName «Иван Петров», sideCompany «Kamchatka Boards», catalog owner «Kamchatka Boards», region «Камчатский край»); the 4 starter models belong to it. data.profile is {} initially.",
+    "models": [
+     {
+      "id": 1,
+      "ownerId": "self",
+      "name": "Kamchatka Classic",
+      "type": "Лонгборд",
+      "length": "9’2”",
+      "dimensions": "22” × 2.8”",
+      "volumeL": 65,
+      "priceRub": 75000,
+      "status": "В наличии",
+      "material": null,
+      "finBox": null,
+      "description": null,
+      "sku": "GV-S?????-LNG-9P2-W2200-001",
+      "skuNote": "self shaper code is random per browser: \"S\"+5 base36 chars (articleMakerCode); serial = articleSeq = position 1..4",
+      "legacyBoardImageIndex": 0,
+      "legacyBoardImage": "img/img31.png",
+      "displayedPicture": "frontend-port/assets/shaper-board-longboard.svg",
+      "photos": [],
+      "video": null,
+      "stats": {
+       "views": 124,
+       "favorites": 18,
+       "demo": true
+      }
+     },
+     {
+      "id": 2,
+      "ownerId": "self",
+      "name": "Volcano",
+      "type": "Шортборд",
+      "length": "6’1”",
+      "dimensions": "18.5” × 2.4”",
+      "volumeL": 32,
+      "priceRub": 68000,
+      "status": "В наличии",
+      "material": null,
+      "finBox": null,
+      "description": null,
+      "sku": "GV-S?????-SHT-6P1-W1850-002",
+      "skuNote": "self shaper code is random per browser: \"S\"+5 base36 chars (articleMakerCode); serial = articleSeq = position 1..4",
+      "legacyBoardImageIndex": 2,
+      "legacyBoardImage": "img/img33.png",
+      "displayedPicture": "frontend-port/assets/shaper-board-shortboard.svg",
+      "photos": [],
+      "video": null,
+      "stats": {
+       "views": 96,
+       "favorites": 12,
+       "demo": true
+      }
+     },
+     {
+      "id": 3,
+      "ownerId": "self",
+      "name": "Pacific Fish",
+      "type": "Фиш",
+      "length": "5’8”",
+      "dimensions": "20.5” × 2.6”",
+      "volumeL": 38,
+      "priceRub": 62000,
+      "status": "Под заказ",
+      "material": null,
+      "finBox": null,
+      "description": null,
+      "sku": "GV-S?????-FSH-5P8-W2050-003",
+      "skuNote": "self shaper code is random per browser: \"S\"+5 base36 chars (articleMakerCode); serial = articleSeq = position 1..4",
+      "legacyBoardImageIndex": 4,
+      "legacyBoardImage": "img/img35.png",
+      "displayedPicture": "frontend-port/assets/shaper-board-fish.svg",
+      "photos": [],
+      "video": null,
+      "stats": {
+       "views": 87,
+       "favorites": 9,
+       "demo": true
+      }
+     },
+     {
+      "id": 4,
+      "ownerId": "self",
+      "name": "Lava Mid",
+      "type": "Фанборд",
+      "length": "7’0”",
+      "dimensions": "21.5” × 2.9”",
+      "volumeL": 48,
+      "priceRub": 69000,
+      "status": "Нет в наличии",
+      "material": null,
+      "finBox": null,
+      "description": null,
+      "sku": "GV-S?????-FUN-7P0-W2150-004",
+      "skuNote": "self shaper code is random per browser: \"S\"+5 base36 chars (articleMakerCode); serial = articleSeq = position 1..4",
+      "legacyBoardImageIndex": 5,
+      "legacyBoardImage": "img/img36.png",
+      "displayedPicture": "frontend-port/assets/shaper-board-funboard.svg",
+      "photos": [],
+      "video": null,
+      "stats": {
+       "views": 152,
+       "favorites": 26,
+       "demo": true
+      }
+     }
+    ]
+   },
+   {
+    "id": "k-1",
+    "demo": true,
+    "workshop": "Volna Craft",
+    "person": "Андрей Волков",
+    "region": "Приморский край",
+    "city": "",
+    "about": "Мастерская на побережье Японского моря. Создаём доски для спокойного круизинга, повседневных волн и индивидуальных задач райдера.",
+    "experience": "5–10 лет",
+    "specialization": [
+     "Лонгборд",
+     "Фиш"
+    ],
+    "services": {
+     "customOrders": true,
+     "rentalService": false,
+     "repairService": true
+    },
+    "leadTime": "2–4 недели",
+    "delivery": [
+     "Самовывоз",
+     "Транспортная компания"
+    ],
+    "materials": [
+     "Стекловолокно",
+     "Эпоксидная смола"
+    ],
+    "customTypes": [],
+    "contacts": null,
+    "contactsNote": "demo shapers expose no contacts (maker() returns phone/email/telegram only for self)",
+    "avatar": null,
+    "avatarNote": "no photo → initials circle (.gv-shaper-avatar) from person name: АВ",
+    "rating": null,
+    "promoVideo": null,
+    "shaperCode": "VLC01",
+    "models": [
+     {
+      "id": "e11",
+      "ownerId": "k-1",
+      "name": "Ocean Soul",
+      "type": "Лонгборд",
+      "length": "9’0”",
+      "dimensions": null,
+      "volumeL": 62,
+      "priceRub": 79000,
+      "status": "В наличии",
+      "material": null,
+      "finBox": null,
+      "description": null,
+      "sku": "GV-VLC01-LNG-9P0-WNA-001",
+      "legacyBoardImageIndex": 0,
+      "legacyBoardImage": "img/img31.png",
+      "displayedPicture": "frontend-port/assets/shaper-board-longboard.svg",
+      "photos": [],
+      "video": null,
+      "stats": {
+       "views": 0,
+       "favorites": 0,
+       "demo": true
+      }
+     },
+     {
+      "id": "e12",
+      "ownerId": "k-1",
+      "name": "Marea Fish",
+      "type": "Фиш",
+      "length": "5’7”",
+      "dimensions": null,
+      "volumeL": 35,
+      "priceRub": 61000,
+      "status": "Под заказ",
+      "material": null,
+      "finBox": null,
+      "description": null,
+      "sku": "GV-VLC01-FSH-5P7-WNA-002",
+      "legacyBoardImageIndex": 4,
+      "legacyBoardImage": "img/img35.png",
+      "displayedPicture": "frontend-port/assets/shaper-board-fish.svg",
+      "photos": [],
+      "video": null,
+      "stats": {
+       "views": 0,
+       "favorites": 0,
+       "demo": true
+      }
+     }
+    ]
+   },
+   {
+    "id": "k-2",
+    "demo": true,
+    "workshop": "Baltic Surf Lab",
+    "person": "Евгения Сергеева",
+    "region": "Калининградская область",
+    "city": "",
+    "about": "Небольшая мастерская в Калининградской области. Работаем над сбалансированными шейпами и подбираем размеры под стиль и опыт сёрфера.",
+    "experience": "3–5 лет",
+    "specialization": [
+     "Шортборд",
+     "Фанборд"
+    ],
+    "services": {
+     "customOrders": true,
+     "rentalService": false,
+     "repairService": false
+    },
+    "leadTime": "1–2 месяца",
+    "delivery": [
+     "Самовывоз",
+     "Транспортная компания"
+    ],
+    "materials": [
+     "Карбон",
+     "Стекловолокно"
+    ],
+    "customTypes": [],
+    "contacts": null,
+    "contactsNote": "demo shapers expose no contacts (maker() returns phone/email/telegram only for self)",
+    "avatar": null,
+    "avatarNote": "no photo → initials circle (.gv-shaper-avatar) from person name: ЕС",
+    "rating": null,
+    "promoVideo": null,
+    "shaperCode": "BSL02",
+    "models": [
+     {
+      "id": "e21",
+      "ownerId": "k-2",
+      "name": "Baltic Blue",
+      "type": "Шортборд",
+      "length": "6’2”",
+      "dimensions": null,
+      "volumeL": 34,
+      "priceRub": 67500,
+      "status": "В наличии",
+      "material": null,
+      "finBox": null,
+      "description": null,
+      "sku": "GV-BSL02-SHT-6P2-WNA-001",
+      "legacyBoardImageIndex": 2,
+      "legacyBoardImage": "img/img33.png",
+      "displayedPicture": "frontend-port/assets/shaper-board-shortboard.svg",
+      "photos": [],
+      "video": null,
+      "stats": {
+       "views": 0,
+       "favorites": 0,
+       "demo": true
+      }
+     },
+     {
+      "id": "e22",
+      "ownerId": "k-2",
+      "name": "White Coast",
+      "type": "Фанборд",
+      "length": "7’4”",
+      "dimensions": null,
+      "volumeL": 49,
+      "priceRub": 72000,
+      "status": "Под заказ",
+      "material": null,
+      "finBox": null,
+      "description": null,
+      "sku": "GV-BSL02-FUN-7P4-WNA-002",
+      "legacyBoardImageIndex": 3,
+      "legacyBoardImage": "img/img34.png",
+      "displayedPicture": "frontend-port/assets/shaper-board-funboard.svg",
+      "photos": [],
+      "video": null,
+      "stats": {
+       "views": 0,
+       "favorites": 0,
+       "demo": true
+      }
+     }
+    ]
+   },
+   {
+    "id": "k-3",
+    "demo": true,
+    "workshop": "Сахалинские доски",
+    "person": "Михаил Ким",
+    "region": "Сахалинская область",
+    "city": "",
+    "about": "Доски для северных побережий: устойчивость, прочность и внимание к деталям. Делаем SUP и помогаем с подбором под условия катания.",
+    "experience": "Более 10 лет",
+    "specialization": [
+     "SUP"
+    ],
+    "services": {
+     "customOrders": false,
+     "rentalService": false,
+     "repairService": true
+    },
+    "leadTime": "По договорённости",
+    "delivery": [
+     "Самовывоз"
+    ],
+    "materials": [
+     "Стекловолокно",
+     "EPS / PU"
+    ],
+    "customTypes": [],
+    "contacts": null,
+    "contactsNote": "demo shapers expose no contacts (maker() returns phone/email/telegram only for self)",
+    "avatar": null,
+    "avatarNote": "no photo → initials circle (.gv-shaper-avatar) from person name: МК",
+    "rating": null,
+    "promoVideo": null,
+    "shaperCode": "KSP03",
+    "models": [
+     {
+      "id": "e31",
+      "ownerId": "k-3",
+      "name": "North Point",
+      "type": "SUP",
+      "length": "10’0”",
+      "dimensions": null,
+      "volumeL": 160,
+      "priceRub": 93000,
+      "status": "В наличии",
+      "material": null,
+      "finBox": null,
+      "description": null,
+      "sku": "GV-KSP03-SUP-10P0-WNA-001",
+      "legacyBoardImageIndex": 4,
+      "legacyBoardImage": "img/img35.png",
+      "displayedPicture": "frontend-port/assets/shaper-board-sup.svg",
+      "photos": [],
+      "video": null,
+      "stats": {
+       "views": 0,
+       "favorites": 0,
+       "demo": true
+      }
+     }
+    ]
+   }
+  ],
+  "requests": [
+   {
+    "id": 1,
+    "demo": true,
+    "direction": "incoming",
+    "ownerId": "self",
+    "clientName": "Алексей Смирнов",
+    "title": "Индивидуальный заказ",
+    "kind": null,
+    "kindDisplayFallback": "Запрос",
+    "text": "Добрый день! Интересует изготовление шортборда под мой рост...",
+    "createdAgo": "2 часа назад",
+    "status": "Новая",
+    "amountRub": null,
+    "contact": null,
+    "modelId": null,
+    "statusLog": []
+   },
+   {
+    "id": 2,
+    "demo": true,
+    "direction": "incoming",
+    "ownerId": "self",
+    "clientName": "Мария Ковалёва",
+    "title": "Вопрос о модели",
+    "kind": null,
+    "kindDisplayFallback": "Запрос",
+    "text": "Здравствуйте! Есть ли возможность сделать доску по другим параметрам?",
+    "createdAgo": "1 день назад",
+    "status": "В работе",
+    "amountRub": null,
+    "contact": null,
+    "modelId": null,
+    "statusLog": []
+   },
+   {
+    "id": 3,
+    "demo": true,
+    "direction": "incoming",
+    "ownerId": "self",
+    "clientName": "Дмитрий Волков",
+    "title": "Pacific Fish",
+    "kind": null,
+    "kindDisplayFallback": "Запрос",
+    "text": "Интересует ваша модель Pacific Fish. Можно ли заказать с другим плавником?",
+    "createdAgo": "1 день назад",
+    "status": "Новая",
+    "amountRub": null,
+    "contact": null,
+    "modelId": null,
+    "statusLog": []
+   }
+  ],
+  "inbox": [
+   {
+    "id": "in-alexey",
+    "demo": true,
+    "person": "Алексей Смирнов",
+    "preview": "Здравствуйте! Интересует изготовление шортборда...",
+    "unread": 2,
+    "messages": [
+     {
+      "fromMe": false,
+      "text": "Здравствуйте! Интересует изготовление шортборда под мой рост.",
+      "demo": true
+     },
+     {
+      "fromMe": false,
+      "text": "Можно ли подобрать объём и обсудить сроки?",
+      "demo": true
+     }
+    ]
+   },
+   {
+    "id": "in-maria",
+    "demo": true,
+    "person": "Мария Ковалёва",
+    "preview": "Какая цена за модель Volcano?",
+    "unread": 1,
+    "messages": [
+     {
+      "fromMe": false,
+      "text": "Здравствуйте! Какая цена за модель Volcano?",
+      "demo": true
+     }
+    ]
+   }
+  ],
+  "demoChatTemplates": {
+   "demo": true,
+   "legacyFirstMessage": "Здравствуйте! Буду рад обсудить детали заказа.",
+   "orderThreadFallbackFirstMessage": "Здравствуйте! Напишите здесь свои вопросы о заказе.",
+   "orderThreadSeedOnOpen": "order.text || «Здравствуйте! Интересует эта модель.»",
+   "orderThreadSeedOnAccept": "order.text || «Хочу уточнить детали заказа»",
+   "newOrderDefaultText": "Хочу уточнить детали заказа",
+   "testIncoming": {
+    "names": [
+     "Анна Морозова",
+     "Пётр Иванов",
+     "Никита Белов",
+     "Дарья Ковалёва"
+    ],
+    "pick": "names[data.inbox.length % 4]",
+    "template": "Здравствуйте! Подскажите, можно ли обсудить ${data.models[0]?.name||\"доске\"} и сроки изготовления?",
+    "unread": 1
+   }
+  },
+  "reviews": [
+   {
+    "id": "demo-review-1",
+    "demo": true,
+    "author": "Алексей",
+    "authorAvatar": "img/img30.jpg",
+    "rating": 5,
+    "text": "Классная доска, всё выполнено аккуратно. Спасибо!",
+    "note": "static markup in panel «Отзывы»; footnote «Пример отзыва. Реальные отзывы будут доступны после подтверждённых заказов.»"
+   }
+  ],
+  "certificates": {
+   "demo": true,
+   "items": [],
+   "note": "certificate upload only shows chosen file names; nothing stored"
+  },
+  "statistics": {
+   "demo": true,
+   "staticLegacyStrip": {
+    "countBoards": 4,
+    "countOrders": 3,
+    "gvSummaryViews": "1 245",
+    "gvSummaryFinished": "4.9",
+    "soldCount": 0,
+    "rentCount": 0,
+    "revenue": "0 ₽",
+    "note": "hidden #gvLegacyStatNodes markup; some values are overwritten at runtime (countBoards, countOrders, gvSummaryViews, gvSummaryFinished, sold/rent/revenue)"
+   },
+   "sidebarRating": "4.9 (26)",
+   "bookingsNavBadge": "1 (static, no data behind it)",
+   "modelViewsAndFavorites": "starterModels.views/hearts = 124/18, 96/12, 87/9, 152/26 — demo values; views +1 per «Фото и параметры» open of an own model"
+  },
+  "notifications": {
+   "demo": true,
+   "items": [],
+   "note": "No notification records exist. Badges are computed client-side: unread = Σ inbox[].unread; fresh = requests with status «Новая»; sent = data.gvUnseenOutgoing.length (ids of outgoing orders created since the last visit of «Мои исходящие заявки»). Topbar badge #gvTopNotice = unread+fresh+sent (99+ cap); side «Обращения» = unread+fresh; «Мои исходящие заявки» = sent; tab «Входящие заявки · fresh»; tab «Чаты · unread».",
+   "settings": [
+    {
+     "label": "Получать уведомления о новых заявках",
+     "default": true
+    },
+    {
+     "label": "Показывать мастерскую в каталоге",
+     "default": true
+    }
+   ],
+   "settingsNote": "checkboxes are not wired to anything"
+  },
+  "options": {
+   "profileRegions": [
+    "Камчатский край",
+    "Приморский край",
+    "Сахалинская область",
+    "Калининградская область",
+    "Краснодарский край",
+    "Республика Крым",
+    "Ленинградская область",
+    "Москва и Московская область",
+    "Другой регион"
+   ],
+   "experience": [
+    "Менее года",
+    "1–3 года",
+    "3–5 лет",
+    "5–10 лет",
+    "Более 10 лет"
+   ],
+   "leadTime": [
+    "До 2 недель",
+    "2–4 недели",
+    "1–2 месяца",
+    "2–3 месяца",
+    "По договорённости"
+   ],
+   "delivery": [
+    {
+     "value": "Самовывоз",
+     "default": true
+    },
+    {
+     "value": "Транспортная компания",
+     "default": true
+    },
+    {
+     "value": "Почта России",
+     "default": false
+    },
+    {
+     "value": "Международная доставка",
+     "default": false
+    }
+   ],
+   "materials": [
+    {
+     "value": "Стекловолокно",
+     "default": true
+    },
+    {
+     "value": "Карбон",
+     "default": true
+    },
+    {
+     "value": "Эпоксидная смола"
+    },
+    {
+     "value": "Полиэфирная смола"
+    },
+    {
+     "value": "Деревянный шпон"
+    },
+    {
+     "value": "Био-смола"
+    },
+    {
+     "value": "EPS / PU"
+    }
+   ],
+   "boardTypes": [
+    "Лонгборд",
+    "Шортборд",
+    "Фанборд",
+    "Фиш",
+    "Ган",
+    "SUP",
+    "Кастом"
+   ],
+   "boardTypesNote": "«Ган» inserted at runtime before SUP; the static catalog filter markup lacks «Ган» but updateModelTypes() rebuilds it from types+custom+profile types+demo model types",
+   "boardTypeSkuCodes": {
+    "Лонгборд": "LNG",
+    "Шортборд": "SHT",
+    "Фанборд": "FUN",
+    "Фиш": "FSH",
+    "Ган": "GUN",
+    "SUP": "SUP",
+    "Кастом": "CST"
+   },
+   "unknownTypeSkuCode": "\"X\" + last 3 chars of base36(hash31(type)), padded",
+   "boardTypeDeckColors": {
+    "Фиш": "#28acc4",
+    "Лонгборд": "#c69b64",
+    "Ган": "#4386b3",
+    "Шортборд": "#ece9de",
+    "SUP": "#7bc8d0",
+    "Фанборд": "#b3d9e9",
+    "Кастом": "#b3d9e9"
+   },
+   "boardTypeLegacyPictureIndex": {
+    "Лонгборд": 0,
+    "Шортборд": 1,
+    "Фанборд": 2,
+    "Фиш": 3,
+    "Ган": 1,
+    "SUP": 4,
+    "Кастом": 5
+   },
+   "modelStatuses": [
+    {
+     "value": "В наличии",
+     "cssClass": "available",
+     "colors": {
+      "bg": "#e7f9eb",
+      "fg": "#178145"
+     }
+    },
+    {
+     "value": "Под заказ",
+     "cssClass": "made",
+     "colors": {
+      "bg": "#fcf4df",
+      "fg": "#8d5a09"
+     }
+    },
+    {
+     "value": "Нет в наличии",
+     "cssClass": "none",
+     "colors": {
+      "bg": "#fcecec",
+      "fg": "#bf4953"
+     }
+    }
+   ],
+   "finBox": [
+    "FCS II",
+    "FCS I",
+    "Futures",
+    "US Box",
+    "Single Fin",
+    "2+1",
+    "Thruster",
+    "Quad",
+    "Без закладных"
+   ],
+   "catalogBuyerRoles": [
+    {
+     "value": "Сёрфер",
+     "label": "Сёрфер"
+    },
+    {
+     "value": "Инструктор",
+     "label": "Сёрф-инструктор"
+    },
+    {
+     "value": "Школа",
+     "label": "Сёрф-школа"
+    },
+    {
+     "value": "Шейпер",
+     "label": "Шейпер (мой аккаунт)"
+    }
+   ],
+   "orderKinds": [
+    {
+     "value": "Покупка",
+     "label": "Покупка"
+    },
+    {
+     "value": "Аренда",
+     "label": "Аренда (если доступна)",
+     "enabledWhen": "only for own workshop with rentalService (i.e. effectively never — own boards cannot be ordered once registered)"
+    }
+   ],
+   "requestStatuses": [
+    {
+     "value": "Новая",
+     "badgeClass": "",
+     "colors": {
+      "bg": "#e7f5ff",
+      "fg": "#127cb7"
+     },
+     "tz": "new"
+    },
+    {
+     "value": "В работе",
+     "badgeClass": "pending",
+     "colors": {
+      "bg": "#eaf6ff",
+      "fg": "#2d769a"
+     },
+     "tz": "in_progress"
+    },
+    {
+     "value": "Завершена",
+     "badgeClass": "status-done",
+     "colors": {
+      "bg": "#e5f8ef",
+      "fg": "#136d52"
+     },
+     "tz": "completed"
+    },
+    {
+     "value": "Отклонена",
+     "badgeClass": "status-cancel",
+     "colors": {
+      "bg": "#ffeef0",
+      "fg": "#a44d5b"
+     },
+     "tz": "declined"
+    },
+    {
+     "value": "Отменена",
+     "badgeClass": "status-cancel",
+     "colors": {
+      "bg": "#ffeef0",
+      "fg": "#a44d5b"
+     },
+     "tz": "cancelled"
+    }
+   ],
+   "customTypeExamples": [
+    "мини-малибу",
+    "софтборд"
+   ],
+   "limits": {
+    "aboutMaxChars": 1000,
+    "workshopMaxChars": 90,
+    "workPhotosMax": 10,
+    "boardPhotosMax": 10,
+    "boardPhotoMaxMB": 15,
+    "boardPhotoResizePx": 1200,
+    "boardPhotoJpegQuality": 0.84,
+    "videoMaxMB": 80,
+    "chatPhotoMaxMB": 10,
+    "chatPhotoTypes": [
+     "image/jpeg",
+     "image/png",
+     "image/webp"
+    ],
+    "avatarResizePx": 950,
+    "avatarJpegQuality": 0.82,
+    "customTypeMaxChars": 35,
+    "customMaterialMaxChars": 50,
+    "volumeL": {
+     "min": 0,
+     "max": 300
+    },
+    "priceRub": {
+     "min": 1
+    },
+    "phoneMask": "+7 XXX XXX XX XX",
+    "phonePattern": "\\+7 \\d{3} \\d{3} \\d{2} \\d{2}"
+   }
+  },
+  "localStorageSchema": {
+   "gdevolna_shaper_demo_v1": {
+    "profile": "{workshop,first,last,region,city,experience,about,leadTime,priceFrom,priceTo,phone,email,address,telegram,vk,youtube,website,delivery[],types[],materials[],customOrders,rentalService,repairService,promoVideoId,shaperCode}",
+    "models": "[{id,name,type,length,dimensions,volume,price,status,material,description,finBox,board,views,hearts,article,articleSeq,legacyArticle?,photo?,photoIds[],videoId}]",
+    "requests": "[{id,name,title,text,ago,status,kind?,amount?,contact?,modelId?,ownerId?,ownerName?,role?,statusLog[]}]",
+    "outgoing": "[same shape as request]",
+    "chat": "{ \"<personName>\" | \"order-<id>\": [{me,text,photoId?,at?}] }",
+    "inbox": "[{id,person,preview,unread,messages[]}]",
+    "custom": "[custom board types]",
+    "customMaterials": "[...]",
+    "articleCounter": "number",
+    "gvUnseenOutgoing": "[orderId]"
+   },
+   "gdevolna_shaper_files_v1": "avatar JPEG data URL",
+   "indexedDB gdevolna_shaper_media_v2 / store \"files\"": "{blob,kind:\"board-photo\"|\"board-video\"|\"promo\"|\"chat-photo\",added} keyed by \"gv-<ts36>-<rand>\" / \"gv-chat-<ts36>-<rand>\""
+  }
+ },
+ "notifications": {
+  "_note": "The unified cabinet has no notifications screen (TZ ACC-02 requires one). The only notification feed is in the shapers module: see shapers.notifications."
+ },
+ "statistics": {
+  "_note": "Cabinet stat tiles are computed client-side from localStorage arrays; no statistic values are embedded in the cabinet code. Shaper statistics with demo numbers: see shapers.statistics.",
+  "demo": true
+ },
+ "localStorageKeys": {
+  "gg_user": "current demo user (see account.exampleUser)",
+  "gg_favorites": "[\"spot:<id>\",\"person:<id>\",\"rental:<id>\"]",
+  "gg_orders_v2": "lesson orders (client + provider mixed) — demo",
+  "gg_chats_v2": "conversations {id:\"<type>:<target>:<orderId>\",target,type:\"gg\"|\"lesson\",orderId,messages[{from,text,created}]} — demo",
+  "gg_reviews_v2": "lesson reviews {orderId,personId,name,rating,text} — demo",
+  "gg_availability_v3": "{[personId]:{[date]:{closed,slots[]}}}",
+  "gg_profile_extras_v3": "{[\"mine_<handle>\"]:{name,town,spots,students,exp,bio}}",
+  "gg_rent_listings_premium": "own rental listings",
+  "gg_rent_orders_premium": "outgoing rental requests — demo",
+  "gv_unified_school_<handle>": "school organisation object",
+  "gv_unified_diary_<handle>": "surfer diary",
+  "gdevolna_shaper_demo_v1": "shaper module state (models, requests, profile…)",
+  "gdevolna_shaper_files_v1": "shaper module media (data URLs)",
+  "gg_stream_v2": "public home stream URL (not cabinet)"
+ }
+}

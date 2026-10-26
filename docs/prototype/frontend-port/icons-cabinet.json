@@ -1,0 +1,769 @@
+{
+ "_meta": {
+  "description": "Every distinct inline SVG icon used by the unified cabinet (proto.html) and the shapers module (shapers.html). Format: {name: {viewBox, attrs, inner, source, note?, module}}. Render as <svg viewBox=… {attrs}>{inner}</svg>. Sprite icons i-* get their stroke styling from CSS .ic (see note on each).",
+  "modules": {
+   "cabinet": "proto.html — header account entry, select chevrons, shared small icons, rental art",
+   "shapers": "shapers.html — <symbol> sprite (i-*), generated board silhouettes (board-*, also exported as frontend-port/assets/shaper-board-*.svg), select chevron"
+  },
+  "glyphs": "Many cabinet/shaper icons are Unicode glyphs, not SVG — see _glyphs. TZ UX-04: replace them by one SVG set with equal stroke width.",
+  "notIncluded": "Public-only SVGs (loader-art, empty-surfers, gg-schematic-land, wind-rose, welcome sticker…) live in frontend-port/icons.json.",
+  "duplicatesOfPublicIcons": {
+   "header-search": "search",
+   "header-heart": "heart",
+   "header-messages": "chat",
+   "header-account-user": "user",
+   "board-outline": "board",
+   "level-bars": "level",
+   "map-pin": "map-pin",
+   "select-chevron-global": "select-chevron",
+   "rental-art-wetsuit": "rental-wetsuit",
+   "rental-art-board-long": "rental-board-long",
+   "rental-art-board-short": "rental-board-short",
+   "_note": "Same markup as the public icons.json entries (cabinet copy kept for self-containment) — ship one copy."
+  }
+ },
+ "header-search": {
+  "viewBox": "0 0 24 24",
+  "attrs": {
+   "fill": "none",
+   "stroke-width": "2"
+  },
+  "inner": "<circle cx=\"10.8\" cy=\"10.8\" r=\"7.1\"/><path d=\"m16 16 5 5\"/>",
+  "source": "proto.html:424 .navtools [data-action=search]",
+  "note": "stroke = currentColor via .square-btn svg{stroke:currentColor}; 21×21 in header",
+  "module": "cabinet"
+ },
+ "header-heart": {
+  "viewBox": "0 0 24 24",
+  "attrs": {
+   "fill": "none",
+   "stroke-width": "2"
+  },
+  "inner": "<path d=\"M20.8 4.7a5.4 5.4 0 0 0-7.6 0L12 5.9l-1.2-1.2a5.4 5.4 0 0 0-7.6 7.6L12 21l8.8-8.7a5.4 5.4 0 0 0 0-7.6Z\"/>",
+  "source": "proto.html:424 .navtools [data-action=favorites]",
+  "note": "Favorites; red .count badge = favorites.length (hidden when 0)",
+  "module": "cabinet"
+ },
+ "header-messages": {
+  "viewBox": "0 0 24 24",
+  "attrs": {
+   "fill": "none",
+   "stroke": "currentColor",
+   "stroke-width": "1.8"
+  },
+  "inner": "<path d=\"M4 5.5h16v11H9l-5 4z\"/><path d=\"M7 9h10M7 12h7\"/>",
+  "source": "proto.html:424 .navtools [data-action=inbox]",
+  "note": "Messages; red .count badge = chats.length (only when logged in and >0)",
+  "module": "cabinet"
+ },
+ "header-account-user": {
+  "viewBox": "0 0 24 24",
+  "attrs": {
+   "width": "18",
+   "height": "18",
+   "fill": "none",
+   "stroke": "currentColor",
+   "stroke-width": "1.8",
+   "stroke-linecap": "round",
+   "stroke-linejoin": "round"
+  },
+  "inner": "<circle cx=\"12\" cy=\"8\" r=\"3.4\"/><path d=\"M4.7 20v-2.2a7.3 7.3 0 0 1 14.6 0V20\"/>",
+  "source": "proto.html:424 .line-btn[data-action=account]",
+  "note": "Generic person glyph next to «Войти»/«Кабинет». The prototype never shows the user photo in the header.",
+  "module": "cabinet"
+ },
+ "select-chevron-account": {
+  "viewBox": "0 0 12 8",
+  "attrs": {},
+  "inner": "<path d=\"M1 1 6 6 11 1\" fill=\"none\" stroke=\"#2c7299\" stroke-width=\"1.6\" stroke-linecap=\"round\"/>",
+  "source": "proto.html:376 .gv-ac-form select background-image (data URI)",
+  "note": "Rendered 10×7 px at right 11px center; reserve padding-right:31px (UX-06)",
+  "module": "cabinet"
+ },
+ "select-chevron-global": {
+  "viewBox": "0 0 12 8",
+  "attrs": {
+   "width": "12",
+   "height": "8"
+  },
+  "inner": "<path fill=\"none\" stroke=\"#2b7b9e\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"m1 1 5 5 5-5\"/>",
+  "source": "proto.html:966 #app select, .modal select (gv-full-mobile-v9, data URI)",
+  "note": "11×8 px at right 10px center, padding-right:30px",
+  "module": "cabinet"
+ },
+ "board-outline": {
+  "viewBox": "0 0 28 28",
+  "attrs": {
+   "width": "24",
+   "height": "24",
+   "fill": "none",
+   "stroke": "currentColor",
+   "stroke-width": "1.7"
+  },
+  "inner": "<path d=\"M14 2.8C7 8 9 20.2 14 25.2c5-5 7-17.2 0-22.4Z\"/><path d=\"M14 7v14\"/>",
+  "source": "proto.html:617 ICONS.board",
+  "note": "Generic surfboard outline (public cards).",
+  "module": "cabinet"
+ },
+ "level-bars": {
+  "viewBox": "0 0 28 28",
+  "attrs": {
+   "width": "24",
+   "height": "24",
+   "fill": "none",
+   "stroke": "currentColor",
+   "stroke-width": "1.7"
+  },
+  "inner": "<rect x=\"3\" y=\"17\" width=\"5\" height=\"8\" rx=\"1\"/><rect x=\"11.5\" y=\"11\" width=\"5\" height=\"14\" rx=\"1\"/><rect x=\"20\" y=\"4\" width=\"5\" height=\"21\" rx=\"1\"/>",
+  "source": "proto.html:617 ICONS.level",
+  "note": "Skill level bars (public cards).",
+  "module": "cabinet"
+ },
+ "map-pin": {
+  "viewBox": "0 0 24 24",
+  "attrs": {
+   "width": "14",
+   "height": "14",
+   "fill": "none",
+   "stroke": "currentColor",
+   "stroke-width": "2"
+  },
+  "inner": "<path d=\"M12 22s-7-7.8-7-12a7 7 0 1 1 14 0c0 4.2-7 12-7 12Z\"/><circle cx=\"12\" cy=\"10\" r=\"2.4\"/>",
+  "source": "proto.html:617 ICONS.pin",
+  "note": "Region pin; used in instructor modal header (.lesson-place) opened from cabinet «Посмотреть как ученик →».",
+  "module": "cabinet"
+ },
+ "rental-art-wetsuit": {
+  "viewBox": "0 0 160 230",
+  "attrs": {
+   "aria-hidden": "true"
+  },
+  "inner": "<defs><linearGradient id=\"neo\" x1=\"0\" x2=\"1\"><stop stop-color=\"#0c324c\"/><stop offset=\"1\" stop-color=\"#28658a\"/></linearGradient></defs><path d=\"M55 32Q80 15 105 32L127 60 149 92 128 107 107 80 102 121 116 202 92 210 80 145 68 210 44 202 58 121 53 80 32 107 11 92 33 60Z\" fill=\"url(#neo)\" stroke=\"#e3f6ff\" stroke-width=\"3\"/><path d=\"M56 32Q80 54 104 32M66 65L92 124M48 122H112\" stroke=\"#65b6d3\" stroke-opacity=\".85\" stroke-width=\"4\" fill=\"none\"/><circle cx=\"80\" cy=\"77\" r=\"8\" fill=\"#ebf8ff\" opacity=\".5\"/>",
+  "source": "proto.html:880 surfSVG(\"suit\")",
+  "note": "Big illustration on rental cards/modals (.rent-illustration). visual:\"suit\" for type «Гидрокостюм».",
+  "module": "cabinet"
+ },
+ "rental-art-board-long": {
+  "viewBox": "0 0 160 230",
+  "attrs": {
+   "aria-hidden": "true"
+  },
+  "inner": "<defs><linearGradient id=\"brd\" x1=\"0\" x2=\"1\"><stop stop-color=\"#f6ffff\"/><stop offset=\".5\" stop-color=\"#edf9ff\"/><stop offset=\"1\" stop-color=\"#92d5e4\"/></linearGradient></defs><path d=\"M80 8C53 25 52 185 80 221C108 185 107 25 80 8Z\" fill=\"url(#brd)\" stroke=\"#388eb3\" stroke-width=\"3\"/><path d=\"M80 17V210\" stroke=\"#68b9d2\" stroke-width=\"2\" stroke-dasharray=\"4 6\"/><path d=\"M58 168Q80 182 102 168\" stroke=\"#c4e9f0\" stroke-width=\"8\" fill=\"none\"/>",
+  "source": "proto.html:880 surfSVG(\"long\")",
+  "note": "visual:\"long\" — default for own listings of type «Доска» (rentOwnForm).",
+  "module": "cabinet"
+ },
+ "rental-art-board-short": {
+  "viewBox": "0 0 160 230",
+  "attrs": {
+   "aria-hidden": "true"
+  },
+  "inner": "<defs><linearGradient id=\"brd\" x1=\"0\" x2=\"1\"><stop stop-color=\"#f6ffff\"/><stop offset=\".5\" stop-color=\"#edf9ff\"/><stop offset=\"1\" stop-color=\"#92d5e4\"/></linearGradient></defs><path d=\"M80 8C42 40 45 180 80 221C115 180 118 40 80 8Z\" fill=\"url(#brd)\" stroke=\"#388eb3\" stroke-width=\"3\"/><path d=\"M80 17V210\" stroke=\"#68b9d2\" stroke-width=\"2\" stroke-dasharray=\"4 6\"/><path d=\"M58 168Q80 182 102 168\" stroke=\"#c4e9f0\" stroke-width=\"8\" fill=\"none\"/>",
+  "source": "proto.html:880 surfSVG(\"short\")",
+  "note": "visual:\"short\".",
+  "module": "cabinet"
+ },
+ "i-search": {
+  "viewBox": "0 0 24 24",
+  "attrs": {
+   "fill": "none",
+   "stroke": "currentColor",
+   "stroke-width": "1.9",
+   "stroke-linecap": "round",
+   "stroke-linejoin": "round"
+  },
+  "inner": "<circle cx=\"11\" cy=\"11\" r=\"7\"/><path d=\"m20 20-4-4\"/>",
+  "source": "shapers.html:464",
+  "note": "Sprite <symbol>; rendered as <svg class=\"ic [ic-sm|ic-lg]\"><use href=\"#i-search\"/></svg>. Stroke styling comes from CSS .ic (19px; .ic-sm 15px; .ic-lg 23px; stroke-width 1.9; round caps/joins; currentColor). Used for: topbar search button (toast stub)",
+  "module": "shapers"
+ },
+ "i-heart": {
+  "viewBox": "0 0 24 24",
+  "attrs": {
+   "fill": "none",
+   "stroke": "currentColor",
+   "stroke-width": "1.9",
+   "stroke-linecap": "round",
+   "stroke-linejoin": "round"
+  },
+  "inner": "<path d=\"M20.8 4.8a5.5 5.5 0 0 0-7.8 0L12 5.9l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.4a5.5 5.5 0 0 0 0-7.8Z\"/>",
+  "source": "shapers.html:464",
+  "note": "Sprite <symbol>; rendered as <svg class=\"ic [ic-sm|ic-lg]\"><use href=\"#i-heart\"/></svg>. Stroke styling comes from CSS .ic (19px; .ic-sm 15px; .ic-lg 23px; stroke-width 1.9; round caps/joins; currentColor). Used for: topbar favourites (toast stub); model card foot «hearts» counter",
+  "module": "shapers"
+ },
+ "i-user": {
+  "viewBox": "0 0 24 24",
+  "attrs": {
+   "fill": "none",
+   "stroke": "currentColor",
+   "stroke-width": "1.9",
+   "stroke-linecap": "round",
+   "stroke-linejoin": "round"
+  },
+  "inner": "<circle cx=\"12\" cy=\"8\" r=\"4\"/><path d=\"M4 21v-2a8 8 0 0 1 16 0v2\"/>",
+  "source": "shapers.html:464",
+  "note": "Sprite <symbol>; rendered as <svg class=\"ic [ic-sm|ic-lg]\"><use href=\"#i-user\"/></svg>. Stroke styling comes from CSS .ic (19px; .ic-sm 15px; .ic-lg 23px; stroke-width 1.9; round caps/joins; currentColor). Used for: side-nav «Профиль»; profile heading; catalog card link «О шейпере →»",
+  "module": "shapers"
+ },
+ "i-camera": {
+  "viewBox": "0 0 24 24",
+  "attrs": {
+   "fill": "none",
+   "stroke": "currentColor",
+   "stroke-width": "1.9",
+   "stroke-linecap": "round",
+   "stroke-linejoin": "round"
+  },
+  "inner": "<path d=\"M3 7h4l2-3h6l2 3h4v13H3Z\"/><circle cx=\"12\" cy=\"13\" r=\"4\"/>",
+  "source": "shapers.html:464",
+  "note": "Sprite <symbol>; rendered as <svg class=\"ic [ic-sm|ic-lg]\"><use href=\"#i-camera\"/></svg>. Stroke styling comes from CSS .ic (19px; .ic-sm 15px; .ic-lg 23px; stroke-width 1.9; round caps/joins; currentColor). Used for: avatar edit overlay «Выбрать фото» in profile form",
+  "module": "shapers"
+ },
+ "i-monitor": {
+  "viewBox": "0 0 24 24",
+  "attrs": {
+   "fill": "none",
+   "stroke": "currentColor",
+   "stroke-width": "1.9",
+   "stroke-linecap": "round",
+   "stroke-linejoin": "round"
+  },
+  "inner": "<rect height=\"13\" rx=\"1\" width=\"18\" x=\"3\" y=\"4\"/><path d=\"M8 21h8M12 17v4\"/>",
+  "source": "shapers.html:464",
+  "note": "Sprite <symbol>; rendered as <svg class=\"ic [ic-sm|ic-lg]\"><use href=\"#i-monitor\"/></svg>. Stroke styling comes from CSS .ic (19px; .ic-sm 15px; .ic-lg 23px; stroke-width 1.9; round caps/joins; currentColor). Used for: profile form section «Основная информация»",
+  "module": "shapers"
+ },
+ "i-box": {
+  "viewBox": "0 0 24 24",
+  "attrs": {
+   "fill": "none",
+   "stroke": "currentColor",
+   "stroke-width": "1.9",
+   "stroke-linecap": "round",
+   "stroke-linejoin": "round"
+  },
+  "inner": "<path d=\"m12 2 9 5-9 5-9-5 9-5ZM3 7v10l9 5 9-5V7M12 12v10\"/>",
+  "source": "shapers.html:464",
+  "note": "Sprite <symbol>; rendered as <svg class=\"ic [ic-sm|ic-lg]\"><use href=\"#i-box\"/></svg>. Stroke styling comes from CSS .ic (19px; .ic-sm 15px; .ic-lg 23px; stroke-width 1.9; round caps/joins; currentColor). Used for: profile form section «Используемые материалы»",
+  "module": "shapers"
+ },
+ "i-truck": {
+  "viewBox": "0 0 24 24",
+  "attrs": {
+   "fill": "none",
+   "stroke": "currentColor",
+   "stroke-width": "1.9",
+   "stroke-linecap": "round",
+   "stroke-linejoin": "round"
+  },
+  "inner": "<path d=\"M2 6h12v11H2ZM14 10h4l4 4v3h-8\"/><circle cx=\"7\" cy=\"18\" r=\"2\"/><circle cx=\"18\" cy=\"18\" r=\"2\"/>",
+  "source": "shapers.html:464",
+  "note": "Sprite <symbol>; rendered as <svg class=\"ic [ic-sm|ic-lg]\"><use href=\"#i-truck\"/></svg>. Stroke styling comes from CSS .ic (19px; .ic-sm 15px; .ic-lg 23px; stroke-width 1.9; round caps/joins; currentColor). Used for: profile form section «Доставка и сроки»",
+  "module": "shapers"
+ },
+ "i-board": {
+  "viewBox": "0 0 24 24",
+  "attrs": {
+   "fill": "none",
+   "stroke": "currentColor",
+   "stroke-width": "1.9",
+   "stroke-linecap": "round",
+   "stroke-linejoin": "round"
+  },
+  "inner": "<path d=\"M12 2c-4 3-6 7-6 13 0 3 2 6 6 7 4-1 6-4 6-7 0-6-2-10-6-13ZM12 3v18\"/>",
+  "source": "shapers.html:464",
+  "note": "Sprite <symbol>; rendered as <svg class=\"ic [ic-sm|ic-lg]\"><use href=\"#i-board\"/></svg>. Stroke styling comes from CSS .ic (19px; .ic-sm 15px; .ic-lg 23px; stroke-width 1.9; round caps/joins; currentColor). Used for: side-nav «Мои доски»; section heads; KPI «Моделей»; KPI «Свободных бордов»; profile section «Типы досок…»",
+  "module": "shapers"
+ },
+ "i-photo": {
+  "viewBox": "0 0 24 24",
+  "attrs": {
+   "fill": "none",
+   "stroke": "currentColor",
+   "stroke-width": "1.9",
+   "stroke-linecap": "round",
+   "stroke-linejoin": "round"
+  },
+  "inner": "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"/><circle cx=\"8\" cy=\"8\" r=\"2\"/><path d=\"m4 19 6-7 4 4 3-3 4 5\"/>",
+  "source": "shapers.html:464",
+  "note": "Sprite <symbol>; rendered as <svg class=\"ic [ic-sm|ic-lg]\"><use href=\"#i-photo\"/></svg>. Stroke styling comes from CSS .ic (19px; .ic-sm 15px; .ic-lg 23px; stroke-width 1.9; round caps/joins; currentColor). Used for: profile «Фотографии работ», «Промо-видео шейпера»; «Фото и параметры» button; «N фото · видео» link; «Смотреть промо-видео»",
+  "module": "shapers"
+ },
+ "i-upload": {
+  "viewBox": "0 0 24 24",
+  "attrs": {
+   "fill": "none",
+   "stroke": "currentColor",
+   "stroke-width": "1.9",
+   "stroke-linecap": "round",
+   "stroke-linejoin": "round"
+  },
+  "inner": "<path d=\"M12 17V3m-5 5 5-5 5 5M4 17v4h16v-4\"/>",
+  "source": "shapers.html:464",
+  "note": "Sprite <symbol>; rendered as <svg class=\"ic [ic-sm|ic-lg]\"><use href=\"#i-upload\"/></svg>. Stroke styling comes from CSS .ic (19px; .ic-sm 15px; .ic-lg 23px; stroke-width 1.9; round caps/joins; currentColor). Used for: all upload zones (works photos, promo video, certificates, board photos, board video, certificates heading)",
+  "module": "shapers"
+ },
+ "i-link": {
+  "viewBox": "0 0 24 24",
+  "attrs": {
+   "fill": "none",
+   "stroke": "currentColor",
+   "stroke-width": "1.9",
+   "stroke-linecap": "round",
+   "stroke-linejoin": "round"
+  },
+  "inner": "<path d=\"M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-2 2M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l2-2\"/>",
+  "source": "shapers.html:464",
+  "note": "Sprite <symbol>; rendered as <svg class=\"ic [ic-sm|ic-lg]\"><use href=\"#i-link\"/></svg>. Stroke styling comes from CSS .ic (19px; .ic-sm 15px; .ic-lg 23px; stroke-width 1.9; round caps/joins; currentColor). Used for: profile «Контакты и социальные сети»; ALSO used as the chat «paperclip» attach button (.gv-paperclip) — it is a chain-link glyph, not a paperclip",
+  "module": "shapers"
+ },
+ "i-plus": {
+  "viewBox": "0 0 24 24",
+  "attrs": {
+   "fill": "none",
+   "stroke": "currentColor",
+   "stroke-width": "1.9",
+   "stroke-linecap": "round",
+   "stroke-linejoin": "round"
+  },
+  "inner": "<path d=\"M12 4v16M4 12h16\"/>",
+  "source": "shapers.html:464",
+  "note": "Sprite <symbol>; rendered as <svg class=\"ic [ic-sm|ic-lg]\"><use href=\"#i-plus\"/></svg>. Stroke styling comes from CSS .ic (19px; .ic-sm 15px; .ic-lg 23px; stroke-width 1.9; round caps/joins; currentColor). Used for: «Добавить доску», «Добавить другие типы досок…», «Добавить свой материал», empty works-photo tile",
+  "module": "shapers"
+ },
+ "i-arrow": {
+  "viewBox": "0 0 24 24",
+  "attrs": {
+   "fill": "none",
+   "stroke": "currentColor",
+   "stroke-width": "1.9",
+   "stroke-linecap": "round",
+   "stroke-linejoin": "round"
+  },
+  "inner": "<path d=\"M4 12h16m-7-7 7 7-7 7\"/>",
+  "source": "shapers.html:464",
+  "note": "Sprite <symbol>; rendered as <svg class=\"ic [ic-sm|ic-lg]\"><use href=\"#i-arrow\"/></svg>. Stroke styling comes from CSS .ic (19px; .ic-sm 15px; .ic-lg 23px; stroke-width 1.9; round caps/joins; currentColor). Used for: «Посмотреть на сайте →» button",
+  "module": "shapers"
+ },
+ "i-home": {
+  "viewBox": "0 0 24 24",
+  "attrs": {
+   "fill": "none",
+   "stroke": "currentColor",
+   "stroke-width": "1.9",
+   "stroke-linecap": "round",
+   "stroke-linejoin": "round"
+  },
+  "inner": "<path d=\"m3 11 9-8 9 8M5 10v11h14V10M10 21v-8h4v8\"/>",
+  "source": "shapers.html:464",
+  "note": "Sprite <symbol>; rendered as <svg class=\"ic [ic-sm|ic-lg]\"><use href=\"#i-home\"/></svg>. Stroke styling comes from CSS .ic (19px; .ic-sm 15px; .ic-lg 23px; stroke-width 1.9; round caps/joins; currentColor). Used for: side-nav «Панель управления»",
+  "module": "shapers"
+ },
+ "i-mail": {
+  "viewBox": "0 0 24 24",
+  "attrs": {
+   "fill": "none",
+   "stroke": "currentColor",
+   "stroke-width": "1.9",
+   "stroke-linecap": "round",
+   "stroke-linejoin": "round"
+  },
+  "inner": "<rect height=\"16\" rx=\"2\" width=\"20\" x=\"2\" y=\"4\"/><path d=\"m3 5 9 8 9-8\"/>",
+  "source": "shapers.html:464",
+  "note": "Sprite <symbol>; rendered as <svg class=\"ic [ic-sm|ic-lg]\"><use href=\"#i-mail\"/></svg>. Stroke styling comes from CSS .ic (19px; .ic-sm 15px; .ic-lg 23px; stroke-width 1.9; round caps/joins; currentColor). Used for: topbar messages button; side-nav «Обращения»; «Входящие заявки» head; KPI «Новые заявки»/«Непрочитанные»; «Перейти в чат»; chat intro icon (ic-lg)",
+  "module": "shapers"
+ },
+ "i-send": {
+  "viewBox": "0 0 24 24",
+  "attrs": {
+   "fill": "none",
+   "stroke": "currentColor",
+   "stroke-width": "1.9",
+   "stroke-linecap": "round",
+   "stroke-linejoin": "round"
+  },
+  "inner": "<path d=\"m22 2-7 20-4-9-9-4 20-7Z\"/><path d=\"M22 2 11 13\"/>",
+  "source": "shapers.html:464",
+  "note": "Sprite <symbol>; rendered as <svg class=\"ic [ic-sm|ic-lg]\"><use href=\"#i-send\"/></svg>. Stroke styling comes from CSS .ic (19px; .ic-sm 15px; .ic-lg 23px; stroke-width 1.9; round caps/joins; currentColor). Used for: side-nav «Мои исходящие заявки»; outgoing panel head",
+  "module": "shapers"
+ },
+ "i-calendar": {
+  "viewBox": "0 0 24 24",
+  "attrs": {
+   "fill": "none",
+   "stroke": "currentColor",
+   "stroke-width": "1.9",
+   "stroke-linecap": "round",
+   "stroke-linejoin": "round"
+  },
+  "inner": "<rect height=\"16\" rx=\"2\" width=\"18\" x=\"3\" y=\"5\"/><path d=\"M7 2v6M17 2v6M3 10h18\"/>",
+  "source": "shapers.html:464",
+  "note": "Sprite <symbol>; rendered as <svg class=\"ic [ic-sm|ic-lg]\"><use href=\"#i-calendar\"/></svg>. Stroke styling comes from CSS .ic (19px; .ic-sm 15px; .ic-lg 23px; stroke-width 1.9; round caps/joins; currentColor). Used for: side-nav «Бронирования»; bookings head + empty state; KPI «Забронировано»; legacy «Сдано в аренду»",
+  "module": "shapers"
+ },
+ "i-graph": {
+  "viewBox": "0 0 24 24",
+  "attrs": {
+   "fill": "none",
+   "stroke": "currentColor",
+   "stroke-width": "1.9",
+   "stroke-linecap": "round",
+   "stroke-linejoin": "round"
+  },
+  "inner": "<path d=\"M4 21V11M9 21V4M14 21v-9M19 21V7\"/>",
+  "source": "shapers.html:464",
+  "note": "Sprite <symbol>; rendered as <svg class=\"ic [ic-sm|ic-lg]\"><use href=\"#i-graph\"/></svg>. Stroke styling comes from CSS .ic (19px; .ic-sm 15px; .ic-lg 23px; stroke-width 1.9; round caps/joins; currentColor). Used for: side-nav «Статистика»; «Показатели мастерской»; statistics head; KPI «В работе»/«Выручка»",
+  "module": "shapers"
+ },
+ "i-star": {
+  "viewBox": "0 0 24 24",
+  "attrs": {
+   "fill": "none",
+   "stroke": "currentColor",
+   "stroke-width": "1.9",
+   "stroke-linecap": "round",
+   "stroke-linejoin": "round"
+  },
+  "inner": "<path d=\"m12 2 3 7 8 .5-6 5 2 7.5-7-4-7 4 2-7.5-6-5 8-.5Z\"/>",
+  "source": "shapers.html:464",
+  "note": "Sprite <symbol>; rendered as <svg class=\"ic [ic-sm|ic-lg]\"><use href=\"#i-star\"/></svg>. Stroke styling comes from CSS .ic (19px; .ic-sm 15px; .ic-lg 23px; stroke-width 1.9; round caps/joins; currentColor). Used for: side-nav «Отзывы»; reviews head",
+  "module": "shapers"
+ },
+ "i-settings": {
+  "viewBox": "0 0 24 24",
+  "attrs": {
+   "fill": "none",
+   "stroke": "currentColor",
+   "stroke-width": "1.9",
+   "stroke-linecap": "round",
+   "stroke-linejoin": "round"
+  },
+  "inner": "<circle cx=\"12\" cy=\"12\" r=\"3\"/><path d=\"M12 2v3m0 14v3M2 12h3m14 0h3M5 5l2 2m10 10 2 2M19 5l-2 2M7 17l-2 2\"/>",
+  "source": "shapers.html:464",
+  "note": "Sprite <symbol>; rendered as <svg class=\"ic [ic-sm|ic-lg]\"><use href=\"#i-settings\"/></svg>. Stroke styling comes from CSS .ic (19px; .ic-sm 15px; .ic-lg 23px; stroke-width 1.9; round caps/joins; currentColor). Used for: side-nav «Настройки»; settings head",
+  "module": "shapers"
+ },
+ "i-views": {
+  "viewBox": "0 0 24 24",
+  "attrs": {
+   "fill": "none",
+   "stroke": "currentColor",
+   "stroke-width": "1.9",
+   "stroke-linecap": "round",
+   "stroke-linejoin": "round"
+  },
+  "inner": "<path d=\"M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7Z\"/><circle cx=\"12\" cy=\"12\" r=\"3\"/>",
+  "source": "shapers.html:464",
+  "note": "Sprite <symbol>; rendered as <svg class=\"ic [ic-sm|ic-lg]\"><use href=\"#i-views\"/></svg>. Stroke styling comes from CSS .ic (19px; .ic-sm 15px; .ic-lg 23px; stroke-width 1.9; round caps/joins; currentColor). Used for: model card foot views counter; KPI «Просмотры (демо)»",
+  "module": "shapers"
+ },
+ "i-brief": {
+  "viewBox": "0 0 24 24",
+  "attrs": {
+   "fill": "none",
+   "stroke": "currentColor",
+   "stroke-width": "1.9",
+   "stroke-linecap": "round",
+   "stroke-linejoin": "round"
+  },
+  "inner": "<rect height=\"14\" rx=\"2\" width=\"18\" x=\"3\" y=\"7\"/><path d=\"M9 7V4h6v3M3 12h18\"/>",
+  "source": "shapers.html:464",
+  "note": "Sprite <symbol>; rendered as <svg class=\"ic [ic-sm|ic-lg]\"><use href=\"#i-brief\"/></svg>. Stroke styling comes from CSS .ic (19px; .ic-sm 15px; .ic-lg 23px; stroke-width 1.9; round caps/joins; currentColor). Used for: «Обращения» panel head; KPI «Всего заявок»; legacy «Новые заявки» stat",
+  "module": "shapers"
+ },
+ "i-close": {
+  "viewBox": "0 0 24 24",
+  "attrs": {
+   "fill": "none",
+   "stroke": "currentColor",
+   "stroke-width": "1.9",
+   "stroke-linecap": "round",
+   "stroke-linejoin": "round"
+  },
+  "inner": "<path d=\"M5 5 19 19M19 5 5 19\"/>",
+  "source": "shapers.html:464",
+  "note": "Sprite <symbol>; rendered as <svg class=\"ic [ic-sm|ic-lg]\"><use href=\"#i-close\"/></svg>. Stroke styling comes from CSS .ic (19px; .ic-sm 15px; .ic-lg 23px; stroke-width 1.9; round caps/joins; currentColor). Used for: modal close buttons (board, viewer, promo, shaper profile, chat) — order modal uses a text «×» instead",
+  "module": "shapers"
+ },
+ "i-more": {
+  "viewBox": "0 0 24 24",
+  "attrs": {
+   "fill": "none",
+   "stroke": "currentColor",
+   "stroke-width": "1.9",
+   "stroke-linecap": "round",
+   "stroke-linejoin": "round"
+  },
+  "inner": "<circle cx=\"5\" cy=\"12\" fill=\"currentColor\" r=\"1\"/><circle cx=\"12\" cy=\"12\" fill=\"currentColor\" r=\"1\"/><circle cx=\"19\" cy=\"12\" fill=\"currentColor\" r=\"1\"/>",
+  "source": "shapers.html:464",
+  "note": "Sprite <symbol>; rendered as <svg class=\"ic [ic-sm|ic-lg]\"><use href=\"#i-more\"/></svg>. Stroke styling comes from CSS .ic (19px; .ic-sm 15px; .ic-lg 23px; stroke-width 1.9; round caps/joins; currentColor). Used for: topbar mobile menu (⋯) toggle; legacy model-card menu (replaced by «edit» in v5)",
+  "module": "shapers"
+ },
+ "i-edit": {
+  "viewBox": "0 0 24 24",
+  "attrs": {
+   "fill": "none",
+   "stroke": "currentColor",
+   "stroke-width": "1.9",
+   "stroke-linecap": "round",
+   "stroke-linejoin": "round"
+  },
+  "inner": "<path d=\"M4 20h4l12-12-4-4L4 16v4ZM14 6l4 4\"/>",
+  "source": "shapers.html:464",
+  "note": "Sprite <symbol>; rendered as <svg class=\"ic [ic-sm|ic-lg]\"><use href=\"#i-edit\"/></svg>. Stroke styling comes from CSS .ic (19px; .ic-sm 15px; .ic-lg 23px; stroke-width 1.9; round caps/joins; currentColor). Used for: own model card edit button (.model-menu) — pencil (BRD-09)",
+  "module": "shapers"
+ },
+ "i-check": {
+  "viewBox": "0 0 24 24",
+  "attrs": {
+   "fill": "none",
+   "stroke": "currentColor",
+   "stroke-width": "1.9",
+   "stroke-linecap": "round",
+   "stroke-linejoin": "round"
+  },
+  "inner": "<path d=\"m4 12 5 5L20 6\"/>",
+  "source": "shapers.html:464",
+  "note": "Sprite <symbol>; rendered as <svg class=\"ic [ic-sm|ic-lg]\"><use href=\"#i-check\"/></svg>. Stroke styling comes from CSS .ic (19px; .ic-sm 15px; .ic-lg 23px; stroke-width 1.9; round caps/joins; currentColor). Used for: board-type tile checkmark; KPI «Завершено»; legacy stat «Завершено заявок» (style=\"color:#ffb600\")",
+  "module": "shapers"
+ },
+ "i-bell": {
+  "viewBox": "0 0 24 24",
+  "attrs": {
+   "fill": "none",
+   "stroke": "currentColor",
+   "stroke-width": "1.9",
+   "stroke-linecap": "round",
+   "stroke-linejoin": "round"
+  },
+  "inner": "<path d=\"M18 8a6 6 0 0 0-12 0c0 7-3 8-3 9h18c0-1-3-2-3-9ZM10 21h4\"/>",
+  "source": "shapers.html:464",
+  "note": "Sprite <symbol>; rendered as <svg class=\"ic [ic-sm|ic-lg]\"><use href=\"#i-bell\"/></svg>. Stroke styling comes from CSS .ic (19px; .ic-sm 15px; .ic-lg 23px; stroke-width 1.9; round caps/joins; currentColor). Used for: defined in sprite but NOT used anywhere",
+  "module": "shapers"
+ },
+ "i-ruler": {
+  "viewBox": "0 0 24 24",
+  "attrs": {
+   "fill": "none",
+   "stroke": "currentColor",
+   "stroke-width": "1.9",
+   "stroke-linecap": "round",
+   "stroke-linejoin": "round"
+  },
+  "inner": "<path d=\"M4 17 17 4l3 3L7 20l-3-3ZM12 9l3 3M9 12l2 2M15 6l2 2\"/>",
+  "source": "shapers.html:465",
+  "note": "Sprite <symbol>; rendered as <svg class=\"ic [ic-sm|ic-lg]\"><use href=\"#i-ruler\"/></svg>. Stroke styling comes from CSS .ic (19px; .ic-sm 15px; .ic-lg 23px; stroke-width 1.9; round caps/joins; currentColor). Used for: model spec line «длина · ширина × толщина» (.gv-spec) — size icon (BRD-10)",
+  "module": "shapers"
+ },
+ "i-droplets": {
+  "viewBox": "0 0 24 24",
+  "attrs": {
+   "fill": "none",
+   "stroke": "currentColor",
+   "stroke-width": "1.9",
+   "stroke-linecap": "round",
+   "stroke-linejoin": "round"
+  },
+  "inner": "<path d=\"M12 3c-3.5 5-6.5 8-6.5 12a6.5 6.5 0 0 0 13 0C18.5 11 15.5 8 12 3Z\"/><path d=\"M9 16c0 1.5 1.2 2.5 2.5 2.5\"/>",
+  "source": "shapers.html:465",
+  "note": "Sprite <symbol>; rendered as <svg class=\"ic [ic-sm|ic-lg]\"><use href=\"#i-droplets\"/></svg>. Stroke styling comes from CSS .ic (19px; .ic-sm 15px; .ic-lg 23px; stroke-width 1.9; round caps/joins; currentColor). Used for: model spec line «NN л» — volume icon (BRD-10)",
+  "module": "shapers"
+ },
+ "i-fins": {
+  "viewBox": "0 0 24 24",
+  "attrs": {
+   "fill": "none",
+   "stroke": "currentColor",
+   "stroke-width": "1.9",
+   "stroke-linecap": "round",
+   "stroke-linejoin": "round"
+  },
+  "inner": "<path d=\"M4 19h16M7 19c.5-7 3.5-12 10-14-1 5-1 10 1 14\"/>",
+  "source": "shapers.html:465",
+  "note": "Sprite <symbol>; rendered as <svg class=\"ic [ic-sm|ic-lg]\"><use href=\"#i-fins\"/></svg>. Stroke styling comes from CSS .ic (19px; .ic-sm 15px; .ic-lg 23px; stroke-width 1.9; round caps/joins; currentColor). Used for: model spec line «вид закладных» (only when finBox set)",
+  "module": "shapers"
+ },
+ "board-longboard": {
+  "viewBox": "0 0 100 260",
+  "attrs": {
+   "xmlns": "http://www.w3.org/2000/svg",
+   "width": "100",
+   "height": "260"
+  },
+  "inner": "<defs><linearGradient id=\"deck\" x1=\"0\" x2=\"1\"><stop stop-color=\"#fff\" stop-opacity=\".65\"/><stop offset=\".26\" stop-color=\"#c69b64\"/><stop offset=\".72\" stop-color=\"#c69b64\"/><stop offset=\"1\" stop-color=\"#0b587f\" stop-opacity=\".65\"/></linearGradient></defs><path d=\"M50 7 C31 7 25 34 25 65 L24 190 C24 225 32 247 50 251 C68 247 76 225 76 190 L75 65 C75 34 69 7 50 7 Z\" fill=\"url(#deck)\" stroke=\"#377c9c\" stroke-opacity=\".37\" stroke-width=\"1.15\"/><path d=\"M50 12 L50 244\" stroke=\"#fff\" stroke-opacity=\".49\" stroke-width=\"1.15\" fill=\"none\"/>",
+  "source": "shapers.html:619 (paths) + shapers.html:633 (generator shapeImage())",
+  "boardType": "Лонгборд",
+  "deckColor": "#c69b64",
+  "outlinePath": "M50 7 C31 7 25 34 25 65 L24 190 C24 225 32 247 50 251 C68 247 76 225 76 190 L75 65 C75 34 69 7 50 7 Z",
+  "note": "Procedural top-view silhouette (SHP-06). shapeImage(type) builds this SVG and returns it as a data:image/svg+xml URI, cached per type; unknown/custom types fall back to «Кастом». Gradient: white 65% at 0 → deckColor at .26–.72 → #0b587f 65% at 1 (horizontal, gives a lit rail). Outline stroke #377c9c @ .37, 1.15px; white stringer line x=50 from y=12 to 244 @ .49. Used in the profile «Типы досок» picker tiles and as the fallback picture of every model without an uploaded photo (catalog, cards, maker showcase, viewer). NB: the gradient id \"deck\" is not unique — fine inside an <img src=data:…>, but must be made unique if inlined.",
+  "module": "shapers"
+ },
+ "board-shortboard": {
+  "viewBox": "0 0 100 260",
+  "attrs": {
+   "xmlns": "http://www.w3.org/2000/svg",
+   "width": "100",
+   "height": "260"
+  },
+  "inner": "<defs><linearGradient id=\"deck\" x1=\"0\" x2=\"1\"><stop stop-color=\"#fff\" stop-opacity=\".65\"/><stop offset=\".26\" stop-color=\"#ece9de\"/><stop offset=\".72\" stop-color=\"#ece9de\"/><stop offset=\"1\" stop-color=\"#0b587f\" stop-opacity=\".65\"/></linearGradient></defs><path d=\"M50 6 C36 35 24 65 23 105 C20 146 27 207 32 244 Q50 253 68 244 C73 207 80 146 77 105 C76 65 64 35 50 6 Z\" fill=\"url(#deck)\" stroke=\"#377c9c\" stroke-opacity=\".37\" stroke-width=\"1.15\"/><path d=\"M50 12 L50 244\" stroke=\"#fff\" stroke-opacity=\".49\" stroke-width=\"1.15\" fill=\"none\"/>",
+  "source": "shapers.html:619 (paths) + shapers.html:633 (generator shapeImage())",
+  "boardType": "Шортборд",
+  "deckColor": "#ece9de",
+  "outlinePath": "M50 6 C36 35 24 65 23 105 C20 146 27 207 32 244 Q50 253 68 244 C73 207 80 146 77 105 C76 65 64 35 50 6 Z",
+  "note": "Procedural top-view silhouette (SHP-06). shapeImage(type) builds this SVG and returns it as a data:image/svg+xml URI, cached per type; unknown/custom types fall back to «Кастом». Gradient: white 65% at 0 → deckColor at .26–.72 → #0b587f 65% at 1 (horizontal, gives a lit rail). Outline stroke #377c9c @ .37, 1.15px; white stringer line x=50 from y=12 to 244 @ .49. Used in the profile «Типы досок» picker tiles and as the fallback picture of every model without an uploaded photo (catalog, cards, maker showcase, viewer). NB: the gradient id \"deck\" is not unique — fine inside an <img src=data:…>, but must be made unique if inlined.",
+  "module": "shapers"
+ },
+ "board-funboard": {
+  "viewBox": "0 0 100 260",
+  "attrs": {
+   "xmlns": "http://www.w3.org/2000/svg",
+   "width": "100",
+   "height": "260"
+  },
+  "inner": "<defs><linearGradient id=\"deck\" x1=\"0\" x2=\"1\"><stop stop-color=\"#fff\" stop-opacity=\".65\"/><stop offset=\".26\" stop-color=\"#b3d9e9\"/><stop offset=\".72\" stop-color=\"#b3d9e9\"/><stop offset=\"1\" stop-color=\"#0b587f\" stop-opacity=\".65\"/></linearGradient></defs><path d=\"M50 7 C34 10 24 39 23 81 C20 133 24 185 30 226 Q36 249 50 252 Q64 249 70 226 C76 185 80 133 77 81 C76 39 66 10 50 7 Z\" fill=\"url(#deck)\" stroke=\"#377c9c\" stroke-opacity=\".37\" stroke-width=\"1.15\"/><path d=\"M50 12 L50 244\" stroke=\"#fff\" stroke-opacity=\".49\" stroke-width=\"1.15\" fill=\"none\"/>",
+  "source": "shapers.html:619 (paths) + shapers.html:633 (generator shapeImage())",
+  "boardType": "Фанборд",
+  "deckColor": "#b3d9e9",
+  "outlinePath": "M50 7 C34 10 24 39 23 81 C20 133 24 185 30 226 Q36 249 50 252 Q64 249 70 226 C76 185 80 133 77 81 C76 39 66 10 50 7 Z",
+  "note": "Procedural top-view silhouette (SHP-06). shapeImage(type) builds this SVG and returns it as a data:image/svg+xml URI, cached per type; unknown/custom types fall back to «Кастом». Gradient: white 65% at 0 → deckColor at .26–.72 → #0b587f 65% at 1 (horizontal, gives a lit rail). Outline stroke #377c9c @ .37, 1.15px; white stringer line x=50 from y=12 to 244 @ .49. Used in the profile «Типы досок» picker tiles and as the fallback picture of every model without an uploaded photo (catalog, cards, maker showcase, viewer). NB: the gradient id \"deck\" is not unique — fine inside an <img src=data:…>, but must be made unique if inlined.",
+  "module": "shapers"
+ },
+ "board-fish": {
+  "viewBox": "0 0 100 260",
+  "attrs": {
+   "xmlns": "http://www.w3.org/2000/svg",
+   "width": "100",
+   "height": "260"
+  },
+  "inner": "<defs><linearGradient id=\"deck\" x1=\"0\" x2=\"1\"><stop stop-color=\"#fff\" stop-opacity=\".65\"/><stop offset=\".26\" stop-color=\"#28acc4\"/><stop offset=\".72\" stop-color=\"#28acc4\"/><stop offset=\"1\" stop-color=\"#0b587f\" stop-opacity=\".65\"/></linearGradient></defs><path d=\"M50 8 C26 7 19 47 20 80 C18 134 22 201 26 245 Q38 243 50 226 Q62 243 74 245 C78 201 82 134 80 80 C81 47 74 7 50 8 Z\" fill=\"url(#deck)\" stroke=\"#377c9c\" stroke-opacity=\".37\" stroke-width=\"1.15\"/><path d=\"M50 12 L50 244\" stroke=\"#fff\" stroke-opacity=\".49\" stroke-width=\"1.15\" fill=\"none\"/>",
+  "source": "shapers.html:619 (paths) + shapers.html:633 (generator shapeImage())",
+  "boardType": "Фиш",
+  "deckColor": "#28acc4",
+  "outlinePath": "M50 8 C26 7 19 47 20 80 C18 134 22 201 26 245 Q38 243 50 226 Q62 243 74 245 C78 201 82 134 80 80 C81 47 74 7 50 8 Z",
+  "note": "Procedural top-view silhouette (SHP-06). shapeImage(type) builds this SVG and returns it as a data:image/svg+xml URI, cached per type; unknown/custom types fall back to «Кастом». Gradient: white 65% at 0 → deckColor at .26–.72 → #0b587f 65% at 1 (horizontal, gives a lit rail). Outline stroke #377c9c @ .37, 1.15px; white stringer line x=50 from y=12 to 244 @ .49. Used in the profile «Типы досок» picker tiles and as the fallback picture of every model without an uploaded photo (catalog, cards, maker showcase, viewer). NB: the gradient id \"deck\" is not unique — fine inside an <img src=data:…>, but must be made unique if inlined.",
+  "module": "shapers"
+ },
+ "board-gun": {
+  "viewBox": "0 0 100 260",
+  "attrs": {
+   "xmlns": "http://www.w3.org/2000/svg",
+   "width": "100",
+   "height": "260"
+  },
+  "inner": "<defs><linearGradient id=\"deck\" x1=\"0\" x2=\"1\"><stop stop-color=\"#fff\" stop-opacity=\".65\"/><stop offset=\".26\" stop-color=\"#4386b3\"/><stop offset=\".72\" stop-color=\"#4386b3\"/><stop offset=\"1\" stop-color=\"#0b587f\" stop-opacity=\".65\"/></linearGradient></defs><path d=\"M50 4 C42 26 30 69 28 113 C25 169 35 218 50 254 C65 218 75 169 72 113 C70 69 58 26 50 4 Z\" fill=\"url(#deck)\" stroke=\"#377c9c\" stroke-opacity=\".37\" stroke-width=\"1.15\"/><path d=\"M50 12 L50 244\" stroke=\"#fff\" stroke-opacity=\".49\" stroke-width=\"1.15\" fill=\"none\"/>",
+  "source": "shapers.html:619 (paths) + shapers.html:633 (generator shapeImage())",
+  "boardType": "Ган",
+  "deckColor": "#4386b3",
+  "outlinePath": "M50 4 C42 26 30 69 28 113 C25 169 35 218 50 254 C65 218 75 169 72 113 C70 69 58 26 50 4 Z",
+  "note": "Procedural top-view silhouette (SHP-06). shapeImage(type) builds this SVG and returns it as a data:image/svg+xml URI, cached per type; unknown/custom types fall back to «Кастом». Gradient: white 65% at 0 → deckColor at .26–.72 → #0b587f 65% at 1 (horizontal, gives a lit rail). Outline stroke #377c9c @ .37, 1.15px; white stringer line x=50 from y=12 to 244 @ .49. Used in the profile «Типы досок» picker tiles and as the fallback picture of every model without an uploaded photo (catalog, cards, maker showcase, viewer). NB: the gradient id \"deck\" is not unique — fine inside an <img src=data:…>, but must be made unique if inlined. «Ган» was added at runtime (types.splice before SUP).",
+  "module": "shapers"
+ },
+ "board-sup": {
+  "viewBox": "0 0 100 260",
+  "attrs": {
+   "xmlns": "http://www.w3.org/2000/svg",
+   "width": "100",
+   "height": "260"
+  },
+  "inner": "<defs><linearGradient id=\"deck\" x1=\"0\" x2=\"1\"><stop stop-color=\"#fff\" stop-opacity=\".65\"/><stop offset=\".26\" stop-color=\"#7bc8d0\"/><stop offset=\".72\" stop-color=\"#7bc8d0\"/><stop offset=\"1\" stop-color=\"#0b587f\" stop-opacity=\".65\"/></linearGradient></defs><path d=\"M50 6 C27 6 19 40 20 84 L20 179 C20 224 28 250 50 254 C72 250 80 224 80 179 L80 84 C81 40 73 6 50 6 Z\" fill=\"url(#deck)\" stroke=\"#377c9c\" stroke-opacity=\".37\" stroke-width=\"1.15\"/><path d=\"M50 12 L50 244\" stroke=\"#fff\" stroke-opacity=\".49\" stroke-width=\"1.15\" fill=\"none\"/>",
+  "source": "shapers.html:619 (paths) + shapers.html:633 (generator shapeImage())",
+  "boardType": "SUP",
+  "deckColor": "#7bc8d0",
+  "outlinePath": "M50 6 C27 6 19 40 20 84 L20 179 C20 224 28 250 50 254 C72 250 80 224 80 179 L80 84 C81 40 73 6 50 6 Z",
+  "note": "Procedural top-view silhouette (SHP-06). shapeImage(type) builds this SVG and returns it as a data:image/svg+xml URI, cached per type; unknown/custom types fall back to «Кастом». Gradient: white 65% at 0 → deckColor at .26–.72 → #0b587f 65% at 1 (horizontal, gives a lit rail). Outline stroke #377c9c @ .37, 1.15px; white stringer line x=50 from y=12 to 244 @ .49. Used in the profile «Типы досок» picker tiles and as the fallback picture of every model without an uploaded photo (catalog, cards, maker showcase, viewer). NB: the gradient id \"deck\" is not unique — fine inside an <img src=data:…>, but must be made unique if inlined.",
+  "module": "shapers"
+ },
+ "board-custom": {
+  "viewBox": "0 0 100 260",
+  "attrs": {
+   "xmlns": "http://www.w3.org/2000/svg",
+   "width": "100",
+   "height": "260"
+  },
+  "inner": "<defs><linearGradient id=\"deck\" x1=\"0\" x2=\"1\"><stop stop-color=\"#fff\" stop-opacity=\".65\"/><stop offset=\".26\" stop-color=\"#b3d9e9\"/><stop offset=\".72\" stop-color=\"#b3d9e9\"/><stop offset=\"1\" stop-color=\"#0b587f\" stop-opacity=\".65\"/></linearGradient></defs><path d=\"M50 7 C32 12 24 45 24 85 C22 136 26 204 33 240 Q50 255 67 240 C74 204 78 136 76 85 C76 45 68 12 50 7 Z\" fill=\"url(#deck)\" stroke=\"#377c9c\" stroke-opacity=\".37\" stroke-width=\"1.15\"/><path d=\"M50 12 L50 244\" stroke=\"#fff\" stroke-opacity=\".49\" stroke-width=\"1.15\" fill=\"none\"/>",
+  "source": "shapers.html:619 (paths) + shapers.html:633 (generator shapeImage())",
+  "boardType": "Кастом",
+  "deckColor": "#b3d9e9",
+  "outlinePath": "M50 7 C32 12 24 45 24 85 C22 136 26 204 33 240 Q50 255 67 240 C74 204 78 136 76 85 C76 45 68 12 50 7 Z",
+  "note": "Procedural top-view silhouette (SHP-06). shapeImage(type) builds this SVG and returns it as a data:image/svg+xml URI, cached per type; unknown/custom types fall back to «Кастом». Gradient: white 65% at 0 → deckColor at .26–.72 → #0b587f 65% at 1 (horizontal, gives a lit rail). Outline stroke #377c9c @ .37, 1.15px; white stringer line x=50 from y=12 to 244 @ .49. Used in the profile «Типы досок» picker tiles and as the fallback picture of every model without an uploaded photo (catalog, cards, maker showcase, viewer). NB: the gradient id \"deck\" is not unique — fine inside an <img src=data:…>, but must be made unique if inlined.",
+  "module": "shapers"
+ },
+ "select-chevron": {
+  "viewBox": "0 0 12 8",
+  "attrs": {
+   "fill": "none",
+   "stroke": "#2b7b9e",
+   "stroke-width": "1.6",
+   "stroke-linecap": "round",
+   "stroke-linejoin": "round"
+  },
+  "inner": "<path d=\"M1 1 6 6 11 1\"/>",
+  "source": "shapers.html:459",
+  "note": "CSS background-image of every select:not([multiple]) (block gv-shaper-select-fixes-v9): background-size 11px 8px, position right 9px center, padding-right 30px (UX-06). Raw: <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'><path d='M1 1 6 6 11 1' fill='none' stroke='#2b7b9e' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/></svg>",
+  "module": "shapers"
+ },
+ "_glyphs": {
+  "cabinet": {
+   "_comment": "The unified cabinet uses Unicode glyphs (not SVG) as icons. Keep the same semantics; TZ UX-04 asks to replace them by a consistent SVG set of equal stroke width.",
+   "nav": {
+    "overview": "⌂",
+    "profile": "◉",
+    "inbox": "✉",
+    "bookings": "▣",
+    "favorites": "♡",
+    "directions": "⊕",
+    "settings": "⚙"
+   },
+   "specialties": {
+    "surfer": "≋",
+    "instructor": "♧",
+    "shaper": "◈",
+    "school": "⌂",
+    "rental": "▤"
+   },
+   "overviewTiles": {
+    "Обращения": "⌖",
+    "Мои бронирования": "♧",
+    "Мои направления": "⊕",
+    "Профиль и настройки": "⚙"
+   },
+   "settingsRows": {
+    "GG Surfer": "≋",
+    "Показываться на карте": "◎",
+    "Управление специальностями": "♧"
+   },
+   "registrationRoleCards": {
+    "surfer": "🏄",
+    "instructor": "♧",
+    "school": "🏠"
+   },
+   "registrationToggles": {
+    "Хочу быть GG Surfer": "♡",
+    "Сдаю снаряжение в аренду": "◈"
+   },
+   "lessonOrderIcon": {
+    "coachView": "♧",
+    "clientView": "≋"
+   },
+   "statusPillPrefix": "●",
+   "actions": {
+    "edit": "✎",
+    "delete/close": "×",
+    "accept": "✓",
+    "rate": "★",
+    "time": "◷",
+    "chat": "✉",
+    "arrow": "→",
+    "externalPreview": "↗",
+    "back": "←",
+    "add": "+"
+   },
+   "emptyStateWaves": "≋ 🏄 ≋",
+   "footerMarks": "◉ ◈ ≋"
+  },
+  "shapers": {
+   "note": "Non-SVG glyphs used as icons (replace with SVG in production): «★» rating star (.star, colour #ffae00; reviews «★★★★★» 27px); «×» order-modal close, thumbnail/video/promo/works delete crosses (.gv-thumb-remove/.gv-media-cross), custom-type & custom-material remove, chat attachment remove; «▶» «▶ Промо», «▶ Промо-видео», «▶ Видео доски»; «‹ ›» maker carousel arrows (.gv-carousel-nav, 23px); «→» in link buttons; «✓» «✓ Ремонт досок» (legacy maker heading); «📷» chat thread preview for photo-only message («📷 Фото» / «📷 Фотография»); «♧» legacy model-param bullets (replaced by ruler/droplets SVG).",
+   "source": "shapers.html (markup + JS)"
+  }
+ }
+}

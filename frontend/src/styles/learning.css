@@ -1,0 +1,154 @@
+/* Кабинеты инструктора, школы, бронирования, служебные списки и карточка спота.
+   Построено на токенах tokens.css и визуальном языке кабинета прототипа (мягкие панели, голубые акценты). */
+
+/* ── Общие раскладки ─────────────────────────────────────────────────────────────── */
+.lc-stack, .lc-workspace-body, .lc-tab-body { display: grid; gap: 14px; min-width: 0; }
+.lc-tab-body { margin-top: 14px; }
+.lc-toolbar, .lc-sched-toolbar, .lc-students-tools, .lc-row-actions, .lc-session-actions,
+.lc-list-actions, .lc-note-actions, .lc-form-actions, .lc-save-bar {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+}
+.lc-toolbar { margin: 4px 0 12px; }
+.lc-save-bar {
+  position: sticky; bottom: calc(var(--bottom-offset, 0px) + 8px); z-index: var(--z-sticky, 20);
+  padding: 10px 12px; background: var(--surface-glass, #f9fdffee); border: 1px solid var(--border-card);
+  border-radius: var(--radius-md); box-shadow: var(--shadow-bar);
+}
+.lc-grow { flex: 1 1 auto; min-width: 0; }
+.lc-muted, .lc-footnote, .lc-formula, .lc-sched-hint { color: var(--text-secondary, var(--muted)); font-size: 13px; }
+.lc-section-title, .lc-subtitle { margin: 6px 0 2px; color: var(--heading); }
+.lc-num { font-variant-numeric: tabular-nums; font-weight: 700; }
+
+/* ── Списки ─────────────────────────────────────────────────────────────────────── */
+.lc-list, .lc-note-list, .lc-student-list, .lc-session-list, .lc-offers { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.lc-list-row, .lc-student-row, .lc-offer {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  padding: 12px 14px; border: 1px solid var(--border-card); border-radius: var(--radius-md); background: var(--surface-card, #fff);
+}
+.lc-list-row.is-unread { border-color: var(--selected-border); background: var(--selected-soft); }
+.lc-list-row a { color: inherit; text-decoration: none; }
+.lc-row-button { background: none; border: 0; padding: 0; text-align: left; color: inherit; cursor: pointer; font: inherit; }
+.lc-thumb { width: 64px; height: 64px; border-radius: var(--radius-sm); object-fit: cover; flex: none; }
+.lc-history { margin: 0; padding-left: 18px; display: grid; gap: 6px; font-size: 14px; }
+.lc-history span { color: var(--muted); }
+
+/* ── Формы ──────────────────────────────────────────────────────────────────────── */
+.lc-form, .lc-editor-form, .lc-note-form { display: grid; gap: 12px; min-width: 0; }
+.lc-form-row, .lc-editor-grid, .lc-form-grid-3 { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
+.lc-inline-form { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 10px; }
+.lc-inline-form > * { flex: 1 1 180px; }
+.lc-inline-form > button { flex: 0 0 auto; }
+.lc-toggle-line { display: inline-flex; align-items: center; gap: 10px; cursor: pointer; }
+.lc-alert { padding: 12px 14px; border-radius: var(--radius-md); background: var(--st-danger-bg); color: var(--st-danger-fg); border: 1px solid var(--st-danger-border); }
+.lc-alert.is-info { background: var(--st-info-bg); color: var(--st-info-fg); border-color: transparent; }
+.lc-alert.is-warn { background: var(--st-new-bg); color: var(--st-new-fg); border-color: transparent; }
+.lc-alert-body { margin: 2px 0 0; }
+.lc-warn-text { color: var(--st-danger-fg); }
+.lc-checklist { margin: 6px 0 0; padding-left: 18px; }
+.lc-dl { display: grid; grid-template-columns: minmax(120px, max-content) 1fr; gap: 6px 16px; margin: 0 0 14px; }
+.lc-dl dt { color: var(--muted); }
+.lc-dl dd { margin: 0; }
+
+/* ── Публикация и превью карточки инструктора ──────────────────────────────────── */
+.lc-publish, .lc-preview-card, .lc-overview, .lc-metrics, .lc-students-summary, .lc-upcoming, .lc-media {
+  border: 1px solid var(--border-card); border-radius: var(--radius-lg); padding: 16px; background: var(--surface-soft, #f6fbfe);
+}
+.lc-publish-row, .lc-publish-main, .lc-card-status, .lc-card-status-main, .lc-preview-head, .lc-metrics-head, .lc-note-head {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap; justify-content: space-between;
+}
+.lc-preview-headline { color: var(--text-secondary); margin: 4px 0; }
+.lc-preview-price { font-weight: 700; color: var(--heading); }
+.lc-preview-facts, .lc-facts { display: grid; gap: 6px 14px; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); margin: 10px 0; }
+.lc-fact-row { display: flex; gap: 8px; }
+.lc-preview-about { white-space: pre-line; }
+.lc-overview-metrics { margin-bottom: 12px; }
+.lc-editor { display: grid; gap: 18px; grid-template-columns: minmax(0, 1fr) minmax(260px, 340px); align-items: start; }
+@media (max-width: 1000px) { .lc-editor { grid-template-columns: 1fr; } }
+
+/* ── Занятия и расписание ───────────────────────────────────────────────────────── */
+.lc-session {
+  display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 12px; padding: 12px 14px;
+  border: 1px solid var(--border-card); border-radius: var(--radius-md); background: var(--surface-card, #fff);
+}
+.lc-session.is-cancelled { opacity: .65; }
+.lc-session.is-completed { background: var(--surface-soft); }
+.lc-session-when { display: grid; gap: 2px; color: var(--heading); }
+.lc-session-when span { color: var(--muted); font-size: 13px; }
+.lc-session-main { display: grid; gap: 6px; min-width: 0; }
+.lc-session-title { margin: 0; font-size: 16px; color: var(--heading); }
+.lc-session-meta, .lc-session-tags { display: flex; flex-wrap: wrap; gap: 6px 12px; color: var(--text-secondary); font-size: 13px; }
+.lc-session-note, .lc-session-pending { font-size: 13px; color: var(--muted); }
+.lc-tag-private, .lc-tag-minor, .lc-tag-full {
+  display: inline-block; padding: 2px 8px; border-radius: var(--radius-pill); font-size: 12px;
+  background: var(--st-info-bg); color: var(--st-info-fg);
+}
+.lc-tag-full { background: var(--st-muted-bg); color: var(--st-muted-fg); }
+.lc-tag-minor { background: var(--st-new-bg); color: var(--st-new-fg); }
+.lc-participants { margin: 4px 0 0; padding-left: 16px; font-size: 14px; }
+.lc-participants-empty { color: var(--muted); font-size: 13px; }
+.lc-noshow { color: var(--st-danger-fg); }
+.lc-sched { display: grid; gap: 12px; }
+.lc-sched-nav, .lc-sched-range { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.lc-sched-range { font-weight: 700; color: var(--heading); }
+.lc-daystrip, .lc-session-days { display: grid; gap: 14px; }
+.lc-day-title { margin: 6px 0 4px; font-size: 14px; color: var(--muted); text-transform: capitalize; }
+.lc-week { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 6px; }
+.lc-week-day { border: 1px solid var(--border-card); border-radius: var(--radius-sm); padding: 6px; min-height: 90px; background: var(--surface-card, #fff); min-width: 0; overflow: hidden; }
+.lc-week-item > * { max-width: 100%; overflow: hidden; text-overflow: ellipsis; }
+.lc-week-head { font-size: 12px; color: var(--muted); margin-bottom: 4px; }
+.lc-week-items { display: grid; gap: 4px; }
+.lc-week-item { font-size: 12px; padding: 4px 6px; border-radius: 6px; background: var(--selected-soft); color: var(--heading); border: 0; text-align: left; cursor: pointer; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lc-week-empty { font-size: 12px; color: var(--muted); }
+@media (max-width: 810px) {
+  .lc-week { grid-template-columns: 1fr; }
+  .lc-week-day { min-height: 0; }
+  .lc-session { grid-template-columns: 1fr; }
+}
+
+/* ── Ученики и заметки ──────────────────────────────────────────────────────────── */
+.lc-students { display: grid; gap: 12px; }
+.lc-student { display: grid; gap: 6px; }
+.lc-student-main { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.lc-student-name { font-weight: 700; color: var(--heading); }
+.lc-search { min-width: 200px; }
+.lc-notes { display: grid; gap: 8px; margin-top: 6px; }
+.lc-note { border-left: 3px solid var(--selected-border); padding: 6px 10px; background: var(--surface-soft); border-radius: 6px; }
+.lc-note-text { white-space: pre-line; margin: 4px 0; }
+
+/* ── Метрики и таблицы ──────────────────────────────────────────────────────────── */
+.lc-table-wrap, .gv-table-scroll { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.lc-table, .gv-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.lc-table th, .lc-table td, .gv-table th, .gv-table td { padding: 8px 10px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+.lc-table th, .gv-table th { color: var(--muted); font-weight: 600; white-space: nowrap; }
+.lc-modal-summary { margin: 0 0 12px; color: var(--text-secondary); }
+
+/* ── Мелкие элементы ────────────────────────────────────────────────────────────── */
+.gv-tag { display: inline-block; padding: 3px 9px; border-radius: var(--radius-pill); background: var(--badge-bg, #eaf6fc); color: var(--heading); font-size: 12px; white-space: nowrap; }
+.gv-count { min-width: 22px; height: 22px; padding: 0 6px; border-radius: 11px; background: var(--sea); color: #fff; font-size: 12px; display: inline-grid; place-items: center; }
+.gv-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--pink); vertical-align: middle; }
+.gv-sc-interest { list-style: none; padding: 0; display: grid; gap: 6px; }
+
+/* ── Карточка спота ─────────────────────────────────────────────────────────────── */
+.gv-spot-page-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap; margin: 12px 0 16px; }
+.gv-spot-page-actions { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.gv-spot-layout { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 22px; align-items: start; margin-top: 18px; }
+.gv-spot-layout .spot-body section { margin-bottom: 26px; }
+.gv-spot-aside { display: grid; gap: 14px; }
+.gv-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px 18px; margin: 14px 0; }
+.gv-fact dt { color: var(--muted); font-size: 13px; }
+.gv-fact dd { margin: 2px 0 0; color: var(--heading); font-weight: 600; }
+.gv-infra { list-style: none; padding: 0; display: grid; gap: 6px; }
+@media (max-width: 1000px) { .gv-spot-layout { grid-template-columns: 1fr; } }
+
+/* Обёртка публичных страниц-карточек (спот, аренда, клуб, мерч, профиль участника) */
+.gv-page-body { display: block; padding: 18px 0 48px; }
+.gv-page-body > nav.small { margin-bottom: 6px; }
+.gv-page-body .spot-title { display: block; margin: 4px 0 8px; font-size: clamp(28px, 4vw, 40px); }
+.gv-page-body .spot-summary { font-size: 15px; color: var(--text); min-height: 0; }
+.gv-page-body .spot-safety { font-size: 14px; padding: 10px 14px; border: 1px solid var(--st-new-bg); border-radius: var(--radius-md); background: var(--st-new-bg); color: var(--st-new-fg); margin: 10px 0; }
+.gv-page-body .spot-body { padding: 0; }
+.gv-page-body .spot-gallery img { height: auto; max-height: 420px; }
+.rent-filterbar input, .gg-filters input {
+  width: 100%; height: 38px; padding: 0 10px; border: 1px solid var(--border-input); border-radius: 10px; font: inherit; background: #fff; color: var(--text);
+}
+.rent-filterbar, .gg-filters { align-items: end; }

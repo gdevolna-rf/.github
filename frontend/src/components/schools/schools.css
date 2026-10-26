@@ -1,0 +1,512 @@
+/* Сёрф-школы и занятия (SCH-02, SCH-05, SCH-08). Prototype language: .filters/.filter, .spot-card, .side-card,
+   .lesson-info-card, .notice; colours only from tokens. */
+
+/* ---------- catalogue ---------- */
+.gv-school-filters {
+  grid-template-columns: repeat(3, minmax(0, 1fr)) auto;
+}
+.gv-school-filters .filter input[type="search"] {
+  display: block;
+  width: 100%;
+  margin-top: 5px;
+  padding: 6px 0 1px;
+  border: 0;
+  border-top: 1px solid #d4ecf6;
+  background: transparent;
+  color: #2479a2;
+  font: inherit;
+  font-size: 12px;
+  outline: none;
+}
+.gv-school-filters .filter:focus-within {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+.gv-school-filters .filter label {
+  display: block;
+}
+.gv-school-filters > .gv-school-filter-actions {
+  display: flex;
+  gap: 8px;
+  align-items: stretch;
+}
+.gv-school-filters > .gv-school-filter-actions > * {
+  min-height: 44px;
+}
+@media (max-width: 810px) {
+  .gv-school-filters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .gv-school-filters > .gv-school-filter-actions {
+    grid-column: 1 / -1;
+  }
+  .gv-school-filters > .gv-school-filter-actions > * {
+    flex: 1 1 0;
+  }
+}
+@media (max-width: 540px) {
+  .gv-school-filters {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+.gv-school-grid {
+  gap: 18px;
+  margin-bottom: 24px;
+}
+.gv-school-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.gv-school-card .spot-pic .like-btn {
+  right: 10px;
+}
+.gv-school-card .spot-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+.gv-school-card .spot-body h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+.gv-school-card .spot-body h3 a:hover {
+  text-decoration: underline;
+}
+.gv-school-card .card-cta {
+  margin-top: auto;
+}
+.gv-school-logo {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--surface);
+  box-shadow: var(--shadow-card);
+}
+.gv-school-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.gv-school-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  margin: 0 0 12px;
+  color: var(--ink-strong);
+  font-size: 13px;
+  flex-wrap: wrap;
+}
+.gv-school-price b {
+  font-size: 15px;
+}
+.gv-school-meta {
+  margin: 0 0 8px;
+  color: var(--text-secondary);
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+.gv-schools-count {
+  color: var(--text-secondary);
+  font-size: 13px;
+  margin: 0 0 14px;
+}
+
+/* ---------- school page ---------- */
+.gv-school-page {
+  padding-bottom: 32px;
+}
+.gv-school-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  margin: 26px 0 18px;
+  min-width: 0;
+}
+.gv-school-head-logo {
+  flex: none;
+  width: 84px;
+  height: 84px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--border-card);
+  box-shadow: var(--shadow-card);
+  display: grid;
+  place-items: center;
+  color: var(--selected);
+}
+.gv-school-head-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.gv-school-head-text {
+  min-width: 0;
+  flex: 1;
+}
+.gv-school-head-text h1 {
+  margin: 0 0 6px;
+  font-size: 32px;
+  color: var(--heading);
+  overflow-wrap: anywhere;
+}
+.gv-school-head-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  align-items: center;
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+.gv-school-head-line > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.gv-school-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin: 14px 0 0;
+}
+.gv-school-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr);
+  gap: 22px;
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .gv-school-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .gv-school-head-text h1 {
+    font-size: 26px;
+  }
+}
+@media (max-width: 540px) {
+  .gv-school-head {
+    gap: 12px;
+  }
+  .gv-school-head-logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 14px;
+  }
+  .gv-school-head-text h1 {
+    font-size: 23px;
+  }
+}
+.gv-school-block {
+  margin: 0 0 26px;
+  min-width: 0;
+}
+.gv-school-block > .section-title {
+  font-size: 22px;
+}
+.gv-school-text {
+  color: var(--text);
+  line-height: 1.55;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+.gv-school-facts {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+}
+.gv-school-facts div {
+  display: grid;
+  grid-template-columns: 130px minmax(0, 1fr);
+  gap: 10px;
+  font-size: 13px;
+}
+.gv-school-facts dt {
+  color: var(--text-secondary);
+  font-weight: 700;
+}
+.gv-school-facts dd {
+  margin: 0;
+  color: var(--ink-strong);
+  overflow-wrap: anywhere;
+}
+@media (max-width: 380px) {
+  .gv-school-facts div {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2px;
+  }
+}
+.gv-school-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.gv-school-chips a.chip {
+  text-decoration: none;
+}
+.gv-school-gallery {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 10px;
+}
+.gv-school-gallery.is-single {
+  grid-template-columns: minmax(0, 1fr);
+}
+.gv-school-gallery a {
+  display: block;
+  border-radius: 12px;
+  overflow: hidden;
+  height: 110px;
+  background: var(--surface-soft);
+}
+.gv-school-gallery.is-single a {
+  height: auto;
+  aspect-ratio: 16 / 7;
+}
+.gv-school-gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.gv-school-gallery a:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+.gv-school-cover {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  height: 260px;
+  margin-top: 22px;
+  box-shadow: var(--shadow-card);
+}
+.gv-school-cover img,
+.gv-school-cover .gv-media-placeholder {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+@media (max-width: 540px) {
+  .gv-school-cover {
+    height: 180px;
+    border-radius: var(--radius-lg);
+  }
+}
+
+/* programs */
+.gv-program-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+@media (max-width: 640px) {
+  .gv-program-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+.gv-program {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+.gv-program h3 {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.gv-program p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text);
+  overflow-wrap: anywhere;
+}
+.gv-program-foot {
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+.gv-program-price {
+  font-weight: 700;
+  color: var(--ink-strong);
+}
+
+/* sessions */
+.gv-session-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+.gv-session-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px 14px;
+  align-items: center;
+  padding: 13px 15px;
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow-card);
+}
+.gv-session-row h3 {
+  margin: 0 0 4px;
+  font-size: 15px;
+  overflow-wrap: anywhere;
+}
+.gv-session-row h3 a {
+  color: var(--ink-strong);
+}
+.gv-session-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+.gv-session-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.gv-session-cta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+}
+.gv-seats {
+  font-weight: 700;
+  font-size: 12px;
+  color: var(--st-ok-fg);
+}
+.gv-seats.is-full {
+  color: var(--st-danger-fg);
+}
+@media (max-width: 540px) {
+  .gv-session-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .gv-session-cta {
+    justify-content: flex-start;
+  }
+}
+
+/* team */
+.gv-team-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+.gv-team-member {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+.gv-team-member > div {
+  display: grid;
+  min-width: 0;
+}
+.gv-team-member b {
+  overflow-wrap: anywhere;
+  color: var(--ink-strong);
+}
+.gv-team-member small {
+  color: var(--text-secondary);
+}
+.gv-team-member a {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.gv-school-aside {
+  display: grid;
+  gap: 16px;
+  position: sticky;
+  top: calc(var(--topbar-h) + 14px);
+}
+@media (max-width: 900px) {
+  .gv-school-aside {
+    position: static;
+  }
+}
+.gv-school-aside .side-card h2 {
+  font-size: 18px;
+  margin: 0 0 12px;
+  color: var(--deep);
+}
+.gv-school-owner-note {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+/* ---------- session page ---------- */
+.gv-session-page {
+  padding: 26px 0 36px;
+}
+.gv-session-crumbs {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin: 0 0 10px;
+  overflow-wrap: anywhere;
+}
+.gv-session-title {
+  margin: 0 0 8px;
+  font-size: 30px;
+  color: var(--heading);
+  overflow-wrap: anywhere;
+}
+@media (max-width: 540px) {
+  .gv-session-title {
+    font-size: 24px;
+  }
+}
+.gv-session-panel {
+  display: grid;
+  gap: 12px;
+}
+.gv-session-panel .gv-seats {
+  font-size: 15px;
+}
+.gv-waitlist-box {
+  padding: 13px 14px;
+  border-radius: var(--radius-md);
+  background: var(--st-new-bg);
+  color: var(--st-new-fg);
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+.gv-waitlist-box b {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+.gv-waitlist-actions {
+  margin-top: 10px;
+}
+.gv-session-panel h2 {
+  margin: 0;
+  font-size: 20px;
+  color: var(--deep);
+}

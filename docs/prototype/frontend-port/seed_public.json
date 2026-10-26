@@ -1,0 +1,3282 @@
+{
+  "$meta": {
+    "source": "docs/prototype/source/proto.html (public scripts: main, lesson scenario, premium UX, spot gallery)",
+    "generated": "2026-10-20",
+    "rules": [
+      "Все строки — оригинальный русский текст прототипа.",
+      "Поля demo/isDemo:true нельзя импортировать как реальные данные (TZ 12.2, PL-02, TRUST-01): рейтинги, количество отзывов, отзывы, цены, сертификаты, счётчики.",
+      "prototypeId — ключ из прототипа (для сопоставления), slug — предлагаемый человекочитаемый URL (транслитерация).",
+      "Файлы ассетов — пути относительно docs/prototype/frontend-port/."
+    ]
+  },
+  "regions": [
+    {
+      "slug": "kamchatskiy-kray",
+      "name": "Камчатский край",
+      "order": 1,
+      "mapCenter": {
+        "lat": 53.05,
+        "lng": 158.82,
+        "zoom": 6
+      },
+      "schematicPoint": {
+        "x": 80,
+        "y": 48
+      },
+      "schematicLabel": {
+        "text": "КАМЧАТКА",
+        "x": 72,
+        "y": 40
+      }
+    },
+    {
+      "slug": "krym",
+      "name": "Крым",
+      "order": 2,
+      "mapCenter": {
+        "lat": 44.95,
+        "lng": 34.1,
+        "zoom": 6
+      },
+      "schematicPoint": {
+        "x": 27,
+        "y": 66
+      },
+      "schematicLabel": {
+        "text": "КРЫМ",
+        "x": 30,
+        "y": 71
+      }
+    },
+    {
+      "slug": "sakhalin",
+      "name": "Сахалин",
+      "order": 3,
+      "mapCenter": {
+        "lat": 46.96,
+        "lng": 142.75,
+        "zoom": 6
+      },
+      "schematicPoint": {
+        "x": 75,
+        "y": 69
+      },
+      "schematicLabel": {
+        "text": "САХАЛИН",
+        "x": 70,
+        "y": 70
+      }
+    },
+    {
+      "slug": "ladozhskoe-ozero",
+      "name": "Ладожское озеро",
+      "order": 4,
+      "mapCenter": {
+        "lat": 61.4,
+        "lng": 30.8,
+        "zoom": 6
+      },
+      "schematicPoint": {
+        "x": 21,
+        "y": 36
+      },
+      "schematicLabel": {
+        "text": "ЛАДОГА",
+        "x": 20,
+        "y": 32
+      }
+    },
+    {
+      "slug": "primorskiy-kray",
+      "name": "Приморский край",
+      "order": 5,
+      "mapCenter": {
+        "lat": 43.12,
+        "lng": 131.9,
+        "zoom": 6
+      },
+      "schematicPoint": {
+        "x": 79,
+        "y": 79
+      },
+      "schematicLabel": {
+        "text": "ПРИМОРЬЕ",
+        "x": 76,
+        "y": 83
+      }
+    }
+  ],
+  "allRegionsLabel": "Все регионы",
+  "interests": [
+    "Сёрфинг",
+    "Кемпинг",
+    "Сноуборд",
+    "Путешествия",
+    "Фотография",
+    "Походы",
+    "Шейпинг",
+    "Йога",
+    "Экология",
+    "Кофе у океана"
+  ],
+  "dictionaries": {
+    "instructorFilters": {
+      "region": [
+        "Все регионы",
+        "Камчатский край",
+        "Крым",
+        "Сахалин",
+        "Ладожское озеро",
+        "Приморский край"
+      ],
+      "spots": [
+        "Любые споты",
+        "Авачинская бухта",
+        "Балаклава",
+        "бухта Кирьявалахти",
+        "Кача",
+        "Ладожские шхеры",
+        "Новый Свет",
+        "Оленевка",
+        "Орджоникидзе",
+        "Охотское море",
+        "Паратунка",
+        "Пильтун",
+        "Сортавала",
+        "Судак",
+        "Тихий океан",
+        "Халактырский пляж",
+        "Южно-Сахалинск"
+      ],
+      "board": [
+        "Любая доска",
+        "Шортборд",
+        "Лонгборд",
+        "Фанборд"
+      ],
+      "level": [
+        "Любой уровень",
+        "Начинающий",
+        "Средний",
+        "Продвинутый"
+      ],
+      "levelFilterNote": "Фильтр «Уровень катания» сравнивается с уровнем катания инструктора (p.level), а не с уровнем учеников."
+    },
+    "instructorSort": [
+      {
+        "value": "recommended",
+        "label": "По умолчанию"
+      },
+      {
+        "value": "rating",
+        "label": "По рейтингу"
+      },
+      {
+        "value": "reviews",
+        "label": "По отзывам"
+      },
+      {
+        "value": "price",
+        "label": "Сначала дешевле"
+      },
+      {
+        "value": "experience",
+        "label": "По опыту"
+      }
+    ],
+    "ggStatuses": [
+      "Покажу споты",
+      "Ищу компанию",
+      "Могу подвезти"
+    ],
+    "ggStatusFilter": [
+      "Все статусы",
+      "Покажу споты",
+      "Ищу компанию",
+      "Могу подвезти"
+    ],
+    "ggIntentChips": [
+      {
+        "value": "Все статусы",
+        "label": "Все участники"
+      },
+      {
+        "value": "Покажу споты",
+        "label": "Покажу спот"
+      },
+      {
+        "value": "Ищу компанию",
+        "label": "Ищу компанию"
+      },
+      {
+        "value": "Могу подвезти",
+        "label": "Подвезу"
+      }
+    ],
+    "rentalFilters": {
+      "region": [
+        "Все регионы",
+        "Камчатский край",
+        "Крым",
+        "Сахалин",
+        "Ладожское озеро",
+        "Приморский край"
+      ],
+      "type": [
+        "Всё снаряжение",
+        "Доска",
+        "Гидрокостюм"
+      ],
+      "price": [
+        {
+          "value": "Любая цена",
+          "label": "Любая цена"
+        },
+        {
+          "value": 1000,
+          "label": "До 1 000 ₽"
+        },
+        {
+          "value": 1500,
+          "label": "До 1 500 ₽"
+        },
+        {
+          "value": 2000,
+          "label": "До 2 000 ₽"
+        }
+      ],
+      "size": [
+        "Все размеры",
+        "9′2″",
+        "M",
+        "6′4″",
+        "S",
+        "7′6″",
+        "L",
+        "5′10″",
+        "XL"
+      ]
+    },
+    "spotEditForm": {
+      "windChoices": [
+        "Север",
+        "Северо-восток",
+        "Восток",
+        "Юго-восток",
+        "Юг",
+        "Юго-запад",
+        "Запад",
+        "Северо-запад",
+        "Переменный",
+        "Зависит от прогноза"
+      ],
+      "breakType": [
+        "Бич-брейк",
+        "Риф-брейк",
+        "Пойнт-брейк",
+        "Ривер-брейк",
+        "Риф / пляж",
+        "Ветровая"
+      ],
+      "level": [
+        "Начинающий",
+        "Средний",
+        "Продвинутый",
+        "Для всех уровней"
+      ],
+      "bottom": [
+        "Песок",
+        "Чёрный песок",
+        "Камни",
+        "Риф",
+        "Галька",
+        "Песок и камни",
+        "Смешанное"
+      ],
+      "season": [
+        "Круглый год",
+        "Весна — лето",
+        "Лето — осень",
+        "Осень — зима",
+        "Зима — весна",
+        "По погоде"
+      ],
+      "waveDirection": [
+        "Правая",
+        "Левая",
+        "Левая и правая",
+        "Переменная"
+      ],
+      "attributeLabels": {
+        "name": "Название",
+        "region": "Регион",
+        "type": "Тип брейка",
+        "level": "Уровень катания",
+        "wind": "Подходящий ветер",
+        "swell": "Свелл",
+        "bottom": "Дно",
+        "season": "Сезон",
+        "wave": "Направление волны",
+        "lat": "Широта",
+        "lng": "Долгота",
+        "summary": "Описание",
+        "danger": "Опасности",
+        "nature": "Особенности места",
+        "infra": "Инфраструктура",
+        "access": "Подъезд и доступ"
+      },
+      "note": "Текущее значение спота всегда добавляется первой опцией select, даже если его нет в списке (например «Озёрный спот», «Ветровая»)."
+    },
+    "registration": {
+      "roles": [
+        {
+          "id": "surfer",
+          "icon": "🏄",
+          "label": "Сёрфер"
+        },
+        {
+          "id": "instructor",
+          "icon": "♧",
+          "label": "Инструктор"
+        },
+        {
+          "id": "school",
+          "icon": "🏠",
+          "label": "Сёрф-школа"
+        }
+      ],
+      "extraRoles": [
+        {
+          "id": "instructor",
+          "icon": "♧",
+          "label": "Сёрф-инструктор"
+        },
+        {
+          "id": "shaper",
+          "icon": "◈",
+          "label": "Шейпер"
+        },
+        {
+          "id": "school",
+          "icon": "⌂",
+          "label": "Сёрф-школа"
+        }
+      ],
+      "gender": [
+        {
+          "value": "",
+          "label": "Выберите"
+        },
+        {
+          "value": "female",
+          "label": "Женский"
+        },
+        {
+          "value": "male",
+          "label": "Мужской"
+        }
+      ],
+      "region": [
+        "Выберите регион",
+        "Камчатский край",
+        "Крым",
+        "Сахалин",
+        "Ладожское озеро",
+        "Приморский край",
+        "Другой регион"
+      ],
+      "ridingLevel": [
+        "Начинающий",
+        "Средний",
+        "Продвинутый"
+      ],
+      "board": [
+        "Лонгборд",
+        "Шортборд",
+        "Фанборд",
+        "Пока без своей"
+      ],
+      "minInterests": 3,
+      "ggMinAge": 18,
+      "handlePattern": "[a-zA-Z0-9_]{3,24}",
+      "documents": {
+        "accept": ".pdf,.jpg,.jpeg,.png,.webp",
+        "maxBytes": 10485760
+      }
+    },
+    "booking": {
+      "lessonFormats": [
+        "Индивидуальное",
+        "Вдвоём с другом",
+        "Групповое"
+      ],
+      "studentLevel": [
+        "Первое занятие",
+        "Начинающий",
+        "Средний",
+        "Продвинутый"
+      ],
+      "standardSlots": [
+        "09:00",
+        "12:00",
+        "15:00"
+      ],
+      "defaultClosedWeekdays": [
+        "Пн",
+        "Чт"
+      ],
+      "bookingWindowDays": 91,
+      "orderStatuses": {
+        "pending": "Ожидает ответа",
+        "accepted": "Подтверждено",
+        "completed": "Занятие завершено",
+        "declined": "Отклонено",
+        "cancelled": "Отменено"
+      }
+    },
+    "reviewStars": {
+      "spot": [
+        {
+          "value": 5,
+          "label": "★★★★★ — отлично"
+        },
+        {
+          "value": 4,
+          "label": "★★★★☆ — хорошо"
+        },
+        {
+          "value": 3,
+          "label": "★★★☆☆ — нормально"
+        },
+        {
+          "value": 2,
+          "label": "★★☆☆☆ — сложно"
+        },
+        {
+          "value": 1,
+          "label": "★☆☆☆☆ — не понравилось"
+        }
+      ],
+      "lesson": [
+        {
+          "value": 5,
+          "label": "★★★★★ Отлично!"
+        },
+        {
+          "value": 4,
+          "label": "★★★★☆ Хорошо"
+        },
+        {
+          "value": 3,
+          "label": "★★★☆☆ Нормально"
+        },
+        {
+          "value": 2,
+          "label": "★★☆☆☆ Не очень"
+        },
+        {
+          "value": 1,
+          "label": "★☆☆☆☆ Не понравилось"
+        }
+      ]
+    }
+  },
+  "spots": [
+    {
+      "prototypeId": "english",
+      "slug": "zaliv-anglichanka",
+      "name": "Залив Англичанка",
+      "region": "Камчатский край",
+      "regionSlug": "kamchatskiy-kray",
+      "breakType": "Бич-брейк",
+      "level": "Начинающий",
+      "wind": {
+        "text": "Северо-запад",
+        "directionDeg": 315
+      },
+      "swell": {
+        "text": "Юго-восток",
+        "directionDeg": 135
+      },
+      "bottom": "Песок",
+      "season": "Весна — лето",
+      "waveDirection": "Правая",
+      "summary": "Дикий пляж, маршрут пешком от конного клуба «Донской». Подъезд ограничен. Информация требует проверки на месте.",
+      "coordinates": {
+        "lat": 52.9348601,
+        "lng": 158.779867,
+        "raw": [
+          "52.9348601",
+          "158.7798670"
+        ]
+      },
+      "nature": [
+        {
+          "emoji": "🌋",
+          "label": "Вулканы",
+          "raw": "🌋 Вулканы"
+        },
+        {
+          "emoji": "🏔️",
+          "label": "Горы",
+          "raw": "🏔️ Горы"
+        },
+        {
+          "emoji": "🏕️",
+          "label": "Дикий пляж",
+          "raw": "🏕️ Дикий пляж"
+        }
+      ],
+      "infrastructure": [
+        {
+          "emoji": "🚶",
+          "label": "Пеший подход",
+          "raw": "🚶 Пеший подход"
+        },
+        {
+          "emoji": "⛺",
+          "label": "Палатка",
+          "raw": "⛺ Палатка"
+        }
+      ],
+      "hazards": "Камни. Обстановка и доступ могут меняться.",
+      "hazardsShort": "Камни",
+      "access": null,
+      "schematicMapPosition": {
+        "x": 81,
+        "y": 49
+      },
+      "photos": {
+        "cover": {
+          "prototypeKey": "spot_user_01",
+          "prototypeFile": "img/img37.jpg",
+          "file": "assets/seed/spots/spot-zaliv-anglichanka-1.jpg"
+        },
+        "gallery": [
+          {
+            "prototypeKey": "spot_user_01",
+            "prototypeFile": "img/img37.jpg",
+            "file": "assets/seed/spots/spot-zaliv-anglichanka-1.jpg",
+            "caption": "Общий вид спота",
+            "alt": "Залив Англичанка — фото 1"
+          },
+          {
+            "prototypeKey": "spot_user_02",
+            "prototypeFile": "img/img38.jpg",
+            "file": "assets/seed/spots/spot-zaliv-anglichanka-2.jpg",
+            "caption": "Линия волны и берег",
+            "alt": "Залив Англичанка — фото 2"
+          }
+        ],
+        "prototypePlaceholderBeforeGallery": {
+          "prototypeKey": "coast",
+          "prototypeFile": "img/img10.webp",
+          "file": "assets/ui/feature-mountain-lake.webp"
+        }
+      },
+      "yandex": {
+        "zoom": 13,
+        "widgetUrl": "https://yandex.ru/map-widget/v1/?ll=158.779867%2C52.9348601&z=13&l=sat&pt=158.779867%2C52.9348601%2Cpm2rdm",
+        "routeUrl": "https://yandex.ru/maps/?rtext=~158.7798670%2C52.9348601&rtt=auto",
+        "satelliteUrl": "https://yandex.ru/maps/?ll=158.7798670%2C52.9348601&z=14&l=sat&pt=158.7798670%2C52.9348601%2Cpm2rdm"
+      },
+      "video": null,
+      "demo": {
+        "isDemo": true,
+        "rating": 4.8,
+        "reviewsCount": 18,
+        "note": "Оценки и число отзывов иллюстративные — не импортировать как реальные (TZ PL-02, TRUST-01)"
+      },
+      "dataStatus": "Информация требует проверки на месте (TZ SPT-11: хранить дату подтверждения и источник)"
+    },
+    {
+      "prototypeId": "halak",
+      "slug": "khalaktyrskiy-plyazh",
+      "name": "Халактырский пляж",
+      "region": "Камчатский край",
+      "regionSlug": "kamchatskiy-kray",
+      "breakType": "Бич-брейк",
+      "level": "Средний",
+      "wind": {
+        "text": "Зависит от участка",
+        "directionDeg": null
+      },
+      "swell": {
+        "text": "Тихоокеанский",
+        "directionDeg": null
+      },
+      "bottom": "Чёрный песок",
+      "season": "Лето — осень",
+      "waveDirection": "Левая и правая",
+      "summary": "Тихоокеанское побережье, вулканы на горизонте и километры чёрного песка.",
+      "coordinates": {
+        "lat": 53.059,
+        "lng": 158.822,
+        "raw": [
+          "53.059",
+          "158.822"
+        ]
+      },
+      "nature": [
+        {
+          "emoji": "🌋",
+          "label": "Вулканы",
+          "raw": "🌋 Вулканы"
+        },
+        {
+          "emoji": "🦭",
+          "label": "Морские котики",
+          "raw": "🦭 Морские котики"
+        },
+        {
+          "emoji": "🏖️",
+          "label": "Пляж",
+          "raw": "🏖️ Пляж"
+        }
+      ],
+      "infrastructure": [
+        {
+          "emoji": "🚗",
+          "label": "Подъезд",
+          "raw": "🚗 Подъезд"
+        },
+        {
+          "emoji": "☕",
+          "label": "Кафе в районе",
+          "raw": "☕ Кафе в районе"
+        }
+      ],
+      "hazards": "Холодная вода, течения, резкие изменения погоды.",
+      "hazardsShort": "Холодная вода, течения, резкие изменения погоды",
+      "access": null,
+      "schematicMapPosition": {
+        "x": 81.5,
+        "y": 46
+      },
+      "photos": {
+        "cover": {
+          "prototypeKey": "spot_user_06",
+          "prototypeFile": "img/img42.jpg",
+          "file": "assets/seed/spots/spot-khalaktyrskiy-plyazh-1.jpg"
+        },
+        "gallery": [
+          {
+            "prototypeKey": "spot_user_06",
+            "prototypeFile": "img/img42.jpg",
+            "file": "assets/seed/spots/spot-khalaktyrskiy-plyazh-1.jpg",
+            "caption": "Общий вид спота",
+            "alt": "Халактырский пляж — фото 1"
+          },
+          {
+            "prototypeKey": "spot_user_07",
+            "prototypeFile": "img/img43.jpg",
+            "file": "assets/seed/spots/spot-khalaktyrskiy-plyazh-2.jpg",
+            "caption": "Линия волны и берег",
+            "alt": "Халактырский пляж — фото 2"
+          },
+          {
+            "prototypeKey": "spot_user_11",
+            "prototypeFile": "img/img47.jpg",
+            "file": "assets/seed/spots/spot-khalaktyrskiy-plyazh-3.jpg",
+            "caption": "Дополнительный ракурс",
+            "alt": "Халактырский пляж — фото 3"
+          }
+        ],
+        "prototypePlaceholderBeforeGallery": {
+          "prototypeKey": "volcano",
+          "prototypeFile": "img/img08.webp",
+          "file": "assets/ui/feature-volcano-coast.webp"
+        }
+      },
+      "yandex": {
+        "zoom": 13,
+        "widgetUrl": "https://yandex.ru/map-widget/v1/?ll=158.822%2C53.059&z=13&l=sat&pt=158.822%2C53.059%2Cpm2rdm",
+        "routeUrl": "https://yandex.ru/maps/?rtext=~158.822%2C53.059&rtt=auto",
+        "satelliteUrl": "https://yandex.ru/maps/?ll=158.822%2C53.059&z=14&l=sat&pt=158.822%2C53.059%2Cpm2rdm"
+      },
+      "video": null,
+      "demo": {
+        "isDemo": true,
+        "rating": 4.9,
+        "reviewsCount": 29,
+        "note": "Оценки и число отзывов иллюстративные — не импортировать как реальные (TZ PL-02, TRUST-01)"
+      },
+      "dataStatus": "Информация требует проверки на месте (TZ SPT-11: хранить дату подтверждения и источник)"
+    },
+    {
+      "prototypeId": "ladoga",
+      "slug": "ladozhskie-shkhery",
+      "name": "Ладожские шхеры",
+      "region": "Ладожское озеро",
+      "regionSlug": "ladozhskoe-ozero",
+      "breakType": "Озёрный спот",
+      "level": "Средний",
+      "wind": {
+        "text": "Север, северо-запад",
+        "directionDeg": 315
+      },
+      "swell": {
+        "text": "Не применяется",
+        "directionDeg": null
+      },
+      "bottom": "Камни",
+      "season": "Осень",
+      "waveDirection": "Ветровая",
+      "summary": "Северная вода, сосны и суровые ветровые волны. Локальные условия сильно различаются.",
+      "coordinates": {
+        "lat": 61.6,
+        "lng": 30.8,
+        "raw": [
+          "61.60",
+          "30.80"
+        ]
+      },
+      "nature": [
+        {
+          "emoji": "🌲",
+          "label": "Сосновый лес",
+          "raw": "🌲 Сосновый лес"
+        },
+        {
+          "emoji": "🪨",
+          "label": "Скалы",
+          "raw": "🪨 Скалы"
+        },
+        {
+          "emoji": "🏞️",
+          "label": "Озеро",
+          "raw": "🏞️ Озеро"
+        }
+      ],
+      "infrastructure": [
+        {
+          "emoji": "🚗",
+          "label": "Парковка",
+          "raw": "🚗 Парковка"
+        },
+        {
+          "emoji": "🧖",
+          "label": "Баня в регионе",
+          "raw": "🧖 Баня в регионе"
+        }
+      ],
+      "hazards": "Камни, холодная вода, непредсказуемый ветер.",
+      "hazardsShort": "Камни, холодная вода, непредсказуемый ветер",
+      "access": null,
+      "schematicMapPosition": {
+        "x": 21,
+        "y": 34
+      },
+      "photos": {
+        "cover": {
+          "prototypeKey": "spot_user_12",
+          "prototypeFile": "img/img48.jpg",
+          "file": "assets/seed/spots/spot-ladozhskie-shkhery-1.jpg"
+        },
+        "gallery": [
+          {
+            "prototypeKey": "spot_user_12",
+            "prototypeFile": "img/img48.jpg",
+            "file": "assets/seed/spots/spot-ladozhskie-shkhery-1.jpg",
+            "caption": "Общий вид спота",
+            "alt": "Ладожские шхеры — фото 1"
+          },
+          {
+            "prototypeKey": "spot_user_13",
+            "prototypeFile": "img/img49.jpg",
+            "file": "assets/seed/spots/spot-ladozhskie-shkhery-2.jpg",
+            "caption": "Линия волны и берег",
+            "alt": "Ладожские шхеры — фото 2"
+          }
+        ],
+        "prototypePlaceholderBeforeGallery": {
+          "prototypeKey": "p1",
+          "prototypeFile": "img/img14.webp",
+          "file": "assets/demo/avatars/avatar-instructor-mariya-volkova.webp"
+        }
+      },
+      "yandex": {
+        "zoom": 13,
+        "widgetUrl": "https://yandex.ru/map-widget/v1/?ll=30.8%2C61.6&z=13&l=sat&pt=30.8%2C61.6%2Cpm2rdm",
+        "routeUrl": "https://yandex.ru/maps/?rtext=~30.80%2C61.60&rtt=auto",
+        "satelliteUrl": "https://yandex.ru/maps/?ll=30.80%2C61.60&z=14&l=sat&pt=30.80%2C61.60%2Cpm2rdm"
+      },
+      "video": null,
+      "demo": {
+        "isDemo": true,
+        "rating": 4.7,
+        "reviewsCount": 11,
+        "note": "Оценки и число отзывов иллюстративные — не импортировать как реальные (TZ PL-02, TRUST-01)"
+      },
+      "dataStatus": "Информация требует проверки на месте (TZ SPT-11: хранить дату подтверждения и источник)"
+    },
+    {
+      "prototypeId": "crimea",
+      "slug": "olenevka",
+      "name": "Оленевка",
+      "region": "Крым",
+      "regionSlug": "krym",
+      "breakType": "Риф / пляж",
+      "level": "Средний",
+      "wind": {
+        "text": "По прогнозу",
+        "directionDeg": null
+      },
+      "swell": {
+        "text": "Чёрное море",
+        "directionDeg": null
+      },
+      "bottom": "Смешанное",
+      "season": "Осень — зима",
+      "waveDirection": "Левая и правая",
+      "summary": "Прозрачная вода, открытый берег и красивое море под подходящие штормовые прогнозы.",
+      "coordinates": {
+        "lat": 45.38,
+        "lng": 32.53,
+        "raw": [
+          "45.38",
+          "32.53"
+        ]
+      },
+      "nature": [
+        {
+          "emoji": "🏖️",
+          "label": "Пляж",
+          "raw": "🏖️ Пляж"
+        },
+        {
+          "emoji": "🌊",
+          "label": "Море",
+          "raw": "🌊 Море"
+        },
+        {
+          "emoji": "☀️",
+          "label": "Закаты",
+          "raw": "☀️ Закаты"
+        }
+      ],
+      "infrastructure": [
+        {
+          "emoji": "🛒",
+          "label": "Магазин",
+          "raw": "🛒 Магазин"
+        },
+        {
+          "emoji": "🚗",
+          "label": "Парковка",
+          "raw": "🚗 Парковка"
+        }
+      ],
+      "hazards": "Камни, подводные препятствия, штормовая погода.",
+      "hazardsShort": "Камни, подводные препятствия, штормовая погода",
+      "access": null,
+      "schematicMapPosition": {
+        "x": 27,
+        "y": 66
+      },
+      "photos": {
+        "cover": {
+          "prototypeKey": "spot_user_03",
+          "prototypeFile": "img/img39.jpg",
+          "file": "assets/seed/spots/spot-olenevka-1.jpg"
+        },
+        "gallery": [
+          {
+            "prototypeKey": "spot_user_03",
+            "prototypeFile": "img/img39.jpg",
+            "file": "assets/seed/spots/spot-olenevka-1.jpg",
+            "caption": "Общий вид спота",
+            "alt": "Оленевка — фото 1"
+          },
+          {
+            "prototypeKey": "spot_user_04",
+            "prototypeFile": "img/img40.jpg",
+            "file": "assets/seed/spots/spot-olenevka-2.jpg",
+            "caption": "Линия волны и берег",
+            "alt": "Оленевка — фото 2"
+          },
+          {
+            "prototypeKey": "spot_user_05",
+            "prototypeFile": "img/img41.jpg",
+            "file": "assets/seed/spots/spot-olenevka-3.jpg",
+            "caption": "Дополнительный ракурс",
+            "alt": "Оленевка — фото 3"
+          }
+        ],
+        "prototypePlaceholderBeforeGallery": {
+          "prototypeKey": "wave",
+          "prototypeFile": "img/img09.webp",
+          "file": "assets/ui/feature-coast-aerial.webp"
+        }
+      },
+      "yandex": {
+        "zoom": 13,
+        "widgetUrl": "https://yandex.ru/map-widget/v1/?ll=32.53%2C45.38&z=13&l=sat&pt=32.53%2C45.38%2Cpm2rdm",
+        "routeUrl": "https://yandex.ru/maps/?rtext=~32.53%2C45.38&rtt=auto",
+        "satelliteUrl": "https://yandex.ru/maps/?ll=32.53%2C45.38&z=14&l=sat&pt=32.53%2C45.38%2Cpm2rdm"
+      },
+      "video": null,
+      "demo": {
+        "isDemo": true,
+        "rating": 4.8,
+        "reviewsCount": 14,
+        "note": "Оценки и число отзывов иллюстративные — не импортировать как реальные (TZ PL-02, TRUST-01)"
+      },
+      "dataStatus": "Информация требует проверки на месте (TZ SPT-11: хранить дату подтверждения и источник)"
+    },
+    {
+      "prototypeId": "sakh",
+      "slug": "poberezhye-sakhalina",
+      "name": "Побережье Сахалина",
+      "region": "Сахалин",
+      "regionSlug": "sakhalin",
+      "breakType": "Бич-брейк",
+      "level": "Продвинутый",
+      "wind": {
+        "text": "По прогнозу",
+        "directionDeg": null
+      },
+      "swell": {
+        "text": "Охотское море",
+        "directionDeg": null
+      },
+      "bottom": "Песок и камни",
+      "season": "Лето — осень",
+      "waveDirection": "Левая и правая",
+      "summary": "Островные пейзажи, суровый океанский характер и требовательные условия.",
+      "coordinates": {
+        "lat": 46.95,
+        "lng": 142.74,
+        "raw": [
+          "46.95",
+          "142.74"
+        ]
+      },
+      "nature": [
+        {
+          "emoji": "🏔️",
+          "label": "Горы",
+          "raw": "🏔️ Горы"
+        },
+        {
+          "emoji": "🦭",
+          "label": "Морские котики",
+          "raw": "🦭 Морские котики"
+        },
+        {
+          "emoji": "🌊",
+          "label": "Море",
+          "raw": "🌊 Море"
+        }
+      ],
+      "infrastructure": [
+        {
+          "emoji": "🚗",
+          "label": "Машина необходима",
+          "raw": "🚗 Машина необходима"
+        }
+      ],
+      "hazards": "Течения, холодная вода, сложная логистика.",
+      "hazardsShort": "Течения, холодная вода, сложная логистика",
+      "access": null,
+      "schematicMapPosition": {
+        "x": 75,
+        "y": 69
+      },
+      "photos": {
+        "cover": {
+          "prototypeKey": "spot_user_09",
+          "prototypeFile": "img/img45.jpg",
+          "file": "assets/seed/spots/spot-poberezhye-sakhalina-1.jpg"
+        },
+        "gallery": [
+          {
+            "prototypeKey": "spot_user_09",
+            "prototypeFile": "img/img45.jpg",
+            "file": "assets/seed/spots/spot-poberezhye-sakhalina-1.jpg",
+            "caption": "Общий вид спота",
+            "alt": "Побережье Сахалина — фото 1"
+          },
+          {
+            "prototypeKey": "spot_user_10",
+            "prototypeFile": "img/img46.jpg",
+            "file": "assets/seed/spots/spot-poberezhye-sakhalina-2.jpg",
+            "caption": "Линия волны и берег",
+            "alt": "Побережье Сахалина — фото 2"
+          }
+        ],
+        "prototypePlaceholderBeforeGallery": {
+          "prototypeKey": "coast",
+          "prototypeFile": "img/img10.webp",
+          "file": "assets/ui/feature-mountain-lake.webp"
+        }
+      },
+      "yandex": {
+        "zoom": 13,
+        "widgetUrl": "https://yandex.ru/map-widget/v1/?ll=142.74%2C46.95&z=13&l=sat&pt=142.74%2C46.95%2Cpm2rdm",
+        "routeUrl": "https://yandex.ru/maps/?rtext=~142.74%2C46.95&rtt=auto",
+        "satelliteUrl": "https://yandex.ru/maps/?ll=142.74%2C46.95&z=14&l=sat&pt=142.74%2C46.95%2Cpm2rdm"
+      },
+      "video": null,
+      "demo": {
+        "isDemo": true,
+        "rating": 4.7,
+        "reviewsCount": 9,
+        "note": "Оценки и число отзывов иллюстративные — не импортировать как реальные (TZ PL-02, TRUST-01)"
+      },
+      "dataStatus": "Информация требует проверки на месте (TZ SPT-11: хранить дату подтверждения и источник)"
+    },
+    {
+      "prototypeId": "prim",
+      "slug": "poberezhye-primorya",
+      "name": "Побережье Приморья",
+      "region": "Приморский край",
+      "regionSlug": "primorskiy-kray",
+      "breakType": "Бич-брейк",
+      "level": "Начинающий",
+      "wind": {
+        "text": "По прогнозу",
+        "directionDeg": null
+      },
+      "swell": {
+        "text": "Японское море",
+        "directionDeg": null
+      },
+      "bottom": "Песок",
+      "season": "Лето — осень",
+      "waveDirection": "Левая и правая",
+      "summary": "Красивые бухты, морской воздух и споты на разный уровень катания.",
+      "coordinates": {
+        "lat": 43.12,
+        "lng": 131.9,
+        "raw": [
+          "43.12",
+          "131.90"
+        ]
+      },
+      "nature": [
+        {
+          "emoji": "🌲",
+          "label": "Лес",
+          "raw": "🌲 Лес"
+        },
+        {
+          "emoji": "🌊",
+          "label": "Море",
+          "raw": "🌊 Море"
+        },
+        {
+          "emoji": "🪨",
+          "label": "Скалы",
+          "raw": "🪨 Скалы"
+        }
+      ],
+      "infrastructure": [
+        {
+          "emoji": "🚗",
+          "label": "Подъезд",
+          "raw": "🚗 Подъезд"
+        },
+        {
+          "emoji": "🛒",
+          "label": "Магазин",
+          "raw": "🛒 Магазин"
+        }
+      ],
+      "hazards": "Скалы, лодочное движение, сезонные течения.",
+      "hazardsShort": "Скалы, лодочное движение, сезонные течения",
+      "access": null,
+      "schematicMapPosition": {
+        "x": 79,
+        "y": 79
+      },
+      "photos": {
+        "cover": {
+          "prototypeKey": "spot_user_08",
+          "prototypeFile": "img/img44.jpg",
+          "file": "assets/seed/spots/spot-poberezhye-primorya-1.jpg"
+        },
+        "gallery": [
+          {
+            "prototypeKey": "spot_user_08",
+            "prototypeFile": "img/img44.jpg",
+            "file": "assets/seed/spots/spot-poberezhye-primorya-1.jpg",
+            "caption": "Общий вид спота",
+            "alt": "Побережье Приморья — фото 1"
+          },
+          {
+            "prototypeKey": "spot_user_14",
+            "prototypeFile": "img/img50.jpg",
+            "file": "assets/seed/spots/spot-poberezhye-primorya-2.jpg",
+            "caption": "Линия волны и берег",
+            "alt": "Побережье Приморья — фото 2"
+          }
+        ],
+        "prototypePlaceholderBeforeGallery": {
+          "prototypeKey": "wave2",
+          "prototypeFile": "img/img11.webp",
+          "file": "assets/ui/feature-barrel-surfer.webp"
+        }
+      },
+      "yandex": {
+        "zoom": 13,
+        "widgetUrl": "https://yandex.ru/map-widget/v1/?ll=131.9%2C43.12&z=13&l=sat&pt=131.9%2C43.12%2Cpm2rdm",
+        "routeUrl": "https://yandex.ru/maps/?rtext=~131.90%2C43.12&rtt=auto",
+        "satelliteUrl": "https://yandex.ru/maps/?ll=131.90%2C43.12&z=14&l=sat&pt=131.90%2C43.12%2Cpm2rdm"
+      },
+      "video": null,
+      "demo": {
+        "isDemo": true,
+        "rating": 4.6,
+        "reviewsCount": 16,
+        "note": "Оценки и число отзывов иллюстративные — не импортировать как реальные (TZ PL-02, TRUST-01)"
+      },
+      "dataStatus": "Информация требует проверки на месте (TZ SPT-11: хранить дату подтверждения и источник)"
+    }
+  ],
+  "instructors": [
+    {
+      "prototypeId": "alex",
+      "slug": "aleksey-morozov",
+      "name": "Алексей Морозов",
+      "firstName": "Алексей",
+      "lastName": "Морозов",
+      "region": "Камчатский край",
+      "regionSlug": "kamchatskiy-kray",
+      "town": "Петропавловск-Камчатский",
+      "spots": [
+        "Халактырский пляж",
+        "Авачинская бухта",
+        "Паратунка"
+      ],
+      "boardTypes": [
+        "Шортборд",
+        "Лонгборд"
+      ],
+      "ridingLevel": "Продвинутый",
+      "studentLevels": [
+        "Начинающий",
+        "Средний"
+      ],
+      "studentLevelsText": "Начинающий, средний",
+      "experienceYears": 8,
+      "about": "Однажды поймал волну на фоне извержения вулкана. Это было страшно и невероятно красиво одновременно!",
+      "funFacts": [
+        "Однажды поймал волну на фоне извержения вулкана. Это было страшно и невероятно красиво одновременно!"
+      ],
+      "lessonFormats": [
+        "Индивидуальное",
+        "Вдвоём с другом",
+        "Групповое"
+      ],
+      "languages": null,
+      "priceFrom": {
+        "amount": 3800,
+        "currency": "RUB",
+        "unit": "занятие",
+        "isDemo": true,
+        "label": "Пример цены"
+      },
+      "certificate": {
+        "state": "verified",
+        "isDemo": true,
+        "cardLabel": "✓ сертификат",
+        "modalLabel": "✓ Сертификат · демо",
+        "note": "В прототипе значок «только в примере». В TZ INS-03 нужны 3 состояния: none / uploaded / verified."
+      },
+      "photo": {
+        "prototypeKey": "p0",
+        "prototypeFile": "img/img13.webp",
+        "file": "assets/demo/avatars/avatar-instructor-aleksey-morozov.webp"
+      },
+      "ggSurfer": {
+        "member": true,
+        "status": "Покажу споты"
+      },
+      "schematicMapPosition": {
+        "x": 80,
+        "y": 48
+      },
+      "schedule": {
+        "standardSlots": [
+          "09:00",
+          "12:00",
+          "15:00"
+        ],
+        "closedWeekdays": [
+          "Пн",
+          "Чт"
+        ],
+        "bookingWindowDays": 91,
+        "monthsAhead": 2,
+        "priceNote": "Стоимость — по договорённости с инструктором",
+        "isDemo": true
+      },
+      "demo": {
+        "isDemo": true,
+        "rating": 4.9,
+        "reviewsCount": 24
+      }
+    },
+    {
+      "prototypeId": "maria",
+      "slug": "mariya-volkova",
+      "name": "Мария Волкова",
+      "firstName": "Мария",
+      "lastName": "Волкова",
+      "region": "Ладожское озеро",
+      "regionSlug": "ladozhskoe-ozero",
+      "town": "Санкт-Петербург",
+      "spots": [
+        "Ладожские шхеры",
+        "бухта Кирьявалахти",
+        "Сортавала"
+      ],
+      "boardTypes": [
+        "Лонгборд",
+        "Фанборд"
+      ],
+      "ridingLevel": "Средний",
+      "studentLevels": [
+        "Начинающий",
+        "Средний"
+      ],
+      "studentLevelsText": "Начинающий, средний",
+      "experienceYears": 5,
+      "about": "Обожаю кататься в снегу и на льду. Зимой на Ладоге можно поймать ледяную волну — это не только холодно, но и про кайф!",
+      "funFacts": [
+        "Обожаю кататься в снегу и на льду. Зимой на Ладоге можно поймать ледяную волну — это не только холодно, но и про кайф!"
+      ],
+      "lessonFormats": [
+        "Индивидуальное",
+        "Вдвоём с другом",
+        "Групповое"
+      ],
+      "languages": null,
+      "priceFrom": {
+        "amount": 2900,
+        "currency": "RUB",
+        "unit": "занятие",
+        "isDemo": true,
+        "label": "Пример цены"
+      },
+      "certificate": {
+        "state": "none",
+        "isDemo": true
+      },
+      "photo": {
+        "prototypeKey": "p1",
+        "prototypeFile": "img/img14.webp",
+        "file": "assets/demo/avatars/avatar-instructor-mariya-volkova.webp"
+      },
+      "ggSurfer": {
+        "member": true,
+        "status": "Ищу компанию"
+      },
+      "schematicMapPosition": {
+        "x": 21,
+        "y": 36
+      },
+      "schedule": {
+        "standardSlots": [
+          "09:00",
+          "12:00",
+          "15:00"
+        ],
+        "closedWeekdays": [
+          "Пн",
+          "Чт"
+        ],
+        "bookingWindowDays": 91,
+        "monthsAhead": 2,
+        "priceNote": "Стоимость — по договорённости с инструктором",
+        "isDemo": true
+      },
+      "demo": {
+        "isDemo": true,
+        "rating": 4.8,
+        "reviewsCount": 17
+      }
+    },
+    {
+      "prototypeId": "dima",
+      "slug": "dmitriy-kovalev",
+      "name": "Дмитрий Ковалев",
+      "firstName": "Дмитрий",
+      "lastName": "Ковалев",
+      "region": "Крым",
+      "regionSlug": "krym",
+      "town": "Судак",
+      "spots": [
+        "Балаклава",
+        "Судак",
+        "Оленевка"
+      ],
+      "boardTypes": [
+        "Шортборд",
+        "Лонгборд"
+      ],
+      "ridingLevel": "Продвинутый",
+      "studentLevels": [
+        "Любой уровень"
+      ],
+      "studentLevelsText": "Любой уровень",
+      "experienceYears": 7,
+      "about": "Люблю сёрфить на рассвете. В Крыму это особенно волшебно — горы, море и полное безлюдье.",
+      "funFacts": [
+        "Люблю сёрфить на рассвете. В Крыму это особенно волшебно — горы, море и полное безлюдье."
+      ],
+      "lessonFormats": [
+        "Индивидуальное",
+        "Вдвоём с другом",
+        "Групповое"
+      ],
+      "languages": null,
+      "priceFrom": {
+        "amount": 3400,
+        "currency": "RUB",
+        "unit": "занятие",
+        "isDemo": true,
+        "label": "Пример цены"
+      },
+      "certificate": {
+        "state": "verified",
+        "isDemo": true,
+        "cardLabel": "✓ сертификат",
+        "modalLabel": "✓ Сертификат · демо",
+        "note": "В прототипе значок «только в примере». В TZ INS-03 нужны 3 состояния: none / uploaded / verified."
+      },
+      "photo": {
+        "prototypeKey": "p2",
+        "prototypeFile": "img/img15.webp",
+        "file": "assets/demo/avatars/avatar-instructor-dmitriy-kovalev.webp"
+      },
+      "ggSurfer": {
+        "member": true,
+        "status": "Могу подвезти"
+      },
+      "schematicMapPosition": {
+        "x": 29,
+        "y": 67
+      },
+      "schedule": {
+        "standardSlots": [
+          "09:00",
+          "12:00",
+          "15:00"
+        ],
+        "closedWeekdays": [
+          "Пн",
+          "Чт"
+        ],
+        "bookingWindowDays": 91,
+        "monthsAhead": 2,
+        "priceNote": "Стоимость — по договорённости с инструктором",
+        "isDemo": true
+      },
+      "demo": {
+        "isDemo": true,
+        "rating": 5,
+        "reviewsCount": 32
+      }
+    },
+    {
+      "prototypeId": "katya",
+      "slug": "ekaterina-sokolova",
+      "name": "Екатерина Соколова",
+      "firstName": "Екатерина",
+      "lastName": "Соколова",
+      "region": "Сахалин",
+      "regionSlug": "sakhalin",
+      "town": "Южно-Сахалинск",
+      "spots": [
+        "Пильтун",
+        "Охотское море",
+        "Южно-Сахалинск"
+      ],
+      "boardTypes": [
+        "Шортборд",
+        "Фанборд"
+      ],
+      "ridingLevel": "Продвинутый",
+      "studentLevels": [
+        "Начинающий",
+        "Средний"
+      ],
+      "studentLevelsText": "Начинающий, средний",
+      "experienceYears": 6,
+      "about": "Сёрфинг — это не только про волны, но и про знакомства. На Сахалине я нашла лучших друзей именно в воде!",
+      "funFacts": [
+        "Сёрфинг — это не только про волны, но и про знакомства. На Сахалине я нашла лучших друзей именно в воде!"
+      ],
+      "lessonFormats": [
+        "Индивидуальное",
+        "Вдвоём с другом",
+        "Групповое"
+      ],
+      "languages": null,
+      "priceFrom": {
+        "amount": 3200,
+        "currency": "RUB",
+        "unit": "занятие",
+        "isDemo": true,
+        "label": "Пример цены"
+      },
+      "certificate": {
+        "state": "none",
+        "isDemo": true
+      },
+      "photo": {
+        "prototypeKey": "p3",
+        "prototypeFile": "img/img16.webp",
+        "file": "assets/demo/avatars/avatar-instructor-ekaterina-sokolova.webp"
+      },
+      "ggSurfer": {
+        "member": true,
+        "status": "Покажу споты"
+      },
+      "schematicMapPosition": {
+        "x": 75,
+        "y": 69
+      },
+      "schedule": {
+        "standardSlots": [
+          "09:00",
+          "12:00",
+          "15:00"
+        ],
+        "closedWeekdays": [
+          "Пн",
+          "Чт"
+        ],
+        "bookingWindowDays": 91,
+        "monthsAhead": 2,
+        "priceNote": "Стоимость — по договорённости с инструктором",
+        "isDemo": true
+      },
+      "demo": {
+        "isDemo": true,
+        "rating": 4.7,
+        "reviewsCount": 18
+      }
+    },
+    {
+      "prototypeId": "ivan",
+      "slug": "ivan-petrov",
+      "name": "Иван Петров",
+      "firstName": "Иван",
+      "lastName": "Петров",
+      "region": "Камчатский край",
+      "regionSlug": "kamchatskiy-kray",
+      "town": "Елизово",
+      "spots": [
+        "Авачинская бухта",
+        "Тихий океан"
+      ],
+      "boardTypes": [
+        "Шортборд",
+        "Лонгборд"
+      ],
+      "ridingLevel": "Продвинутый",
+      "studentLevels": [
+        "Средний",
+        "Продвинутый"
+      ],
+      "studentLevelsText": "Средний, продвинутый",
+      "experienceYears": 10,
+      "about": "У меня есть коллекция камней с пляжей Камчатки. Каждый — как сувенир с новой волны.",
+      "funFacts": [
+        "У меня есть коллекция камней с пляжей Камчатки. Каждый — как сувенир с новой волны."
+      ],
+      "lessonFormats": [
+        "Индивидуальное",
+        "Вдвоём с другом",
+        "Групповое"
+      ],
+      "languages": null,
+      "priceFrom": {
+        "amount": 3600,
+        "currency": "RUB",
+        "unit": "занятие",
+        "isDemo": true,
+        "label": "Пример цены"
+      },
+      "certificate": {
+        "state": "verified",
+        "isDemo": true,
+        "cardLabel": "✓ сертификат",
+        "modalLabel": "✓ Сертификат · демо",
+        "note": "В прототипе значок «только в примере». В TZ INS-03 нужны 3 состояния: none / uploaded / verified."
+      },
+      "photo": {
+        "prototypeKey": "p4",
+        "prototypeFile": "img/img17.webp",
+        "file": "assets/demo/avatars/avatar-instructor-ivan-petrov.webp"
+      },
+      "ggSurfer": {
+        "member": true,
+        "status": "Могу подвезти"
+      },
+      "schematicMapPosition": {
+        "x": 83,
+        "y": 53
+      },
+      "schedule": {
+        "standardSlots": [
+          "09:00",
+          "12:00",
+          "15:00"
+        ],
+        "closedWeekdays": [
+          "Пн",
+          "Чт"
+        ],
+        "bookingWindowDays": 91,
+        "monthsAhead": 2,
+        "priceNote": "Стоимость — по договорённости с инструктором",
+        "isDemo": true
+      },
+      "demo": {
+        "isDemo": true,
+        "rating": 4.9,
+        "reviewsCount": 26
+      }
+    },
+    {
+      "prototypeId": "anna",
+      "slug": "anna-lebedeva",
+      "name": "Анна Лебедева",
+      "firstName": "Анна",
+      "lastName": "Лебедева",
+      "region": "Крым",
+      "regionSlug": "krym",
+      "town": "Севастополь",
+      "spots": [
+        "Новый Свет",
+        "Орджоникидзе",
+        "Кача"
+      ],
+      "boardTypes": [
+        "Фанборд",
+        "Лонгборд"
+      ],
+      "ridingLevel": "Средний",
+      "studentLevels": [
+        "Начинающий",
+        "Средний"
+      ],
+      "studentLevelsText": "Начинающий, средний",
+      "experienceYears": 5,
+      "about": "В детстве мечтала стать вулканологом, а теперь изучаю волны. Наверное, всё дело в любви к стихии.",
+      "funFacts": [
+        "В детстве мечтала стать вулканологом, а теперь изучаю волны. Наверное, всё дело в любви к стихии."
+      ],
+      "lessonFormats": [
+        "Индивидуальное",
+        "Вдвоём с другом",
+        "Групповое"
+      ],
+      "languages": null,
+      "priceFrom": {
+        "amount": 2600,
+        "currency": "RUB",
+        "unit": "занятие",
+        "isDemo": true,
+        "label": "Пример цены"
+      },
+      "certificate": {
+        "state": "none",
+        "isDemo": true
+      },
+      "photo": {
+        "prototypeKey": "p5",
+        "prototypeFile": "img/img19.webp",
+        "file": "assets/demo/avatars/avatar-instructor-anna-lebedeva.webp"
+      },
+      "ggSurfer": {
+        "member": false,
+        "status": "Ищу компанию"
+      },
+      "schematicMapPosition": {
+        "x": 27,
+        "y": 65
+      },
+      "schedule": {
+        "standardSlots": [
+          "09:00",
+          "12:00",
+          "15:00"
+        ],
+        "closedWeekdays": [
+          "Пн",
+          "Чт"
+        ],
+        "bookingWindowDays": 91,
+        "monthsAhead": 2,
+        "priceNote": "Стоимость — по договорённости с инструктором",
+        "isDemo": true
+      },
+      "demo": {
+        "isDemo": true,
+        "rating": 4.8,
+        "reviewsCount": 21
+      }
+    }
+  ],
+  "schools": [],
+  "schoolsNote": "В публичной части прототипа нет ни одной демо-школы: роль «Сёрф-школа» есть только в регистрации и в кабинете (данные школы создаёт пользователь локально).",
+  "ggMembers": [
+    {
+      "personSlug": "aleksey-morozov",
+      "prototypeId": "alex",
+      "name": "Алексей Морозов",
+      "region": "Камчатский край",
+      "status": "Покажу споты",
+      "experienceYears": 8,
+      "certificateMark": true,
+      "photo": "assets/demo/avatars/avatar-instructor-aleksey-morozov.webp",
+      "schematicMapPosition": {
+        "x": 80,
+        "y": 48
+      },
+      "isDemo": true
+    },
+    {
+      "personSlug": "mariya-volkova",
+      "prototypeId": "maria",
+      "name": "Мария Волкова",
+      "region": "Ладожское озеро",
+      "status": "Ищу компанию",
+      "experienceYears": 5,
+      "certificateMark": false,
+      "photo": "assets/demo/avatars/avatar-instructor-mariya-volkova.webp",
+      "schematicMapPosition": {
+        "x": 21,
+        "y": 36
+      },
+      "isDemo": true
+    },
+    {
+      "personSlug": "dmitriy-kovalev",
+      "prototypeId": "dima",
+      "name": "Дмитрий Ковалев",
+      "region": "Крым",
+      "status": "Могу подвезти",
+      "experienceYears": 7,
+      "certificateMark": true,
+      "photo": "assets/demo/avatars/avatar-instructor-dmitriy-kovalev.webp",
+      "schematicMapPosition": {
+        "x": 29,
+        "y": 67
+      },
+      "isDemo": true
+    },
+    {
+      "personSlug": "ekaterina-sokolova",
+      "prototypeId": "katya",
+      "name": "Екатерина Соколова",
+      "region": "Сахалин",
+      "status": "Покажу споты",
+      "experienceYears": 6,
+      "certificateMark": false,
+      "photo": "assets/demo/avatars/avatar-instructor-ekaterina-sokolova.webp",
+      "schematicMapPosition": {
+        "x": 75,
+        "y": 69
+      },
+      "isDemo": true
+    },
+    {
+      "personSlug": "ivan-petrov",
+      "prototypeId": "ivan",
+      "name": "Иван Петров",
+      "region": "Камчатский край",
+      "status": "Могу подвезти",
+      "experienceYears": 10,
+      "certificateMark": true,
+      "photo": "assets/demo/avatars/avatar-instructor-ivan-petrov.webp",
+      "schematicMapPosition": {
+        "x": 83,
+        "y": 53
+      },
+      "isDemo": true
+    }
+  ],
+  "rentals": [
+    {
+      "prototypeId": "r1",
+      "slug": "longbord-92-sea-glass",
+      "title": "Лонгборд 9′2″ · Sea Glass",
+      "type": "Доска",
+      "category": "board",
+      "region": "Камчатский край",
+      "regionSlug": "kamchatskiy-kray",
+      "town": "Петропавловск-Камчатский",
+      "size": "9′2″",
+      "pricePerDay": {
+        "amount": 1700,
+        "currency": "RUB",
+        "isDemo": true,
+        "label": "/ день · пример"
+      },
+      "ownerName": "Алексей",
+      "info": "Устойчивая доска для первых длинных волн. Воск включён.",
+      "illustration": {
+        "visual": "long",
+        "tint": "#b9dbe2",
+        "watermark": "ГДЕВОЛНА • АРЕНДА",
+        "bottomLabel": "СЁРФБОРД"
+      },
+      "photo": null,
+      "prototypeImgKeyUnused": "wave2",
+      "demo": {
+        "isDemo": true,
+        "note": "Цены и владельцы приведены для демонстрации"
+      }
+    },
+    {
+      "prototypeId": "r2",
+      "slug": "gidrokostyum-5-4-mm",
+      "title": "Гидрокостюм 5/4 мм",
+      "type": "Гидрокостюм",
+      "category": "wetsuit",
+      "region": "Камчатский край",
+      "regionSlug": "kamchatskiy-kray",
+      "town": "Елизово",
+      "size": "M",
+      "pricePerDay": {
+        "amount": 900,
+        "currency": "RUB",
+        "isDemo": true,
+        "label": "/ день · пример"
+      },
+      "ownerName": "Иван",
+      "info": "Тёплый костюм для прохладной воды. Размер M.",
+      "illustration": {
+        "visual": "suit",
+        "tint": "#addbe9",
+        "watermark": "ГДЕВОЛНА • АРЕНДА",
+        "bottomLabel": "НЕОПРЕН"
+      },
+      "photo": null,
+      "prototypeImgKeyUnused": "p0",
+      "demo": {
+        "isDemo": true,
+        "note": "Цены и владельцы приведены для демонстрации"
+      }
+    },
+    {
+      "prototypeId": "r3",
+      "slug": "shortbord-64-blue-current",
+      "title": "Шортборд 6′4″ · Blue Current",
+      "type": "Доска",
+      "category": "board",
+      "region": "Крым",
+      "regionSlug": "krym",
+      "town": "Судак",
+      "size": "6′4″",
+      "pricePerDay": {
+        "amount": 1400,
+        "currency": "RUB",
+        "isDemo": true,
+        "label": "/ день · пример"
+      },
+      "ownerName": "Дмитрий",
+      "info": "Манёвренная доска для уверенного катания.",
+      "illustration": {
+        "visual": "short",
+        "tint": "#b0d7ef",
+        "watermark": "ГДЕВОЛНА • АРЕНДА",
+        "bottomLabel": "СЁРФБОРД"
+      },
+      "photo": null,
+      "prototypeImgKeyUnused": "wave",
+      "demo": {
+        "isDemo": true,
+        "note": "Цены и владельцы приведены для демонстрации"
+      }
+    },
+    {
+      "prototypeId": "r4",
+      "slug": "gidrokostyum-4-3-mm",
+      "title": "Гидрокостюм 4/3 мм",
+      "type": "Гидрокостюм",
+      "category": "wetsuit",
+      "region": "Крым",
+      "regionSlug": "krym",
+      "town": "Севастополь",
+      "size": "S",
+      "pricePerDay": {
+        "amount": 750,
+        "currency": "RUB",
+        "isDemo": true,
+        "label": "/ день · пример"
+      },
+      "ownerName": "Аня",
+      "info": "Мягкий неопрен и удобная посадка. Размер S.",
+      "illustration": {
+        "visual": "suit",
+        "tint": "#c7d8e7",
+        "watermark": "ГДЕВОЛНА • АРЕНДА",
+        "bottomLabel": "НЕОПРЕН"
+      },
+      "photo": null,
+      "prototypeImgKeyUnused": "p2",
+      "demo": {
+        "isDemo": true,
+        "note": "Цены и владельцы приведены для демонстрации"
+      }
+    },
+    {
+      "prototypeId": "r5",
+      "slug": "fanbord-76-north",
+      "title": "Фанборд 7′6″ · North",
+      "type": "Доска",
+      "category": "board",
+      "region": "Ладожское озеро",
+      "regionSlug": "ladozhskoe-ozero",
+      "town": "Сортавала",
+      "size": "7′6″",
+      "pricePerDay": {
+        "amount": 1200,
+        "currency": "RUB",
+        "isDemo": true,
+        "label": "/ день · пример"
+      },
+      "ownerName": "Мария",
+      "info": "Комфортный вариант для ветровой волны.",
+      "illustration": {
+        "visual": "long",
+        "tint": "#a9c9de",
+        "watermark": "ГДЕВОЛНА • АРЕНДА",
+        "bottomLabel": "СЁРФБОРД"
+      },
+      "photo": null,
+      "prototypeImgKeyUnused": "wave2",
+      "demo": {
+        "isDemo": true,
+        "note": "Цены и владельцы приведены для демонстрации"
+      }
+    },
+    {
+      "prototypeId": "r6",
+      "slug": "gidrokostyum-6-5-mm",
+      "title": "Гидрокостюм 6/5 мм",
+      "type": "Гидрокостюм",
+      "category": "wetsuit",
+      "region": "Сахалин",
+      "regionSlug": "sakhalin",
+      "town": "Южно-Сахалинск",
+      "size": "L",
+      "pricePerDay": {
+        "amount": 1300,
+        "currency": "RUB",
+        "isDemo": true,
+        "label": "/ день · пример"
+      },
+      "ownerName": "Екатерина",
+      "info": "Тёплый вариант для холодной воды.",
+      "illustration": {
+        "visual": "suit",
+        "tint": "#b5cfdf",
+        "watermark": "ГДЕВОЛНА • АРЕНДА",
+        "bottomLabel": "НЕОПРЕН"
+      },
+      "photo": null,
+      "prototypeImgKeyUnused": "p3",
+      "demo": {
+        "isDemo": true,
+        "note": "Цены и владельцы приведены для демонстрации"
+      }
+    },
+    {
+      "prototypeId": "r7",
+      "slug": "shortbord-510-fox",
+      "title": "Шортборд 5′10″ · Fox",
+      "type": "Доска",
+      "category": "board",
+      "region": "Приморский край",
+      "regionSlug": "primorskiy-kray",
+      "town": "Владивосток",
+      "size": "5′10″",
+      "pricePerDay": {
+        "amount": 1600,
+        "currency": "RUB",
+        "isDemo": true,
+        "label": "/ день · пример"
+      },
+      "ownerName": "Максим",
+      "info": "Для уверенных сёрферов и быстрых поворотов.",
+      "illustration": {
+        "visual": "short",
+        "tint": "#d5dbe5",
+        "watermark": "ГДЕВОЛНА • АРЕНДА",
+        "bottomLabel": "СЁРФБОРД"
+      },
+      "photo": null,
+      "prototypeImgKeyUnused": "wave",
+      "demo": {
+        "isDemo": true,
+        "note": "Цены и владельцы приведены для демонстрации"
+      }
+    },
+    {
+      "prototypeId": "r8",
+      "slug": "gidrokostyum-5-4-mm-xl",
+      "title": "Гидрокостюм 5/4 мм · XL",
+      "type": "Гидрокостюм",
+      "category": "wetsuit",
+      "region": "Приморский край",
+      "regionSlug": "primorskiy-kray",
+      "town": "Владивосток",
+      "size": "XL",
+      "pricePerDay": {
+        "amount": 1100,
+        "currency": "RUB",
+        "isDemo": true,
+        "label": "/ день · пример"
+      },
+      "ownerName": "Роман",
+      "info": "Размер XL, предварительная примерка.",
+      "illustration": {
+        "visual": "suit",
+        "tint": "#c1e2e6",
+        "watermark": "ГДЕВОЛНА • АРЕНДА",
+        "bottomLabel": "НЕОПРЕН"
+      },
+      "photo": null,
+      "prototypeImgKeyUnused": "p4",
+      "demo": {
+        "isDemo": true,
+        "note": "Цены и владельцы приведены для демонстрации"
+      }
+    }
+  ],
+  "reviews": [
+    {
+      "demo": true,
+      "targetType": "instructor",
+      "targetPrototypeId": "alex",
+      "targetSlug": "aleksey-morozov",
+      "authorName": "Ксения",
+      "rating": 5,
+      "text": "Очень понятные объяснения, даже в холодной воде было спокойно и здорово.",
+      "label": "Пример отзыва · дизайн-прототип",
+      "order": 1
+    },
+    {
+      "demo": true,
+      "targetType": "instructor",
+      "targetPrototypeId": "alex",
+      "targetSlug": "aleksey-morozov",
+      "authorName": "Михаил",
+      "rating": 5,
+      "text": "Понравился подход к новичкам и внимание к безопасности.",
+      "label": "Пример отзыва · дизайн-прототип",
+      "order": 2
+    },
+    {
+      "demo": true,
+      "targetType": "instructor",
+      "targetPrototypeId": "maria",
+      "targetSlug": "mariya-volkova",
+      "authorName": "Антон",
+      "rating": 5,
+      "text": "Потрясающая прогулка и занятие на Ладоге. Мария всё объяснила.",
+      "label": "Пример отзыва · дизайн-прототип",
+      "order": 1
+    },
+    {
+      "demo": true,
+      "targetType": "instructor",
+      "targetPrototypeId": "dima",
+      "targetSlug": "dmitriy-kovalev",
+      "authorName": "Ольга",
+      "rating": 5,
+      "text": "Уважительный инструктор, помогла видеоразбором после занятия.",
+      "label": "Пример отзыва · дизайн-прототип",
+      "order": 1
+    },
+    {
+      "demo": true,
+      "targetType": "instructor",
+      "targetPrototypeId": "katya",
+      "targetSlug": "ekaterina-sokolova",
+      "authorName": "Елена",
+      "rating": 5,
+      "text": "Сахалин теперь в сердце! Спасибо за терпение и душевный приём.",
+      "label": "Пример отзыва · дизайн-прототип",
+      "order": 1
+    },
+    {
+      "demo": true,
+      "targetType": "instructor",
+      "targetPrototypeId": "ivan",
+      "targetSlug": "ivan-petrov",
+      "authorName": "Сергей",
+      "rating": 5,
+      "text": "Про волны и безопасность Иван объясняет очень подробно.",
+      "label": "Пример отзыва · дизайн-прототип",
+      "order": 1
+    },
+    {
+      "demo": true,
+      "targetType": "instructor",
+      "targetPrototypeId": "anna",
+      "targetSlug": "anna-lebedeva",
+      "authorName": "Юля",
+      "rating": 5,
+      "text": "Очень тёплая атмосфера и полезная практика.",
+      "label": "Пример отзыва · дизайн-прототип",
+      "order": 1
+    }
+  ],
+  "reviewsNote": "Все отзывы — примеры («Пример отзыва · дизайн-прототип»). Отзывов о спотах в прототипе нет вообще: есть только демо-рейтинг и число отзывов в карточке спота.",
+  "stats": {
+    "isDemo": true,
+    "instructorsFound": 6,
+    "ggProfilesOnMap": 5,
+    "ggMiniStatLabel": "анкет на карте · демо",
+    "rentalsShown": 8,
+    "instructorRatings": {
+      "aleksey-morozov": {
+        "rating": 4.9,
+        "reviewsCount": 24
+      },
+      "mariya-volkova": {
+        "rating": 4.8,
+        "reviewsCount": 17
+      },
+      "dmitriy-kovalev": {
+        "rating": 5,
+        "reviewsCount": 32
+      },
+      "ekaterina-sokolova": {
+        "rating": 4.7,
+        "reviewsCount": 18
+      },
+      "ivan-petrov": {
+        "rating": 4.9,
+        "reviewsCount": 26
+      },
+      "anna-lebedeva": {
+        "rating": 4.8,
+        "reviewsCount": 21
+      }
+    },
+    "spotRatings": {
+      "zaliv-anglichanka": {
+        "rating": 4.8,
+        "reviewsCount": 18
+      },
+      "khalaktyrskiy-plyazh": {
+        "rating": 4.9,
+        "reviewsCount": 29
+      },
+      "ladozhskie-shkhery": {
+        "rating": 4.7,
+        "reviewsCount": 11
+      },
+      "olenevka": {
+        "rating": 4.8,
+        "reviewsCount": 14
+      },
+      "poberezhye-sakhalina": {
+        "rating": 4.7,
+        "reviewsCount": 9
+      },
+      "poberezhye-primorya": {
+        "rating": 4.6,
+        "reviewsCount": 16
+      }
+    },
+    "note": "Счётчики «Найдено: N», «N анкет на карте», «Показано N предложений» считаются на клиенте по массивам — заменить на count из API."
+  },
+  "pages": {
+    "site": {
+      "title": "Гдеволна.рф — где волна, там свои",
+      "themeColor": "#eef9fd",
+      "loader": {
+        "brand": "ГДЕВОЛНА.РФ",
+        "caption": "До встречи на волне",
+        "ariaLabel": "Загружается Гдеволна"
+      },
+      "nav": [
+        {
+          "go": "people",
+          "label": "Каталог сёрф-инструкторов",
+          "mobileLabel": "Инструкторы"
+        },
+        {
+          "go": "spots",
+          "label": "Карта сёрф-спотов",
+          "mobileLabel": "Споты"
+        },
+        {
+          "go": "gg",
+          "label": "GG Surfer",
+          "mobileLabel": "GG Surfer"
+        },
+        {
+          "go": "rentals",
+          "label": "Аренда",
+          "mobileLabel": "Аренда"
+        },
+        {
+          "go": "shapers",
+          "label": "Шейперы",
+          "mobileLabel": "Шейперы"
+        },
+        {
+          "go": "club",
+          "label": "О нас и клуб",
+          "mobileLabel": "Клуб"
+        },
+        {
+          "go": "profile",
+          "label": "Личный кабинет",
+          "mobileLabel": "Кабинет",
+          "note": "Добавляется скриптом gv-unified-account-engine"
+        }
+      ],
+      "mobileNavFirst": {
+        "go": "home",
+        "label": "Главная"
+      },
+      "toolbar": {
+        "searchAria": "Поиск",
+        "favoritesAria": "Избранное",
+        "inboxTitle": "Сообщения",
+        "loginLabelGuest": "Войти",
+        "loginLabelUser": "Кабинет",
+        "logoTitle": "На главную"
+      },
+      "footer": {
+        "nav": [
+          {
+            "go": "people",
+            "label": "Каталог сёрф-инструкторов"
+          },
+          {
+            "go": "spots",
+            "label": "Карта спотов"
+          },
+          {
+            "go": "gg",
+            "label": "GG Surfer"
+          },
+          {
+            "go": "rentals",
+            "label": "Аренда"
+          },
+          {
+            "go": "shapers",
+            "label": "Шейперы"
+          },
+          {
+            "go": "club",
+            "label": "О нас и клуб"
+          }
+        ],
+        "decor": "◉ ◈ ≋",
+        "copyright": "© 2026 Гдеволна.рф · Сделано с любовью к российскому сёрфингу"
+      },
+      "heroKicker": "Люди · волны · Россия"
+    },
+    "home": {
+      "hero": {
+        "variant": "home (tall), photo assets/ui/hero-home.webp",
+        "titleHtml": "Гдеволна.рф —<br> где волна, там свои",
+        "text": "Здесь находят любимые споты, знакомятся с людьми и открывают российский сёрфинг — от Камчатки и Сахалина до Крыма.",
+        "cta": {
+          "label": "Найти свою волну",
+          "go": "spots"
+        }
+      },
+      "about": {
+        "title": "◈   О сайте «Гдеволна.рф»",
+        "paragraphsHtml": [
+          "<b>Гдеволна.рф</b> — уютное место для тех, кто любит сёрфинг в России. Мы собираем вместе споты, инструкторов, мастеров досок и людей, которые понимают, зачем вставать на рассвете ради хорошей волны.",
+          "Наше дело — помогать находить друг друга. Даже если до ближайшего океана лететь полдня."
+        ],
+        "cta": {
+          "label": "Узнать о проекте   →",
+          "go": "club"
+        },
+        "photo": "assets/ui/about-intro-surfer.webp"
+      },
+      "howTo": {
+        "title": "♧   Как пользоваться сайтом",
+        "steps": [
+          "Выберите регион и найдите спот",
+          "Познакомьтесь с сёрферами и инструкторами",
+          "Забронируйте занятие или найдите компанию",
+          "Добавьте любимые места в избранное"
+        ],
+        "cta": {
+          "label": "Знакомьтесь через GG Surfer →",
+          "go": "gg"
+        }
+      },
+      "live": {
+        "kicker": "СОРЕВНОВАНИЯ · LIVE",
+        "title": "Когда наши выходят на волну — смотрим вместе",
+        "text": "Здесь появятся прямые эфиры соревнований, фестивалей и сёрф-встреч. Можно добавить ссылку на трансляцию в демонстрационном режиме.",
+        "cta": {
+          "label": "Настроить трансляцию",
+          "action": "setStream"
+        },
+        "empty": {
+          "title": "Место для прямого эфира",
+          "caption": "Как только включим трансляцию, она появится здесь"
+        },
+        "streamModal": {
+          "title": "Онлайн-трансляция",
+          "text": "Укажите ссылку на видео YouTube или RuTube — встроим в демонстрационное окно на главной.",
+          "fieldLabel": "Ссылка на трансляцию",
+          "placeholder": "https://www.youtube.com/watch?v=...",
+          "save": "Сохранить",
+          "clear": "Очистить",
+          "errorToast": "Подойдут ссылки YouTube или RuTube",
+          "successToast": "Окно трансляции обновлено",
+          "allowedHosts": [
+            "youtu.be",
+            "youtube.com",
+            "www.youtube.com",
+            "m.youtube.com",
+            "rutube.ru",
+            "www.rutube.ru"
+          ],
+          "embedRules": "YouTube → https://www.youtube-nocookie.com/embed/{id} (id /^[-_a-zA-Z0-9]{6,20}$/); RuTube /video/{id} → https://rutube.ru/play/embed/{id}; только https"
+        }
+      },
+      "features": {
+        "title": "Что вы найдёте на сайте",
+        "items": [
+          {
+            "title": "Каталог сёрф-инструкторов",
+            "text": "Опытные инструкторы, проверенные локации и удобный поиск.",
+            "image": "assets/ui/feature-volcano-coast.webp",
+            "go": "people",
+            "icon": "♧"
+          },
+          {
+            "title": "Карта сёрф-спотов",
+            "text": "Места для сёрфинга, прогнозные ориентиры и важные детали.",
+            "image": "assets/ui/feature-map-thumb.webp",
+            "go": "spots",
+            "icon": "⌖"
+          },
+          {
+            "title": "GG Surfer",
+            "text": "Найдите своих людей в регионе и катайтесь вместе.",
+            "image": "assets/ui/feature-coast-aerial.webp",
+            "go": "gg",
+            "icon": "♡"
+          },
+          {
+            "title": "Каталог шейперов",
+            "text": "Мастера, создающие доски ручной работы.",
+            "image": "assets/ui/feature-shaper-workshop.webp",
+            "go": "shapers",
+            "icon": "♙"
+          },
+          {
+            "title": "Сёрф-клуб",
+            "text": "Открытое сообщество, подарки и дружеские встречи.",
+            "image": "assets/ui/feature-mountain-lake.webp",
+            "go": "club",
+            "icon": "✦"
+          },
+          {
+            "title": "Аренда снаряжения",
+            "text": "Доски и гидрокостюмы у своих — в нужном регионе.",
+            "image": "assets/ui/feature-barrel-surfer.webp",
+            "go": "rentals",
+            "icon": "◈",
+            "replaces": {
+              "title": "Избранные места",
+              "text": "Сохраняйте споты и планируйте поездки мечты.",
+              "go": "spots",
+              "icon": "☆"
+            }
+          }
+        ],
+        "linkLabel": "Перейти   →"
+      },
+      "localPeople": {
+        "title": "Свои люди рядом",
+        "text": "Приехал на Камчатку или Сахалин? Открой карту и посмотри, кто готов подсказать дорогу, показать спот или разделить поездку.",
+        "cta": {
+          "label": "Открыть GG Surfer →",
+          "go": "gg"
+        },
+        "quote": "«Сёрфинг — это способ увидеть мир по-новому. Особенно если рядом свои»",
+        "quoteImage": "assets/ui/feature-volcano-coast.webp"
+      },
+      "wideBanner": {
+        "title": "Где волна — там жизнь",
+        "text": "Вулканы, снег, Ладога и горы Крыма. Открывайте для себя новые горизонты!",
+        "cta": {
+          "label": "Перейти к карте спотов →",
+          "go": "spots"
+        },
+        "image": "assets/ui/banner-mountains-volny-vezde.webp",
+        "usedOn": [
+          "home",
+          "spots",
+          "gg",
+          "rentals"
+        ]
+      },
+      "news": null,
+      "newsNote": "Новостей, видео-блоков и календаря соревнований с данными в прототипе нет — только пустое окно трансляции."
+    },
+    "people": {
+      "hero": {
+        "variant": "people (photo assets/ui/hero-catalog.webp)",
+        "title": "Каталог сёрф-инструкторов",
+        "text": "Люди, с которыми начинаются хорошие истории: выбирайте споты, читайте отзывы учеников и договаривайтесь о занятии."
+      },
+      "filters": {
+        "region": "Регион",
+        "spots": "Споты",
+        "board": "Тип доски",
+        "level": "Уровень катания",
+        "reset": "⟳ Сбросить"
+      },
+      "meta": "Найдено: {n} · профили и цены демонстрационные",
+      "help": "♧ Новичкам советуем выбирать по уровню учеников, отзывам и подходящему календарю.",
+      "sortLabel": "Сортировать",
+      "card": {
+        "photoAltPrefix": "Демонстрационное фото: ",
+        "roleLine": "Инструктор по сёрфингу",
+        "certTag": "✓ сертификат",
+        "certTitle": "Значок квалификации — только в примере",
+        "spots": "Споты",
+        "boards": "Доски",
+        "experience": "Опыт",
+        "experienceUnit": "лет",
+        "students": "Уровень учеников",
+        "funFact": "☀   Забавный факт",
+        "reviewPeekMore": "Все отзывы →",
+        "price": "Занятие от {price}",
+        "priceNote": "Пример цены",
+        "ready": "◷ Выбор времени",
+        "cta": "▦   Профиль, отзывы и запись   ❯",
+        "ratingFormat": "★ {avg} ({n} отзывов)"
+      },
+      "empty": {
+        "title": "Похоже, все ушли ловить волну!",
+        "text": "По этим условиям инструкторы пока не нашлись. Волны подождут — попробуйте другой спот или сбросьте фильтры.",
+        "cta": "Сбросить фильтры →"
+      },
+      "outro": {
+        "label": "Найти компанию для катания через GG Surfer →",
+        "go": "gg"
+      }
+    },
+    "instructorModal": {
+      "kicker": "Люди, с которыми волна ближе",
+      "tabs": [
+        "О знакомстве",
+        "Календарь занятий",
+        "Отзывы ★"
+      ],
+      "demoNoteSample": "Пример анкеты инструктора. Доступность, фотографии и отзывы демонстрационные.",
+      "demoNoteOwn": "Этот профиль создан на вашем устройстве, документы ещё не проверены.",
+      "overview": {
+        "lessonsTitle": "Про занятия",
+        "where": "Где катаемся:",
+        "boards": "Доски:",
+        "forWhom": "Для кого:",
+        "experience": "Опыт:",
+        "personTitle": "Немного о человеке",
+        "tagGg": "GG Surfer · участник сообщества",
+        "tagNoGg": "Сёрфинг-инструктор",
+        "note": "Для бронирования выберите свободное окно в календаре. Чат по занятию появится после подтверждения инструктором. До оплаты вы сможете обсудить условия занятия.",
+        "openCalendar": "▦ Открыть календарь →"
+      },
+      "calendar": {
+        "kicker": "Календарь для записи",
+        "title": "Найдём удобный день для волны",
+        "text": "Выбирайте доступную дату и окно. Инструктор подтвердит или предложит альтернативу.",
+        "weekdays": [
+          "Пн",
+          "Вт",
+          "Ср",
+          "Чт",
+          "Пт",
+          "Сб",
+          "Вс"
+        ],
+        "dayLabels": {
+          "closed": "выходной",
+          "busy": "{n} занято",
+          "free": "{n} окна",
+          "full": "занято"
+        },
+        "legend": [
+          "Есть окна",
+          "Выходной",
+          "Занято"
+        ],
+        "sideKicker": "Выберите время",
+        "sideText": "Время указано ориентировочно, по местному времени инструктора.",
+        "closedText": "В этот день инструктор не принимает заявки. Попробуйте соседнюю дату.",
+        "allBusy": "Все окна заняты.",
+        "price": "Стоимость — по договорённости с инструктором",
+        "cta": "Продолжить запись →",
+        "micro": "Оплата на этом этапе не списывается.",
+        "prevAria": "Предыдущий месяц",
+        "nextAria": "Следующий месяц"
+      },
+      "reviews": {
+        "metricKicker": "Оценка учеников",
+        "metricNote": "{n} отзывов · показаны примеры и локальные отзывы",
+        "emptyTitle": "Первые слова ещё впереди",
+        "emptyText": "Отзывы появятся после завершения подтверждённых занятий.",
+        "demoLabel": "Пример отзыва · дизайн-прототип",
+        "localLabel": "Отзыв после демо-занятия"
+      },
+      "footer": {
+        "favorite": "♡ В избранное",
+        "favoriteActive": "♥ В избранное",
+        "message": "✉ Написать в GG Surfer",
+        "choose": "Выбрать занятие →"
+      }
+    },
+    "booking": {
+      "kicker": "Шаг 2 из 2 · заявка на занятие",
+      "title": "Ваша встреча с волной",
+      "formatLabel": "Формат занятия",
+      "levelLabel": "Уровень ученика",
+      "noteLabel": "Пара слов инструктору",
+      "notePlaceholder": "Привет! Буду в вашем регионе и хочу попробовать...",
+      "info": "После отправки заявка ожидает подтверждения. Чат по этому занятию откроется после её принятия. Стоимость и условия оплаты уточняются при согласовании, деньги здесь не списываются.",
+      "back": "← Изменить дату",
+      "submit": "Отправить заявку →",
+      "toasts": {
+        "guest": "Для заявки сначала создайте профиль",
+        "self": "Записаться к самому себе нельзя. Для проверки создайте демо-заявку в кабинете.",
+        "noSlot": "Сначала выберите свободное время",
+        "unavailable": "Это время уже недоступно — выберите другое",
+        "duplicate": "У вас уже есть заявка на это время",
+        "sent": "Заявка отправлена в демо-режиме"
+      }
+    },
+    "reviewsModal": {
+      "titleFormat": "Отзывы о {name}",
+      "text": "Отзывы помогают выбрать наставника ещё до бронирования.",
+      "notice": "Примеры отзывов отмечены соответствующим образом. Добавить новый можно только по завершённой заявке из личного кабинета."
+    },
+    "spots": {
+      "hero": {
+        "variant": "people (photo assets/ui/hero-catalog.webp)",
+        "title": "Карта сёрф-спотов",
+        "text": "Открывайте новые места, изучайте особенности берега и выбирайте, где ловить свою волну."
+      },
+      "pagehead": {
+        "title": "Где сегодня искать свою волну?",
+        "text": "Спутниковая карта Яндекса, координаты, ветер, сезон, инфраструктура и доступ к берегу."
+      },
+      "toolbar": {
+        "expandMap": "⌖ Развернуть карту",
+        "mySuggestions": "✎ Мои предложения",
+        "note": "Данные и оценки в прототипе иллюстративные"
+      },
+      "map": {
+        "ribbon": "Яндекс Карты · спутник",
+        "ribbonSmallSpots": "Маркеры спотов из демонстрационного списка",
+        "ribbonSmallGg": "Показаны приблизительные региональные точки",
+        "open": "Открыть карту ↗",
+        "iframeTitle": "Спутниковая карта Яндекс.Карт — споты",
+        "defaultCenter": {
+          "lat": 60.4,
+          "lng": 98.2,
+          "zoom": 3
+        },
+        "singleRegionZoom": 6
+      },
+      "sidebar": {
+        "title": "Точки на карте",
+        "notice": "Для полной общей карты в Конструкторе понадобится создать и опубликовать вашу собственную коллекцию объектов."
+      },
+      "cardsTitle": "Карточки спотов",
+      "card": {
+        "windPrefix": "≋ Ветер: ",
+        "seasonPrefix": "◷ ",
+        "hazardPrefix": "⚑ ",
+        "chipTitle": "Подробнее — в карточке спота",
+        "cta": "Подробнее о споте   →",
+        "editTitle": "Предложить исправление данных спота",
+        "likeAria": "В избранное"
+      },
+      "expandedMapModal": {
+        "title": "Споты на спутниковой карте",
+        "note": "Выберите конкретную карточку спота, чтобы открыть точные координаты и маршрут."
+      }
+    },
+    "spotModal": {
+      "heroAlt": "Пейзаж спота",
+      "photoCaption": "РОССИЙСКИЙ СЁРФИНГ • {region} • фото для демонстрации",
+      "galleryTitle": "Фотографии спота",
+      "galleryCount": "{n} фото",
+      "facts": {
+        "bottom": "Дно:",
+        "season": "Сезон:",
+        "wave": "Волна:",
+        "coords": "Координаты:"
+      },
+      "natureTitle": "Виды вокруг",
+      "natureChipTitle": "Описание особенностей места появится после проверки",
+      "infraTitle": "Инфраструктура",
+      "infraChipTitle": "Расстояние и ссылка появятся после проверки",
+      "conditionsTitle": "Условия волны",
+      "compassFallback": [
+        "Ветер<br>{wind}",
+        "Свелл<br>{swell}"
+      ],
+      "roses": {
+        "wind": "Направление ветра",
+        "swell": "Направление свелла",
+        "windIcon": "≋",
+        "swellIcon": "◈",
+        "parsed": "Показано указанное направление, не прогноз",
+        "unparsed": "Уточняйте под прогноз"
+      },
+      "hazards": "⚠ Опасности: {danger} Условия и доступ уточняйте на месте.",
+      "mapSection": {
+        "title": "Спутниковая карта и маршрут",
+        "tag": "Яндекс Карты",
+        "note": "Точная точка спота по указанным координатам (данные в примере требуют проверки).",
+        "route": "↗ Построить маршрут в Яндекс.Картах",
+        "satellite": "Открыть спутник ↗",
+        "satelliteNote": "TZ SPT-09: убрать «Открыть спутник» из карточки"
+      },
+      "video": {
+        "title": "Видео с этого спота",
+        "text": "Здесь появится видео с волной и береговой линией, когда добавим материал от сообщества.",
+        "small": "Пока видео не опубликовано"
+      },
+      "actions": {
+        "favorite": "♡ В избранное",
+        "favoriteActive": "♥ В избранное",
+        "findLocal": "Найти местного сёрфера →",
+        "suggest": "✎ Предложить исправление",
+        "review": "☆ Отзыв о споте"
+      }
+    },
+    "spotReviewModal": {
+      "title": "Оставить отзыв о споте",
+      "text": "В прототипе можно попробовать интерфейс, но отзыв не публикуется.",
+      "ratingLabel": "Оценка",
+      "commentLabel": "Комментарий",
+      "placeholder": "Расскажите о своём опыте...",
+      "submit": "Оставить демо-отзыв",
+      "toasts": {
+        "empty": "Введите отзыв",
+        "ok": "Спасибо! Отзыв о споте сохранится в рабочей версии"
+      }
+    },
+    "spotEditModal": {
+      "overline": "✎ ПРЕДЛОЖИТЬ ИСПРАВЛЕНИЕ",
+      "title": "Уточним данные спота?",
+      "explainTitle": "Вы помогаете сделать карту точнее",
+      "explainText": "Измените только те поля, о которых знаете. Действующая карточка останется прежней, пока предложение не проверено.",
+      "sections": [
+        {
+          "num": "01",
+          "title": "Название и расположение",
+          "hint": "Ошибку в названии, регионе или координатах можно поправить здесь",
+          "fields": [
+            "Название спота",
+            "Регион",
+            "Широта",
+            "Долгота"
+          ]
+        },
+        {
+          "num": "02",
+          "title": "Ветер и условия катания",
+          "hint": "Выберите наиболее подходящее направление ветра для катания на этом споте",
+          "fields": [
+            "↗ Подходящий ветер",
+            "Другое / уточнить направление",
+            "Тип брейка",
+            "Уровень катания",
+            "Основное направление свелла",
+            "Дно",
+            "Лучший сезон",
+            "Направление волны"
+          ]
+        },
+        {
+          "num": "03",
+          "title": "Описание, доступ и безопасность",
+          "hint": "Полезные уточнения для тех, кто впервые едет на этот спот",
+          "fields": [
+            "Краткое описание",
+            "Природные особенности",
+            "Инфраструктура",
+            "Как добраться / ограничения доступа",
+            "Опасности и особенности безопасности"
+          ]
+        },
+        {
+          "num": "04",
+          "title": "Дополнительная информация",
+          "hint": "Необязательно, но поможет проверить предложение",
+          "fields": [
+            "Комментарий для модератора",
+            "Как к вам обращаться",
+            "Email для уточнений (необязательно)",
+            "Ссылка на фото, видео или источник (необязательно)"
+          ]
+        }
+      ],
+      "windHint": "Сейчас указано: {wind}. Выберите одно направление или уточните вручную.",
+      "placeholders": {
+        "otherWind": "Например, север и северо-восток",
+        "summary": "Что важно знать об этом месте?",
+        "nature": "Вулканы, пляж, горы",
+        "infra": "Парковка, кафе, прокат",
+        "access": "Подъезд, тропа, парковка, проход к воде…",
+        "danger": "Течения, камни, холодная вода, зоны ограниченного доступа…",
+        "note": "Например: был здесь неделю назад — лучший ветер северо-восточный, а не западный…",
+        "author": "Имя",
+        "email": "name@example.com",
+        "evidence": "https://…"
+      },
+      "commaHint": "Через запятую",
+      "review": {
+        "none": "Пока нет изменений",
+        "noneDetail": "Измените параметры или напишите комментарий (от 10 символов).",
+        "initialDetail": "Измените параметры или добавьте комментарий.",
+        "changed": "Изменено полей: {n}",
+        "noteOnly": "Есть уточнение для модератора",
+        "noteOnlyDetail": "Можно отправлять комментарий без изменения параметров.",
+        "more": " и другие",
+        "status": "Предложение"
+      },
+      "cancel": "Отмена",
+      "submit": "Отправить на модерацию →",
+      "privacy": "Это демоверсия. Пока нет серверной доставки: предложение сохранится в вашем браузере и будет доступно для выгрузки. Публичные данные спота не изменятся.",
+      "toastInvalid": "Укажите изменение или пояснение от 10 символов",
+      "success": {
+        "overline": "ЗАЯВКА ПОДГОТОВЛЕНА",
+        "title": "Спасибо за уточнение!",
+        "text": "Предложение для спота {spot} сохранено. В опубликованную карточку изменения не вносились.",
+        "number": "Номер предложения",
+        "explainTitle": "Пока это локальная очередь",
+        "explainText": "Заявка ещё не доставлена модератору через интернет. Сейчас её можно скачать и передать вручную; автоматическую отправку подключим вместе с кабинетом модератора.",
+        "download": "↓ Скачать заявку",
+        "mine": "Мои предложения →"
+      },
+      "queue": {
+        "overline": "ВАШИ ПРЕДЛОЖЕНИЯ",
+        "title": "Предложения по спотам",
+        "text": "Пока это локальные заявки, созданные на данном устройстве. После подключения сервера они будут поступать модератору.",
+        "status": "◷ Ожидает отправки",
+        "noteOnly": "Комментарий для модератора",
+        "json": "↓ JSON",
+        "jsonTitle": "Скачать предложение",
+        "empty": "Пока нет предложений. Нажмите ✎ на фотографии любого спота.",
+        "close": "Закрыть",
+        "downloadAll": "Скачать все заявки ↓"
+      },
+      "idFormat": "SP-{base36 time}-{3 random}",
+      "downloadName": "ГДеволна_предложения_споты_{id|все}.json"
+    },
+    "gg": {
+      "hero": {
+        "variant": "home (tall, photo assets/ui/hero-home.webp)",
+        "titleHtml": "GG Surfer — свои<br> на каждом берегу",
+        "text": "Кто подскажет дорогу к споту? С кем поехать на рассвете? Где найти компанию в незнакомом регионе? Здесь встречаются свои.",
+        "cta": {
+          "label": "Стать GG Surfer",
+          "go": "profile"
+        }
+      },
+      "heading": {
+        "eyebrow": "Добро пожаловать в сообщество",
+        "title": "Люди рядом с волной",
+        "text": "Ищите участников по регионам, изучайте анкеты, находите компанию и начинайте личное общение.",
+        "miniStatIcon": "♡",
+        "miniStatLabel": "анкет на карте · демо"
+      },
+      "intent": {
+        "micro": "ПРОСТО ВЫБЕРИТЕ, ЧТО ВАМ НУЖНО",
+        "title": "Поиск своих — без неловких знакомств"
+      },
+      "filters": {
+        "searchPlaceholder": "Поиск по имени или месту",
+        "reset": "Сбросить",
+        "myChats": "✉ Мои чаты"
+      },
+      "modeTabs": {
+        "map": "⌖ На карте",
+        "list": "☷ Списком",
+        "note": "Точки на карте приблизительные, анкеты демонстрационные"
+      },
+      "schematicMap": {
+        "title": "Свои на карте",
+        "subtitle": "Координаты приблизительные · карта схематичная",
+        "satellite": "Спутник Яндекса ↗",
+        "back": "← Схематичная карта",
+        "bottomLeft": "⌖ Выберите участника прямо на карте",
+        "bottomRight": "◈ GG Surfer",
+        "aria": "Схематичная карта участников"
+      },
+      "list": {
+        "title": "Люди на карте",
+        "write": "✉ Написать",
+        "writeTitle": "Написать {name}",
+        "memberLine": "{status} · {exp} лет в сёрфинге",
+        "empty": "Пока здесь нет участников. Станьте первым!",
+        "viewProfile": "Посмотреть анкету →",
+        "notice": "Публичные маркеры приблизительны. Домашний адрес не показываем."
+      },
+      "kindness": {
+        "eyebrow": "Начинаем с простого",
+        "title": "«Привет! Я завтра на споте. Поедем вместе?»",
+        "text": "Не нужно долго искать контакты: откройте анкету, узнайте планы и начните беседу прямо здесь. Пока она сохраняется только в вашем браузере.",
+        "cta": "Мои сообщения →"
+      },
+      "quickHow": [
+        {
+          "title": "⌖ Найдите своих",
+          "text": "Регион, интересы, планы и любимые волны."
+        },
+        {
+          "title": "✉ Начните беседу",
+          "text": "Напишите участнику прямо из профиля или списка рядом с картой."
+        },
+        {
+          "title": "✓ Общайтесь спокойно",
+          "text": "Приватность и будущая добровольная верификация."
+        }
+      ],
+      "notice": "<b>GG Surfer — не отдельная роль.</b> Этот статус доступен сёрферу, инструктору и представителю школы — при регистрации или позже.",
+      "pinToast": "{name} · {status} · {region}"
+    },
+    "rentals": {
+      "hero": {
+        "variant": "people (photo assets/ui/hero-catalog.webp)",
+        "title": "Аренда снаряжения",
+        "text": "Доска или гидрокостюм на пару дней — найдите снаряжение у своих в нужном регионе."
+      },
+      "intro": {
+        "eyebrow": "Один берег · много возможностей",
+        "title": "Возьми с собой только желание кататься",
+        "text": "Выбирайте снаряжение по региону и размеру. Все предложения и цены сейчас демонстрационные.",
+        "cta": "+ Сдать своё снаряжение"
+      },
+      "filters": {
+        "region": "Регион",
+        "type": "Категория",
+        "price": "Цена за день",
+        "size": "Размер",
+        "reset": "Сбросить",
+        "aria": "Фильтры аренды"
+      },
+      "meta": "Показано {n} предложений · цены и владельцы приведены для демонстрации",
+      "card": {
+        "owner": "У {owner}",
+        "priceUnit": "/ день · пример",
+        "cta": "Подробнее →",
+        "likeTitle": "Добавить в избранное"
+      },
+      "empty": {
+        "title": "Эти доски укатили на волну",
+        "text": "Попробуйте другой регион, размер или бюджет.",
+        "cta": "Сбросить фильтры →"
+      },
+      "safe": {
+        "icon": "◈",
+        "title": "Бережно относимся к чужим вещам",
+        "text": "В будущем: проверка владельцев, фотофиксация состояния, залог, правила повреждений и платежи через защищённого провайдера. Сейчас никаких списаний и гарантий нет."
+      },
+      "detailModal": {
+        "kicker": "Гдеволна · аренда",
+        "where": "Где:",
+        "size": "Размер:",
+        "owner": "Владелец:",
+        "notice": "Заявки пока не отправляются другому пользователю. Для реальной аренды нужно подключить аккаунты, договор и платежи.",
+        "favorite": "♡ В избранное",
+        "request": "Запросить аренду →"
+      },
+      "requestModal": {
+        "kicker": "Заявка на аренду · демо",
+        "from": "Забрать *",
+        "to": "Вернуть *",
+        "message": "Сообщение владельцу",
+        "messagePlaceholder": "Привет! Хочу арендовать снаряжение...",
+        "notice": "Демо-заявка сохраняется только на вашем устройстве и не дойдёт до владельца. Оплаты и залога здесь нет.",
+        "submit": "Сохранить демо-заявку →",
+        "toastGuest": "Сначала создайте демо-профиль",
+        "toastDates": "Дата возврата не может быть раньше выдачи",
+        "toastOk": "Демо-заявка сохранена в вашем браузере"
+      },
+      "ownModal": {
+        "kicker": "Мои объявления · демо",
+        "title": "Поделиться снаряжением",
+        "text": "Заполните карточку, и она появится в этом браузере. Не будет опубликована для других людей.",
+        "fields": {
+          "title": "Что сдаёте? *",
+          "titlePlaceholder": "Например, лонгборд 9′0″",
+          "type": "Тип",
+          "region": "Регион",
+          "size": "Размер *",
+          "sizePlaceholder": "M / 8′0″",
+          "price": "Цена, ₽ за день *",
+          "pricePlaceholder": "1200",
+          "info": "Описание *",
+          "infoPlaceholder": "Состояние, комплект, особенности..."
+        },
+        "submit": "Добавить в демокаталог →",
+        "toastGuest": "Для объявления сначала нужен профиль",
+        "toastOk": "Объявление добавлено в демонстрационный каталог"
+      }
+    },
+    "club": {
+      "hero": {
+        "kicker": "Наш маленький большой клуб",
+        "title": "Добро пожаловать, дорогой друг.",
+        "text": "Неважно, давно ли ты в сёрфинге. Если тебе близки люди, волны и маленькие приключения — здесь тебя ждали.",
+        "cta": {
+          "label": "Присоединиться к клубу →",
+          "action": "register"
+        },
+        "image": "assets/ui/banner-mountains-volny-vezde.webp"
+      },
+      "memberCard": {
+        "top": "ГДЕВОЛНА • КЛУБ",
+        "numberGuest": "№ —",
+        "numberUser": "№ 001 • DEMO",
+        "logo": "≋",
+        "nameGuest": "Будущий участник",
+        "footGuest": "МЕСТО ДЛЯ СВОИХ",
+        "footUser": "СВОЙ НА БЕРЕГУ",
+        "year": "✦ 2026"
+      },
+      "invite": {
+        "eyebrow": "Клубная история начинается здесь",
+        "title": "Волны бывают разные. Свои — всегда рядом.",
+        "text": "Клубная карточка, маленькие достижения, приветственный электронный стикер и будущие знаки внимания от «Гдеволны».",
+        "sticker": "Получить стикер GG Surfer ↗",
+        "profile": "Мой профиль",
+        "stickerToastGuest": "Сначала вступите в клуб — создайте профиль",
+        "stickerToastOk": "Стикер скачан. Добро пожаловать в клуб!"
+      },
+      "achievements": {
+        "title": "Маленькие достижения",
+        "note": "Значки хранятся только в браузере",
+        "items": [
+          {
+            "icon": "◈",
+            "title": "На берегу",
+            "caption": "Добро пожаловать в клуб",
+            "unlockRule": "есть аккаунт"
+          },
+          {
+            "icon": "♡",
+            "title": "Хранитель спотов",
+            "caption": "Сохрани хотя бы одно место",
+            "unlockRule": "favorites.length > 0"
+          },
+          {
+            "icon": "≋",
+            "title": "Свои люди",
+            "caption": "Включи GG Surfer",
+            "unlockRule": "user.gg"
+          },
+          {
+            "icon": "⌖",
+            "title": "На связи",
+            "caption": "Создай чат или заявку",
+            "unlockRule": "chats.length || orders.length"
+          },
+          {
+            "icon": "✦",
+            "title": "Следующая волна",
+            "caption": "Скоро новые клубные события",
+            "unlockRule": "никогда (заглушка)"
+          }
+        ],
+        "stateLabels": {
+          "on": "Открыто",
+          "off": "Впереди"
+        }
+      },
+      "roadmap": [
+        {
+          "label": "01 · ПУТЬ В КЛУБ",
+          "text": "Гость → Свой на берегу"
+        },
+        {
+          "label": "02 · КЛУБНЫЕ ЗНАКИ",
+          "text": "Нашивки, наклейки, стикеры"
+        },
+        {
+          "label": "03 · БУДУЩИЕ ПРИВИЛЕГИИ",
+          "text": "Подарки, встречи, партнеры"
+        }
+      ],
+      "perksTitle": "Что делает «Гдеволну» особенной",
+      "perks": [
+        {
+          "emoji": "🌋",
+          "title": "Сёрфинг по-русски",
+          "text": "Вулканы Камчатки, северные озёра, суровые моря и тёплые люди."
+        },
+        {
+          "emoji": "🤝",
+          "title": "Помогаем друг другу",
+          "text": "Местный сёрфер может показать тропу, подвезти или просто составить компанию."
+        },
+        {
+          "emoji": "🏄",
+          "title": "Находим волну и людей",
+          "text": "Споты, инструкторы, общение, аренда и снаряжение — рядом, без лишней суеты."
+        },
+        {
+          "emoji": "🎁",
+          "title": "Клубные вещи",
+          "text": "Нашивки, стикеры, флиски, термосы, наклейки на машины и добрые призы."
+        },
+        {
+          "emoji": "📷",
+          "title": "Истории сообщества",
+          "text": "Фото-челленджи, поездки, региональные истории и маленькие победы."
+        },
+        {
+          "emoji": "🧭",
+          "title": "Проверенная информация",
+          "text": "Советы тех, кто действительно живёт и катается в своём регионе."
+        }
+      ],
+      "banner": {
+        "title": "Здесь никто не чужой",
+        "text": "Найдите знакомых на берегу. Даже если приехали впервые.",
+        "cta": {
+          "label": "Открыть GG Surfer →",
+          "go": "gg"
+        }
+      },
+      "events": [],
+      "eventsNote": "Клубных событий/мероприятий с датами в прототипе нет (TZ CLB-01..03 — отложено)."
+    },
+    "shapersShell": {
+      "hero": {
+        "variant": "people",
+        "title": "Каталог шейперов",
+        "text": "Мастерские, авторские модели досок и личные кабинеты шейперов — в одной ГДеволна."
+      },
+      "head": {
+        "title": "Шейперы и их доски",
+        "text": "Полный каталог, модели, заявки и кабинет — прямо внутри сайта."
+      },
+      "status": "Прокручивайте содержимое внутри окна мастерских. Верхнее меню переключает остальные разделы ГДеволна.",
+      "note": "Содержимое — отдельный документ в iframe (см. документацию по шейперам)."
+    },
+    "search": {
+      "title": "Что ищем?",
+      "text": "Споты, сёрферов или своих людей.",
+      "placeholder": "Например: Камчатка, Алексей, Ладога",
+      "empty": "Начните вводить название или имя.",
+      "typeSpot": "Спот",
+      "typePerson": "Сёрфер",
+      "limit": 8
+    },
+    "favorites": {
+      "title": "♡ Избранное",
+      "text": "Ваши сохранённые споты и сёрферы.",
+      "open": "Открыть карточку →",
+      "empty": "Пока пусто. Нажмите на сердечко в любой карточке — и она появится здесь.",
+      "toastAdd": "Добавлено в избранное ♡",
+      "toastRemove": "Убрано из избранного"
+    },
+    "inbox": {
+      "kicker": "Общение · Гдеволна",
+      "title": "Все сообщения",
+      "text": "Друзья GG Surfer и инструкторы, у которых подтверждены занятия.",
+      "emptyTitle": "Сообщений пока нет",
+      "emptyText": "После подтверждения записи откроется чат с инструктором.",
+      "itemGg": "Знакомство GG Surfer",
+      "itemLesson": "Запись {date}",
+      "itemCount": "{n} сообщений"
+    },
+    "chat": {
+      "kickerGg": "GG Surfer · знакомство",
+      "kickerLesson": "Чат по подтверждённому занятию",
+      "emptyTitle": "Здесь начинается общение",
+      "emptyText": "Поздоровайтесь и уточните детали встречи.",
+      "label": "Сообщение",
+      "placeholder": "Привет! Подскажите, пожалуйста...",
+      "submit": "Отправить сообщение →",
+      "note": "Это демонстрационный чат, переписка сохраняется только на этом устройстве. В реальной версии сообщения будут доставляться участникам через сервер.",
+      "toastLessonLocked": "Чат появится после подтверждения занятия",
+      "authorCoach": "Инструктор",
+      "authorStudent": "Ученик"
+    },
+    "registration": {
+      "step1": {
+        "title": "Добро пожаловать в «Гдеволну»!",
+        "text": "Давайте познакомимся. Выбирайте основную роль — GG Surfer доступен для каждой.",
+        "question": "Кто вы в нашем сообществе?",
+        "extraTitle": "Дополнительные направления",
+        "extraText": "Можно выбрать несколько — они появятся в одном личном кабинете.",
+        "gg": {
+          "title": "♡   Хочу быть GG Surfer",
+          "text": "Появляться в поиске сообщества, находить компанию, помогать друг другу."
+        },
+        "rent": {
+          "title": "◈   Сдаю снаряжение в аренду",
+          "text": "Смогу добавлять доски и гидрокостюмы в каталог аренды. Доступно сёрферу, инструктору и школе."
+        },
+        "notice": "GG Surfer можно включить или выключить и после регистрации. Он не меняет основную роль.",
+        "cta": "Продолжить →"
+      },
+      "step2": {
+        "title": "Пара слов о себе",
+        "subtitle": "{role}. {ggText}",
+        "ggOn": "С GG Surfer вас смогут найти люди поблизости.",
+        "ggOff": "GG Surfer можно будет добавить позже.",
+        "roleNames": {
+          "surfer": "Сёрфер",
+          "instructor": "Инструктор",
+          "school": "Сёрф-школа"
+        },
+        "fields": [
+          {
+            "name": "name",
+            "label": "Имя и фамилия *",
+            "placeholder": "Как к вам обращаться",
+            "required": true,
+            "autocomplete": "name"
+          },
+          {
+            "name": "handle",
+            "label": "Имя пользователя *",
+            "placeholder": "surfer_123",
+            "required": true,
+            "pattern": "[a-zA-Z0-9_]{3,24}",
+            "title": "Латиница, цифры, _ от 3 до 24 символов"
+          },
+          {
+            "name": "email",
+            "label": "Электронная почта *",
+            "placeholder": "you@example.com",
+            "type": "email",
+            "required": true
+          },
+          {
+            "name": "birthday",
+            "label": "Дата рождения *",
+            "type": "date",
+            "required": true
+          },
+          {
+            "name": "gender",
+            "label": "Пол *",
+            "type": "select",
+            "required": true
+          },
+          {
+            "name": "region",
+            "label": "Регион *",
+            "type": "select",
+            "required": true
+          },
+          {
+            "name": "level",
+            "label": "Уровень катания",
+            "type": "select"
+          },
+          {
+            "name": "board",
+            "label": "Тип доски",
+            "type": "select"
+          }
+        ],
+        "interestsLabel": "Выберите минимум 3 интереса *",
+        "instructorCert": {
+          "label": "Квалификация",
+          "placeholder": "Номер сертификата / организация (при наличии)"
+        },
+        "schoolName": {
+          "label": "Название школы / юрлица",
+          "placeholder": "Название, ИП / ООО",
+          "required": true
+        },
+        "docs": {
+          "title": "Документы для профиля",
+          "text": "Основной документ обязателен. Дополнительный — по желанию.",
+          "mainInstructor": "Документ о профессиональном статусе или регистрации деятельности *",
+          "mainSchool": "Регистрационный документ школы / ИП / ООО *",
+          "qualification": "Сертификат / подтверждение квалификации (необязательно)",
+          "small": "Только PDF и изображения до 10 МБ. В прототипе файлы не загружаются на сервер и не сохраняются — после регистрации показываем лишь имена выбранных файлов."
+        },
+        "consent": "Согласен на демонстрационное сохранение профиля в этом браузере. Настоящее согласие на обработку данных и публичность будет оформлено при запуске проекта.",
+        "back": "← Назад",
+        "submit": "Создать демо-профиль →",
+        "note": "В реальной версии вход будет с подтверждением email/телефона, проверкой согласий и безопасным хранением. Здесь данные не передаются на сервер; email, дату рождения и пол локально не сохраняем.",
+        "toasts": {
+          "interests": "Выберите хотя бы три интереса",
+          "birthday": "Укажите дату рождения",
+          "ggAge": "GG Surfer доступен только участникам от 18 лет",
+          "docs": "Документы: PDF/изображения, не более 10 МБ",
+          "mainDoc": "Добавьте основной документ",
+          "welcome": "Добро пожаловать в «Гдеволну»! ♡"
+        }
+      },
+      "guestToasts": {
+        "message": "Для сообщений нужен профиль",
+        "booking": "Для бронирования сначала зарегистрируйтесь"
+      }
+    },
+    "misc": {
+      "featureSoon": {
+        "title": "Скоро на «Гдеволне»",
+        "text": "Эта часть предусмотрена в структуре платформы, но сейчас показан дизайн-прототип.",
+        "notice": "Чтобы добавить настоящие данные, потребуются сервер, проверка профилей, модерация и необходимые интеграции.",
+        "cta": "Понятно"
+      },
+      "verify": {
+        "title": "✓ Верификация личности",
+        "text": "В будущем участник сможет добровольно подтвердить личность, чтобы общение на GG Surfer было спокойнее.",
+        "notice": "<b>Как запланировано:</b> переход к партнёру проверки личности, паспорт и селфи — внутри защищённого сервиса, в «Гдеволну» возвращается только статус результата. Сканы документов в публичном профиле никогда не появятся.",
+        "text2": "Эта функция пока не подключена. Никаких паспортных данных прототип не принимает и не сохраняет.",
+        "cta": "Понятно"
+      },
+      "closeAria": "Закрыть"
+    }
+  },
+  "assets": {
+    "footerLandscape": {
+      "prototypeFile": "img/img03.webp",
+      "file": "assets/ui/footer-landscape.webp"
+    },
+    "hero_home": {
+      "prototypeFile": "img/img04.webp",
+      "file": "assets/ui/hero-home.webp"
+    },
+    "hero_people": {
+      "prototypeFile": "img/img05.webp",
+      "file": "assets/ui/hero-catalog.webp"
+    },
+    "hero_mountain": {
+      "prototypeFile": "img/img06.webp",
+      "file": "assets/ui/banner-mountains-volny-vezde.webp"
+    },
+    "intro": {
+      "prototypeFile": "img/img07.webp",
+      "file": "assets/ui/about-intro-surfer.webp"
+    },
+    "volcano": {
+      "prototypeFile": "img/img08.webp",
+      "file": "assets/ui/feature-volcano-coast.webp"
+    },
+    "wave": {
+      "prototypeFile": "img/img09.webp",
+      "file": "assets/ui/feature-coast-aerial.webp"
+    },
+    "coast": {
+      "prototypeFile": "img/img10.webp",
+      "file": "assets/ui/feature-mountain-lake.webp"
+    },
+    "wave2": {
+      "prototypeFile": "img/img11.webp",
+      "file": "assets/ui/feature-barrel-surfer.webp"
+    },
+    "shaper": {
+      "prototypeFile": "img/img12.webp",
+      "file": "assets/ui/feature-shaper-workshop.webp"
+    },
+    "p0": {
+      "prototypeFile": "img/img13.webp",
+      "file": "assets/demo/avatars/avatar-instructor-aleksey-morozov.webp"
+    },
+    "p1": {
+      "prototypeFile": "img/img14.webp",
+      "file": "assets/demo/avatars/avatar-instructor-mariya-volkova.webp"
+    },
+    "p2": {
+      "prototypeFile": "img/img15.webp",
+      "file": "assets/demo/avatars/avatar-instructor-dmitriy-kovalev.webp"
+    },
+    "p3": {
+      "prototypeFile": "img/img16.webp",
+      "file": "assets/demo/avatars/avatar-instructor-ekaterina-sokolova.webp"
+    },
+    "p4": {
+      "prototypeFile": "img/img17.webp",
+      "file": "assets/demo/avatars/avatar-instructor-ivan-petrov.webp"
+    },
+    "mapThumb": {
+      "prototypeFile": "img/img18.webp",
+      "file": "assets/ui/feature-map-thumb.webp"
+    },
+    "p5": {
+      "prototypeFile": "img/img19.webp",
+      "file": "assets/demo/avatars/avatar-instructor-anna-lebedeva.webp"
+    },
+    "spot_user_01": {
+      "prototypeFile": "img/img37.jpg",
+      "file": "assets/seed/spots/spot-zaliv-anglichanka-1.jpg"
+    },
+    "spot_user_02": {
+      "prototypeFile": "img/img38.jpg",
+      "file": "assets/seed/spots/spot-zaliv-anglichanka-2.jpg"
+    },
+    "spot_user_03": {
+      "prototypeFile": "img/img39.jpg",
+      "file": "assets/seed/spots/spot-olenevka-1.jpg"
+    },
+    "spot_user_04": {
+      "prototypeFile": "img/img40.jpg",
+      "file": "assets/seed/spots/spot-olenevka-2.jpg"
+    },
+    "spot_user_05": {
+      "prototypeFile": "img/img41.jpg",
+      "file": "assets/seed/spots/spot-olenevka-3.jpg"
+    },
+    "spot_user_06": {
+      "prototypeFile": "img/img42.jpg",
+      "file": "assets/seed/spots/spot-khalaktyrskiy-plyazh-1.jpg"
+    },
+    "spot_user_07": {
+      "prototypeFile": "img/img43.jpg",
+      "file": "assets/seed/spots/spot-khalaktyrskiy-plyazh-2.jpg"
+    },
+    "spot_user_08": {
+      "prototypeFile": "img/img44.jpg",
+      "file": "assets/seed/spots/spot-poberezhye-primorya-1.jpg"
+    },
+    "spot_user_09": {
+      "prototypeFile": "img/img45.jpg",
+      "file": "assets/seed/spots/spot-poberezhye-sakhalina-1.jpg"
+    },
+    "spot_user_10": {
+      "prototypeFile": "img/img46.jpg",
+      "file": "assets/seed/spots/spot-poberezhye-sakhalina-2.jpg"
+    },
+    "spot_user_11": {
+      "prototypeFile": "img/img47.jpg",
+      "file": "assets/seed/spots/spot-khalaktyrskiy-plyazh-3.jpg"
+    },
+    "spot_user_12": {
+      "prototypeFile": "img/img48.jpg",
+      "file": "assets/seed/spots/spot-ladozhskie-shkhery-1.jpg"
+    },
+    "spot_user_13": {
+      "prototypeFile": "img/img49.jpg",
+      "file": "assets/seed/spots/spot-ladozhskie-shkhery-2.jpg"
+    },
+    "spot_user_14": {
+      "prototypeFile": "img/img50.jpg",
+      "file": "assets/seed/spots/spot-poberezhye-primorya-2.jpg"
+    }
+  }
+}

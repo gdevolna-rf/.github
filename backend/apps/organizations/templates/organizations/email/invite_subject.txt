@@ -1,0 +1,1 @@
+{% autoescape off %}Приглашение в «{{ organization }}» — {{ project }}{% endautoescape %}
